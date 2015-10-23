@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="hevs.labo.projetandroid.card_artist">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv_nom_artiste"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="55"
+            android:text="@string/titre_fiche_artiste"
+            android:textSize="18dp"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/button_backToList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/arrow_left"
+            />
+
+        <ImageButton
+            android:id="@+id/button_modifyArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/pencil"/>
+
+        <ImageButton
+            android:id="@+id/button_deleteArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/trashbox"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titre_list_oeuvre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titre_list_oeuvre"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textSize="20dp"/>
+
+        <ListView
+            android:id="@+id/list_oeuvre"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/titre_list_oeuvre"
+            android:layout_below="@+id/titre_list_oeuvre"
+            />
+
+        <ImageView
+            android:id="@+id/imageView_Artist"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignRight="@id/list_oeuvre"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_descriptionArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView_Artist"
+            android:layout_alignLeft="@id/imageView_Artist"
+            android:text="@string/tv_descriptionArtiste"/>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

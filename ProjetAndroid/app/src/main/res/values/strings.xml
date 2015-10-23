@@ -3,4 +3,63 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_create_artist">create_artist</string>
+    <string name="title_activity_card_artist">card_artist</string>
+    <string name="title_activity_list_artist">list_artist</string>
+    <string name="title_activity_list_artwork">list_artwork</string>
+    <string name="title_activity_modify_artist">modify_artist</string>
+    <string name="title_activity_navigation_control">navigation_control</string>
+
+
+    <!--strings navigation_control-->
+
+    <string name="accueil">Accueil</string>
+    <string name="artiste">Artistes</string>
+    <string name="oeuvre">Oeuvres</string>
+    <string name="exposition">Expositions</string>
+    <string name="parametre">Paramètres</string>
+
+
+    <!--strings list_artist-->
+    <string name="title">Artistes</string>
+    <string name="titre_list_artiste">Nom Prénom / Pseudo</string>
+    <string name="titre_list_expose">Exposé</string>
+
+
+    <!--style list_artist-->
+    <dimen name="textSize">30dp</dimen>
+
+
+    <!--strings fiche_artiste-->
+    <string name="titre_fiche_artiste">ArtisteNAN</string>
+    <string name="titre_list_oeuvre">Oeuvres et Type</string>
+    <string name="tv_descriptionArtiste">Description</string>
+
+    <!--strings modify_artist + string create_artist-->
+    <string name="tv_nomArtistModif">Nom</string>
+    <string name="tv_prenomArtistModif">Prénom</string>
+    <string name="tv_pseudoArtistModif">Pseudo</string>
+    <string name="tv_naissanceArtistModif">Naissance</string>
+    <string name="tv_decesArtistModif">Décès</string>
+    <string name="tv_mvtArtistModif">Mouvement</string>
+
+
+    <!--strings create_artist-->
+    <string name="tv_titreCreer">Créer</string>
+
+    <!--strings list_artwork-->
+    <string name="title_Oeuvres">Oeuvres</string>
+
+    <!--menu-->
+    <string name="accueil_menu">Accueil</string>
+    <string name="artist_menu">Artistes</string>
+    <string name="list_artwork_menu">Oeuvres</string>
+    <string name="exposition_menu">Exposition</string>
+    <string name="parametres_menu">Paramètres</string>
+
+
+
+
+
+
 </resources>

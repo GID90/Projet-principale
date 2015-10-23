@@ -5,25 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class list_artist extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_artist);
     }
 
-    public void click (View view){
-        Intent intent = new Intent(this, list_artist.class);
-        startActivity(intent);
-
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_list_artist, menu);
         return true;
     }
 
@@ -32,13 +26,25 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()){
+            case R.id.accueil_menu:
+               return true;
+
+            case R.id.list_artwork_menu:
+                Intent intentartwork = new Intent(this, list_artwork.class);
+                startActivity(intentartwork);
+                return true;
+
+            case R.id.exposition_menu:
+                return true;
+
+            case R.id.parametres_menu:
+                return true;
         }
 
-        return super.onOptionsItemSelected(item);
+
+
+        return (super.onOptionsItemSelected(item));
     }
 }

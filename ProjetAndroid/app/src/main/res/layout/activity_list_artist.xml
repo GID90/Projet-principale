@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="hevs.labo.projetandroid.list_artist">
+
+    <!--1ère ligne contenant le titre Artistes, le SearchView ainsi que l'imageButton "add"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/title"
+            android:typeface="serif"
+            android:gravity="center"
+            android:textSize="@dimen/textSize" />
+
+        <SearchView
+            tools:ignore="NewApi"
+            android:id="@+id/edit_text_rechercheArtiste"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:hint="recherche"
+
+            />
+
+        <ImageButton
+            android:id="@+id/button_addArtiste"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/add"/>
+
+    </LinearLayout>
+
+
+    <!--ligne titre-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/titre_list_artiste"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/titre_list_artiste"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/titre_list_expose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/titre_list_expose"
+            android:gravity="center"
+            android:textSize="18dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckedTextView
+            android:id="@+id/list_artiste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </CheckedTextView>
+
+
+    </LinearLayout>
+
+</LinearLayout>

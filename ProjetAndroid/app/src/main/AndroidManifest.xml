@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hevs.labo.projetandroid" >
 
+
+    <uses-sdk
+        android:maxSdkVersion="14"
+        android:minSdkVersion="5"
+        android:targetSdkVersion="14"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +21,30 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".create_artist"
+            android:label="@string/title_activity_create_artist" >
+        </activity>
+        <activity
+            android:name=".card_artist"
+            android:label="@string/title_activity_card_artist" >
+        </activity>
+        <activity
+            android:name=".list_artist"
+            android:label="@string/title_activity_list_artist" >
+        </activity>
+        <activity
+            android:name=".list_artwork"
+            android:label="@string/title_activity_list_artwork" >
+        </activity>
+        <activity
+            android:name=".modify_artist"
+            android:label="@string/title_activity_modify_artist" >
+        </activity>
+        <activity
+            android:name=".navigation_control"
+            android:label="@string/title_activity_navigation_control" >
         </activity>
     </application>
 
