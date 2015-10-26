@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="hevs.labo.projetandroid.Card_artwork"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_nom_oeuvre"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="55"
+        android:text="@string/titre_fiche_oeuvre"
+        android:textSize="18dp"
+        android:gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/button_back_cardArtwork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/arrow_left"/>
+
+        <ImageButton
+            android:id="@+id/button_modify_cardArtwork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/pencil"/>
+
+        <ImageButton
+            android:id="@+id/button_delete_cardArtwork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/trashbox"/>
+    </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/ImageView_artworkCard"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+           />
+
+            <TextView
+                android:id="@+id/tv_yearOfCreation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/yearOfCreation_artworkCard"
+                android:textSize="18dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_artistCardArtwork"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/artistCardArtwork"
+                android:textSize="18dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_styleCardArtwork"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/typeCardArtwork"
+                android:textSize="18dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_mvtCardArtwork"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mvtCardArtwork"
+                android:textSize="18dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_descriptionCardArtwork"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/descriptionCardArtwork"
+                android:textSize="18dp"
+                android:layout_marginBottom="15dp"/>
+
+
+</LinearLayout>

@@ -10,32 +10,55 @@
     <string name="title_activity_modify_artist">modify_artist</string>
     <string name="title_activity_navigation_control">navigation_control</string>
 
+    <!--DANS L ORDRE D APPARITION DES XML DANS LE FICHIER LAYOUT-->
 
-    <!--strings navigation_control-->
+    <!--********************************strings activity_card_artist*****************************-->
+    <string name="titre_fiche_artiste">ArtisteNAN</string>
+    <string name="titre_list_oeuvre">Oeuvres et Type</string>
+    <string name="tv_descriptionArtiste">Description</string>
+    
+    <!--*******************************strings activity_card_artwork*****************************-->
+    <string name="titre_fiche_oeuvre">OeuvreNAN</string>
+    <string name="yearOfCreation_artworkCard">YearNan</string>
+    <string name="artistCardArtwork">ArtistNan</string>
+    <string name="typeCardArtwork">TypeNan</string>
+    <string name="mvtCardArtwork">MovmentNan</string>
+    <string name="descriptionCardArtwork">DescriptionNan</string>
 
-    <string name="accueil">Accueil</string>
-    <string name="artiste">Artistes</string>
-    <string name="oeuvre">Oeuvres</string>
-    <string name="exposition">Expositions</string>
-    <string name="parametre">Paramètres</string>
+    <!--***************************strings activity_create_artist.xml****************************-->
+    <string name="tv_titreCreer">Créer</string>
 
+    <!--***************************strings activity_create_artwork.xml***************************-->
+    <string name="titre_creer_oeuvre">Créer</string>
+    <string name="tv_nomOeuvreCreate">Nom</string>
+    <string name="tv_ArtistArtworkCreate">Artiste</string>
+    <string name="tv_RealisationArtworkCreate">Réalisation</string>
+    <string name="tv_typeArtworkCreate">Type</string>
+    <string name="tv_movmentArtworkCreate">Mouvement</string>
+    <string name="tv_descriptionArtworkCreate">Description</string>
 
-    <!--strings list_artist-->
+    <!--****************************strings activity_list_artist.xml*****************************-->
     <string name="title">Artistes</string>
     <string name="titre_list_artiste">Nom Prénom / Pseudo</string>
     <string name="titre_list_expose">Exposé</string>
 
-
-    <!--style list_artist-->
+    <!--************************************style activity_list_artist************************************-->
     <dimen name="textSize">30dp</dimen>
 
+    <!--***************************strings activity_list_artwork.xml*****************************-->
+    <string name="title_Oeuvres">Oeuvres</string>
 
-    <!--strings fiche_artiste-->
-    <string name="titre_fiche_artiste">ArtisteNAN</string>
-    <string name="titre_list_oeuvre">Oeuvres et Type</string>
-    <string name="tv_descriptionArtiste">Description</string>
+    <!--***********************************strings activity_main.xml*****************************-->
+    <string name="home_title">Etat actuel de la galerie</string>
+    <string name="nb_artworkExposed">Oeuvres exposées : </string>
+    <string name="nb_artistExposed">Artistes exposés : </string>
+    <string name="nb_roomUsed">Salles occupées : </string>
+    <string name="list_artist_navigation">Artistes</string>
+    <string name="list_artwork_navigation">Oeuvres</string>
+    <string name="exposition_navigation">ExpositionS</string>
+    <string name="parametre_navigation">Paramètres</string>
 
-    <!--strings modify_artist + string create_artist-->
+    <!--*********strings activity_modify_artist.xml + strings activity_create_artist.xml*********-->
     <string name="tv_nomArtistModif">Nom</string>
     <string name="tv_prenomArtistModif">Prénom</string>
     <string name="tv_pseudoArtistModif">Pseudo</string>
@@ -43,23 +66,24 @@
     <string name="tv_decesArtistModif">Décès</string>
     <string name="tv_mvtArtistModif">Mouvement</string>
 
+    <!--*********strings activity_modify_artwork.xml*********************************************-->
+    <string name="titre_modifier_oeuvre">Modifier</string>
+    <string name="tv_nomOeuvreModif">Nom</string>
+    <string name="tv_ArtistArtworkModif">Artiste</string>
+    <string name="tv_RealisationArtworkModif">Réalisation</string>
+    <string name="tv_typeArtworkModif">Type</string>
+    <string name="tv_movmentArtworkModif">Mouvement</string>
+    <string name="tv_descriptionArtworkModif">Description</string>
 
-    <!--strings create_artist-->
-    <string name="tv_titreCreer">Créer</string>
-
-    <!--strings list_artwork-->
-    <string name="title_Oeuvres">Oeuvres</string>
-
-    <!--menu-->
+    <!--*******************************************menu******************************************-->
     <string name="accueil_menu">Accueil</string>
     <string name="artist_menu">Artistes</string>
     <string name="list_artwork_menu">Oeuvres</string>
     <string name="exposition_menu">Exposition</string>
     <string name="parametres_menu">Paramètres</string>
-
-
-
-
+    <string name="title_activity_card_artwork">card_artwork</string>
+    <string name="title_activity_modify_artwork">modify_artwork</string>
+    <string name="title_activity_create_artwork">create_artwork</string>
 
 
 </resources>

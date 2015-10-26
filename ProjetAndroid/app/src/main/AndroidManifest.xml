@@ -2,20 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hevs.labo.projetandroid" >
 
-
     <uses-sdk
         android:maxSdkVersion="14"
         android:minSdkVersion="5"
-        android:targetSdkVersion="14"/>
+        android:targetSdkVersion="14" />
+
+  <!--  <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,27 +27,40 @@
         </activity>
         <activity
             android:name=".create_artist"
-            android:label="@string/title_activity_create_artist" >
+            android:label="@string/title_activity_create_artist"
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".card_artist"
-            android:label="@string/title_activity_card_artist" >
+            android:label="@string/title_activity_card_artist"
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".list_artist"
-            android:label="@string/title_activity_list_artist" >
+            android:label="@string/title_activity_list_artist"
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".list_artwork"
-            android:label="@string/title_activity_list_artwork" >
+            android:label="@string/title_activity_list_artwork"
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".modify_artist"
-            android:label="@string/title_activity_modify_artist" >
+            android:label="@string/title_activity_modify_artist"
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
-            android:name=".navigation_control"
-            android:label="@string/title_activity_navigation_control" >
+            android:name=".Card_artwork"
+            android:label="@string/title_activity_card_artwork" >
+        </activity>
+        <activity
+            android:name=".Modify_artwork"
+            android:label="@string/title_activity_modify_artwork" >
+        </activity>
+        <activity
+            android:name=".create_artwork"
+            android:label="@string/title_activity_create_artwork" >
         </activity>
     </application>
 

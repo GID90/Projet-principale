@@ -15,11 +15,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void click (View view){
+    public void click(View view) {
         Intent intent = new Intent(this, list_artist.class);
         startActivity(intent);
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -32,13 +33,27 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+
+            case R.id.artist_menu:
+                Intent intentartist = new Intent(this, list_artist.class);
+                startActivity(intentartist);
+                return true;
+
+            case R.id.list_artwork_menu:
+                Intent intentartwork = new Intent(this, list_artwork.class);
+                startActivity(intentartwork);
+                return true;
+
+            case R.id.exposition_menu:
+                return true;
+
+            case R.id.parametres_menu:
+                return true;
         }
 
-        return super.onOptionsItemSelected(item);
+
+        return (super.onOptionsItemSelected(item));
     }
 }

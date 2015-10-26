@@ -2,6 +2,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="hevs.labo.projetandroid.modify_artist">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+
+
+    <item android:id="@+id/accueil_menu"
+        android:title="@string/accueil_menu"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/artist_menu"
+        android:title="@string/artist_menu"
+        android:orderInCategory="2"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/list_artwork_menu"
+        android:title="@string/list_artwork_menu"
+        android:orderInCategory="3"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/exposition_menu"
+        android:title="@string/exposition_menu"
+        android:orderInCategory="4"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/parametres_menu"
+        android:title="@string/parametres_menu"
+        android:orderInCategory="5"
+        app:showAsAction="never"
+        />
+
 </menu>

@@ -1,0 +1,177 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hevs.labo.projetandroid.Modify_artwork"
+    android:orientation="vertical">
+
+    <!--1ère ligne : titre modifier, bouton annuler, bouton sauvegarder-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/title_modifyArtwork"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="70"
+            android:text="@string/titre_modifier_oeuvre"
+            android:textSize="20dp"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/button_cancelModifArtwork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/cancel_icon"
+            />
+
+        <ImageButton
+            android:id="@+id/button_saveModifArtwork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:src="@drawable/save"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_nomOeuvreModif"
+            android:id="@+id/textView_nomArtworkModify"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="33dp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_ArtistArtworkModif"
+            android:id="@+id/textView_ArtistArtworkModif"
+            android:layout_marginTop="35dp"
+            android:layout_below="@+id/textView_nomArtworkModify"
+            android:layout_alignLeft="@+id/textView_nomArtworkModify"
+            android:layout_alignStart="@+id/textView_nomArtworkModify" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_RealisationArtworkModif"
+            android:id="@+id/textView_RealisationArtworkModif"
+            android:layout_marginTop="35dp"
+            android:layout_below="@+id/textView_ArtistArtworkModif"
+            android:layout_alignLeft="@+id/textView_ArtistArtworkModif"
+            android:layout_alignStart="@+id/textView_ArtistArtworkModif" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_typeArtworkModif"
+            android:id="@+id/textView_typeArtworkModif"
+            android:layout_below="@+id/textView_RealisationArtworkModif"
+            android:layout_alignLeft="@+id/textView_RealisationArtworkModif"
+            android:layout_alignStart="@+id/textView_RealisationArtworkModif"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_movmentArtworkModif"
+            android:id="@+id/textView_movmentArtworkModif"
+            android:layout_below="@+id/textView_typeArtworkModif"
+            android:layout_alignLeft="@+id/textView_typeArtworkModif"
+            android:layout_alignStart="@+id/textView_typeArtworkModif"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_descriptionArtworkModif"
+            android:id="@+id/textView_descriptionArtworkModif"
+            android:layout_below="@+id/textView_movmentArtworkModif"
+            android:layout_alignLeft="@+id/textView_movmentArtworkModif"
+            android:layout_alignStart="@+id/textView_movmentArtworkModif"
+            android:layout_marginTop="35dp" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_nameArtworkModif"
+            android:layout_alignBottom="@+id/textView_nomArtworkModify"
+            android:layout_alignLeft="@+id/edit_text_descriptionArtworkModify"
+            android:layout_alignStart="@+id/edit_text_descriptionArtworkModify" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_ArtistArtworkCreate"
+            android:layout_alignBottom="@+id/textView_ArtistArtworkModif"
+            android:layout_alignLeft="@+id/editText_nameArtworkModif"
+            android:layout_alignStart="@+id/editText_nameArtworkModif" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_realisationArtworkModif"
+            android:layout_alignBottom="@+id/textView_RealisationArtworkModif"
+            android:layout_alignLeft="@+id/editText_ArtistArtworkCreate"
+            android:layout_alignStart="@+id/editText_ArtistArtworkCreate" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_typeArtworkModif"
+            android:layout_alignBottom="@+id/textView_typeArtworkModif"
+            android:layout_alignLeft="@+id/editText_realisationArtworkModif"
+            android:layout_alignStart="@+id/editText_realisationArtworkModif" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_movementArtworkModif"
+            android:layout_alignBottom="@+id/textView_movmentArtworkModif"
+            android:layout_alignLeft="@+id/edit_text_descriptionArtworkModify"
+            android:layout_alignStart="@+id/edit_text_descriptionArtworkModify" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_text_descriptionArtworkModify"
+            android:layout_alignBottom="@+id/textView_descriptionArtworkModif"
+            android:layout_toRightOf="@+id/textView_movmentArtworkModif"
+            android:layout_toEndOf="@+id/textView_movmentArtworkModif"
+            android:layout_below="@+id/editText_movementArtworkModif" />
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:id="@+id/imageView_photoArtworktModif"
+            android:layout_alignTop="@+id/textView_nomArtworkModify"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton_btnDownloadArtworktModif"
+            android:layout_alignTop="@+id/textView_typeArtworkModif"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/download"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

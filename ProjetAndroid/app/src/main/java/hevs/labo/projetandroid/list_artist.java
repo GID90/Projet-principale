@@ -1,22 +1,19 @@
 package hevs.labo.projetandroid;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class list_artist extends Activity {
+public class list_artist extends AppCompatActivity {
 
     String firstname;
     String lastname;
@@ -40,6 +37,7 @@ public class list_artist extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_artist);
+        //getSupportActionBar().show();
 
         Intent intent = getIntent();
 
@@ -111,7 +109,10 @@ public class list_artist extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
 
         switch (item.getItemId()){
+
             case R.id.accueil_menu:
+                Intent intenthome = new Intent(this, MainActivity.class);
+                startActivity(intenthome);
                return true;
 
             case R.id.list_artwork_menu:
