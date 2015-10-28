@@ -42,11 +42,17 @@
     <string name="titre_list_artiste">Nom Prénom / Pseudo</string>
     <string name="titre_list_expose">Exposé</string>
 
-    <!--************************************style activity_list_artist************************************-->
+    <!--***************************style activity_list_artist************************************-->
     <dimen name="textSize">30dp</dimen>
 
     <!--***************************strings activity_list_artwork.xml*****************************-->
     <string name="title_Oeuvres">Oeuvres</string>
+
+    <!--***************************strings activity_list_room.xml*****************************-->
+    <string name="title_list_room">Salles</string>
+    <string name="title_list_room_name">Nom</string>
+    <string name="title_list_room_size">Taille</string>
+    <string name="title_list_room_occupated">Occupée</string>
 
     <!--***********************************strings activity_main.xml*****************************-->
     <string name="home_title">Etat actuel de la galerie</string>
@@ -84,6 +90,7 @@
     <string name="title_activity_card_artwork">card_artwork</string>
     <string name="title_activity_modify_artwork">modify_artwork</string>
     <string name="title_activity_create_artwork">create_artwork</string>
+    <string name="title_activity_list_room">Salles</string>
 
 
 </resources>
