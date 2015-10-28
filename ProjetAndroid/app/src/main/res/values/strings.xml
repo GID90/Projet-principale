@@ -37,6 +37,11 @@
     <string name="tv_movmentArtworkCreate">Mouvement</string>
     <string name="tv_descriptionArtworkCreate">Description</string>
 
+    <!--***************************strings activity_create_room.xml******************************-->
+    <string name="title_create_room">Créer une salle</string>
+    <string name="tv_create_room_name">Nom</string>
+    <string name="tv_create_room_size">Taille</string>
+
     <!--****************************strings activity_list_artist.xml*****************************-->
     <string name="title">Artistes</string>
     <string name="titre_list_artiste">Nom Prénom / Pseudo</string>

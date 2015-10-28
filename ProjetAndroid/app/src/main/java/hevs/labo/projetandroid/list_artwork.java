@@ -45,9 +45,6 @@ public class list_artwork extends AppCompatActivity {
                 return true;
         }
 
-
-
         return (super.onOptionsItemSelected(item));
-
     }
 }
