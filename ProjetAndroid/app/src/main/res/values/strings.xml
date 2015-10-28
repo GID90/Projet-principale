@@ -93,6 +93,15 @@
     <!--*********strings activity_modify_room.xml************************************************-->
     <string name="title_modify_room">Modifier la salle</string>
 
+    <!--**********************strings activity_settings******************************************-->
+    <string name="tv_settings_language">Langue</string>
+    <string name="tv_title_settings">Paramètres</string>
+    <string name="rb_settings_french">Français</string>
+    <string name="rb_settings_german">Allemand</string>
+    <string name="rb_settings_english">Anglais</string>
+    <string name="tv_settings_rooms">Salles</string>
+    <string name="button_settings_manage_rooms">Gérer</string>
+
     <!--*******************************************menu******************************************-->
     <string name="accueil_menu">Accueil</string>
     <string name="artist_menu">Artistes</string>
@@ -103,6 +112,5 @@
     <string name="title_activity_modify_artwork">modify_artwork</string>
     <string name="title_activity_create_artwork">create_artwork</string>
     <string name="title_activity_list_room">Salles</string>
-
 
 </resources>

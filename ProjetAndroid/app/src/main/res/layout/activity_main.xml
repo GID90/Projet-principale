@@ -96,7 +96,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_artist_navigation"
-        android:onClick="click"/>
+        android:onClick="show_list_artist"/>
 
     <Button
         android:id="@+id/list_artwork_navigation"
@@ -117,6 +117,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/parametre_navigation"
-        />
+        android:onClick="show_settings"/>
 
 </LinearLayout>
