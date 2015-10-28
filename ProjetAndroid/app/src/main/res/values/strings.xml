@@ -43,8 +43,8 @@
 
     <!--***************************strings activity_create_room.xml******************************-->
     <string name="title_create_room">Créer une salle</string>
-    <string name="tv_create_room_name">Nom</string>
-    <string name="tv_create_room_size">Taille</string>
+    <string name="tv_room_name">Nom</string>
+    <string name="tv_room_size">Taille</string>
 
     <!--****************************strings activity_list_artist.xml*****************************-->
     <string name="title">Artistes</string>
@@ -89,6 +89,9 @@
     <string name="tv_typeArtworkModif">Type</string>
     <string name="tv_movmentArtworkModif">Mouvement</string>
     <string name="tv_descriptionArtworkModif">Description</string>
+
+    <!--*********strings activity_modify_room.xml************************************************-->
+    <string name="title_modify_room">Modifier la salle</string>
 
     <!--*******************************************menu******************************************-->
     <string name="accueil_menu">Accueil</string>
