@@ -28,21 +28,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/arrow_left" />
+            android:src="@drawable/arrow_left"
+            android:background="#0000" />
 
         <ImageButton
             android:id="@+id/button_modify_card_room"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/pencil" />
+            android:src="@drawable/pencil"
+            android:background="#0000" />
 
         <ImageButton
             android:id="@+id/button_delete_card_room"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/trashbox" />
+            android:src="@mipmap/trashbox"
+            android:background="#0000" />
     </LinearLayout>
 
     <TextView

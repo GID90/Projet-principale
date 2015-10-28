@@ -35,8 +35,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/add"
-            android:onClick="addRoom"/>
+            android:src="@mipmap/adding"
+            android:onClick="addRoom"
+            android:background="#0000" />
 
     </LinearLayout>
 

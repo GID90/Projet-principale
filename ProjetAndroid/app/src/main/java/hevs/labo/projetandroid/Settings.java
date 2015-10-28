@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
 
 public class Settings extends AppCompatActivity {
 
@@ -57,5 +58,26 @@ public class Settings extends AppCompatActivity {
     public void show_list_room(View view){
         Intent intent = new Intent(this, list_room.class);
         startActivity(intent);
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.rb_settings_english:
+                if (checked)
+
+                    break;
+            case R.id.rb_settings_french:
+                if (checked)
+
+                    break;
+            case R.id.rb_settings_german:
+                if (checked)
+
+                    break;
+        }
     }
 }
