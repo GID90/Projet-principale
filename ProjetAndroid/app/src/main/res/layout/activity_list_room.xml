@@ -17,9 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="@string/title_list_room"
-            android:typeface="serif"
-            android:gravity="center"
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/abc_text_size_headline_material"
+            android:gravity="center_vertical" />
 
         <SearchView
             tools:ignore="NewApi"

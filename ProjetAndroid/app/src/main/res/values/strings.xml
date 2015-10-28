@@ -25,6 +25,10 @@
     <string name="mvtCardArtwork">MovmentNan</string>
     <string name="descriptionCardArtwork">DescriptionNan</string>
 
+    <!--*******************************strings activity_card_room********************************-->
+    <string name="title_card_room">SalleNan</string>
+    <string name="tv_card_room_size">TailleNan</string>
+
     <!--***************************strings activity_create_artist.xml****************************-->
     <string name="tv_titreCreer">Créer</string>
 

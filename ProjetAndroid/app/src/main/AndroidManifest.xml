@@ -78,6 +78,10 @@
         </activity>
         <activity android:name=".Create_room" >
         </activity>
+        <activity android:name=".Card_room" >
+        </activity>
+        <activity android:name=".Modify_room" >
+        </activity>
     </application>
 
 </manifest>
