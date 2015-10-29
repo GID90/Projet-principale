@@ -24,7 +24,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/cancel_icon"
+            android:background="#0000"
+            android:src="@mipmap/cancel"
             />
 
         <ImageButton
@@ -32,7 +33,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/save"/>
+            android:background="#0000"
+            android:src="@mipmap/save"/>
 
     </LinearLayout>
 
@@ -169,7 +171,8 @@
             android:layout_alignTop="@+id/textView_typeArtworkModif"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/download"/>
+            android:background="#0000"
+            android:src="@mipmap/download"/>
 
     </RelativeLayout>
 

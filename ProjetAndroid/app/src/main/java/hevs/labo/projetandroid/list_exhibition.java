@@ -7,38 +7,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class list_exhibition extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    public void show_list_artist(View view) {
-        Intent intent = new Intent(this, list_artist.class);
-        startActivity(intent);
-    }
-
-    public void show_list_artwork(View view) {
-        Intent intent = new Intent(this, list_artwork.class);
-        startActivity(intent);
-    }
-
-    public void show_list_exhibition(View view) {
-        Intent intent = new Intent(this, list_exhibition.class);
-        startActivity(intent);
-    }
-
-    public void show_settings(View view) {
-        Intent intent = new Intent(this, Settings.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_list_exhibition);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_list_exhibition, menu);
         return true;
     }
 
@@ -47,17 +27,16 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()){
 
-        switch (item.getItemId()) {
+            case R.id.accueil_menu:
+                Intent intenthome = new Intent(this, MainActivity.class);
+                startActivity(intenthome);
+                return true;
 
             case R.id.artist_menu:
                 Intent intentartist = new Intent(this, list_artist.class);
                 startActivity(intentartist);
-                return true;
-
-            case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork.class);
-                startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
@@ -67,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
 
-
         return (super.onOptionsItemSelected(item));
+    }
+
+    public void addExhibition(View view){
+        Intent intent = new Intent(this, Create_exhibition.class);
+
+        startActivity(intent);
     }
 }

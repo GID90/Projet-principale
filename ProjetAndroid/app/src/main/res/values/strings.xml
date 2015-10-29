@@ -1,13 +1,12 @@
 <resources>
-    <string name="app_name">ProjetAndroid</string>
+    <string name="app_name">Galerie d'art</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_create_artist">create_artist</string>
-    <string name="title_activity_card_artist">card_artist</string>
-    <string name="title_activity_list_artist">list_artist</string>
-    <string name="title_activity_list_artwork">list_artwork</string>
-    <string name="title_activity_modify_artist">modify_artist</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="title_activity_create_artist">Créer artiste</string>
+    <string name="title_activity_card_artist">Artiste</string>
+    <string name="title_activity_list_artist">Liste des artistes</string>
+    <string name="title_activity_list_artwork">Liste des oeuvres</string>
+    <string name="title_activity_modify_artist">Modifier artiste</string>
     <string name="title_activity_navigation_control">navigation_control</string>
 
     <!--DANS L ORDRE D APPARITION DES XML DANS LE FICHIER LAYOUT-->
@@ -46,6 +45,9 @@
     <string name="tv_room_name">Nom</string>
     <string name="tv_room_size">Taille</string>
 
+    <!--***************************strings activity_create_exhibition.xml******************************-->
+
+
     <!--****************************strings activity_list_artist.xml*****************************-->
     <string name="title">Artistes</string>
     <string name="titre_list_artiste">Nom Prénom / Pseudo</string>
@@ -56,6 +58,12 @@
 
     <!--***************************strings activity_list_artwork.xml*****************************-->
     <string name="title_Oeuvres">Oeuvres</string>
+
+    <!--***************************strings activity_list_exhibition.xml*****************************-->
+    <string name="title_exhibition">Expositions</string>
+    <string name="list_exhibition_room">Salle</string>
+    <string name="list_exhibition_artist">Artiste</string>
+    <string name="list_exhibition_artwork">Oeuvre</string>
 
     <!--***************************strings activity_list_room.xml*****************************-->
     <string name="title_list_room">Salles</string>
@@ -108,9 +116,9 @@
     <string name="list_artwork_menu">Oeuvres</string>
     <string name="exposition_menu">Exposition</string>
     <string name="parametres_menu">Paramètres</string>
-    <string name="title_activity_card_artwork">card_artwork</string>
-    <string name="title_activity_modify_artwork">modify_artwork</string>
-    <string name="title_activity_create_artwork">create_artwork</string>
+    <string name="title_activity_card_artwork">Oeuvre d'art</string>
+    <string name="title_activity_modify_artwork">Modifier oeuvre d'art</string>
+    <string name="title_activity_create_artwork">Créer oeuvre d'art</string>
     <string name="title_activity_list_room">Salles</string>
 
 </resources>

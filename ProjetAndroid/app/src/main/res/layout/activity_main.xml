@@ -103,14 +103,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_artwork_navigation"
-        />
+        android:onClick="show_list_artwork"/>
 
     <Button
         android:id="@+id/exposition_navigation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/exposition_navigation"
-       />
+        android:onClick="show_list_exhibition"/>
 
     <Button
         android:id="@+id/parametre_navigation"

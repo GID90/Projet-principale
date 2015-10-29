@@ -25,15 +25,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/cancel_icon" />
+            android:background="#0000"
+            android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveCreate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
+            android:background="#0000"
             android:onClick="saveModifyRoom"
-            android:src="@drawable/save" />
+            android:src="@mipmap/save" />
 
     </LinearLayout>
 
@@ -87,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="2"
-            android:src="@drawable/download" />
+            android:background="#0000"
+            android:src="@mipmap/download" />
     </GridLayout>
 </LinearLayout>

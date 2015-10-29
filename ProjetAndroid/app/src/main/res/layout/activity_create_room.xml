@@ -25,15 +25,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/cancel_icon" />
+            android:background="#0000"
+            android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveCreate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
+            android:background="#0000"
             android:onClick="saveCreateRoom"
-            android:src="@drawable/save" />
+            android:src="@mipmap/save" />
 
     </LinearLayout>
 
@@ -85,7 +87,8 @@
             android:id="@+id/imageButton_btnDownloadArtistCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/download"
+            android:src="@mipmap/download"
+            android:background="#0000"
             android:layout_row="2"
             android:layout_column="0" />
     </GridLayout>

@@ -25,7 +25,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/arrow_left"
+            android:background="#0000"
+            android:src="@mipmap/back"
             />
 
         <ImageButton
@@ -33,14 +34,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/pencil"/>
+            android:background="#0000"
+            android:src="@mipmap/pencil"/>
 
         <ImageButton
             android:id="@+id/button_deleteArtist"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@mipmap/trashbox"/>
+            android:background="#0000"
+            android:src="@mipmap/trash"/>
 
     </LinearLayout>
 

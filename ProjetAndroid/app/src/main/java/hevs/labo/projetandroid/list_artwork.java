@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class list_artwork extends AppCompatActivity {
 
@@ -46,5 +47,11 @@ public class list_artwork extends AppCompatActivity {
         }
 
         return (super.onOptionsItemSelected(item));
+    }
+
+    public void addArtwork(View view){
+        Intent intent = new Intent(this, create_artwork.class);
+
+        startActivity(intent);
     }
 }

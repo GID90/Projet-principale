@@ -37,7 +37,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:src="@drawable/add"/>
+            android:background="#0000"
+            android:src="@mipmap/add"
+            android:onClick="addArtwork"/>
 
     </LinearLayout>
 

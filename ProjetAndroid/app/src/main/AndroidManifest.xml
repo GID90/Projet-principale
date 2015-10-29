@@ -84,6 +84,10 @@
         </activity>
         <activity android:name=".Settings" >
         </activity>
+        <activity android:name=".list_exhibition" >
+        </activity>
+        <activity android:name=".Create_exhibition" >
+        </activity>
     </application>
 
 </manifest>
