@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Galerie d'art</string>
+    <string name="app_name">Galerie art</string>
 
-    <string name="action_settings">Paramètres</string>
-    <string name="title_activity_create_artist">Créer artiste</string>
+    <string name="action_settings">Parametres</string>
+    <string name="title_activity_create_artist">Creer artiste</string>
     <string name="title_activity_card_artist">Artiste</string>
     <string name="title_activity_list_artist">Liste des artistes</string>
     <string name="title_activity_list_artwork">Liste des oeuvres</string>
@@ -115,10 +115,9 @@
     <string name="artist_menu">Artistes</string>
     <string name="list_artwork_menu">Oeuvres</string>
     <string name="exposition_menu">Exposition</string>
-    <string name="parametres_menu">Paramètres</string>
-    <string name="title_activity_card_artwork">Oeuvre d'art</string>
-    <string name="title_activity_modify_artwork">Modifier oeuvre d'art</string>
-    <string name="title_activity_create_artwork">Créer oeuvre d'art</string>
+    <string name="parametres_menu">Parametres</string>
+    <string name="title_activity_card_artwork">Oeuvre art</string>
+    <string name="title_activity_modify_artwork">Modifier oeuvre art</string>
+    <string name="title_activity_create_artwork">Creer oeuvre art</string>
     <string name="title_activity_list_room">Salles</string>
-
 </resources>

@@ -7,10 +7,6 @@
         android:minSdkVersion="5"
         android:targetSdkVersion="14" />
 
-    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <!--
   <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -33,22 +29,26 @@
         <activity
             android:name=".create_artist"
             android:label="@string/title_activity_create_artist"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".list_artist">
         </activity>
         <activity
             android:name=".card_artist"
             android:label="@string/title_activity_card_artist"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".list_artist">
         </activity>
         <activity
             android:name=".list_artist"
             android:label="@string/title_activity_list_artist"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".list_artwork"
             android:label="@string/title_activity_list_artwork"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".modify_artist"
@@ -71,22 +71,30 @@
             android:name=".list_room"
             android:label="@string/title_activity_list_room"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hevs.labo.projetandroid.MainActivity" />
         </activity>
-        <activity android:name=".Create_room" >
+        <activity
+            android:name=".Create_room" >
         </activity>
-        <activity android:name=".Card_room" >
+        <activity
+            android:name=".Card_room" >
         </activity>
-        <activity android:name=".Modify_room" >
+        <activity
+            android:name=".Modify_room" >
         </activity>
-        <activity android:name=".Settings" >
+        <activity
+            android:name=".Settings"
+            android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".list_exhibition" >
+        <activity
+            android:name=".list_exhibition"
+            android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".Create_exhibition" >
+        <activity android:name=".Create_exhibition"
+            android:parentActivityName=".list_exhibition">
         </activity>
     </application>
 
