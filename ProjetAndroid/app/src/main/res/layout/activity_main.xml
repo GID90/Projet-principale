@@ -5,7 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+  >
 
 
     <TextView
@@ -104,7 +105,7 @@
             android:src="@mipmap/artist"
             android:scaleType="fitStart"
             android:background="@drawable/roundcorner"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="40dp"
 
@@ -136,7 +137,7 @@
             android:layout_height="120dp"
             android:onClick="show_list_exhibition"
             android:src="@mipmap/exposition"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="40dp"
             android:background="@drawable/roundcorner"
