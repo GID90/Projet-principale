@@ -91,32 +91,69 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/list_artist_navigation"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/list_artist_navigation"
-        android:onClick="show_list_artist"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/list_artwork_navigation"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/list_artwork_navigation"
-        android:onClick="show_list_artwork"/>
+        <ImageButton
+            android:id="@+id/list_artist_navigation"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="show_list_artist"
+            android:src="@mipmap/artist"
+            android:scaleType="fitStart"
+            android:background="@drawable/roundcorner"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
 
-    <Button
-        android:id="@+id/exposition_navigation"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/exposition_navigation"
-        android:onClick="show_list_exhibition"/>
+            />
 
-    <Button
-        android:id="@+id/parametre_navigation"
+
+
+        <ImageButton
+            android:id="@+id/list_artwork_navigation"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="show_list_artwork"
+            android:src="@mipmap/artwork"
+            android:background="@drawable/roundcorner"
+            android:scaleType="fitStart"
+
+           />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/parametre_navigation"
-        android:onClick="show_settings"/>
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/exposition_navigation"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="show_list_exhibition"
+            android:src="@mipmap/exposition"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/roundcorner"
+            android:scaleType="fitStart"
+            />
+
+
+        <ImageButton
+            android:id="@+id/parametre_navigation"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/settings"
+            android:onClick="show_settings"
+            android:background="@drawable/roundcorner"
+            android:scaleType="fitStart"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
