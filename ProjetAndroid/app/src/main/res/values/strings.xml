@@ -58,6 +58,8 @@
 
     <!--***************************strings activity_list_artwork.xml*****************************-->
     <string name="title_Oeuvres">Oeuvres</string>
+    <string name="title_list_artwork">Oeuvres / Type </string>
+
 
     <!--***************************strings activity_list_exhibition.xml*****************************-->
     <string name="title_exhibition">Expositions</string>

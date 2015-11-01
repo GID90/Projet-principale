@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.list_room">
+    tools:context="hevs.labo.projetandroid.list_artist"
+    android:background="@drawable/backgroundlist">
 
-    <!--1ère ligne contenant le titre Salles, le SearchView ainsi que l'imageButton "add"-->
+    <!--1ère ligne contenant le titre Artistes, le SearchView ainsi que l'imageButton "add"-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,8 +18,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="@string/title_list_room"
-            android:textSize="@dimen/abc_text_size_headline_material"
-            android:gravity="center_vertical" />
+            android:typeface="serif"
+            android:textColor="#048B9A"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="@dimen/textSize" />
 
         <SearchView
             tools:ignore="NewApi"
@@ -33,11 +37,11 @@
         <ImageButton
             android:id="@+id/button_addRoom"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="15"
+            android:background="@drawable/buttonbackground"
             android:src="@mipmap/add"
-            android:onClick="addRoom"
-            android:background="#0000" />
+            android:onClick="addRoom"/>
 
     </LinearLayout>
 
@@ -52,27 +56,36 @@
             android:id="@+id/title_list_room_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="60"
+            android:layout_weight="40"
             android:text="@string/title_list_room_name"
-            android:textSize="14dp"/>
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            />
 
         <TextView
             android:id="@+id/title_list_room_size"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
+            android:layout_weight="35"
             android:text="@string/title_list_room_size"
-            android:textSize="14dp"/>
+            android:textColor="#000010"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/title_list_room_occupated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
+            android:layout_weight="25"
             android:text="@string/title_list_room_occupated"
-            android:gravity="right"
+            android:textColor="#000010"
+            android:gravity="center"
             android:layout_marginRight="10dp"
-            android:textSize="14dp"/>
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
@@ -82,10 +95,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <!--  <CheckedTextView
+              android:id="@+id/list_artiste"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+          </CheckedTextView> -->
+
         <ListView
             android:id="@+id/listView_room"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"></ListView>
 
     </LinearLayout>
 

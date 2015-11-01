@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.list_exhibition">
+    tools:context="hevs.labo.projetandroid.list_exhibition"
+    android:background="@drawable/backgroundlist">
 
     <!--1ère ligne contenant le titre Artistes, le SearchView ainsi que l'imageButton "add"-->
     <LinearLayout
@@ -20,7 +21,9 @@
             android:gravity="center"
             android:text="@string/title_exhibition"
             android:textSize="@dimen/textSize"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:textColor="#048B9A"
+            android:textStyle="bold"/>
 
         <SearchView
             android:id="@+id/edit_text_rechercheArtiste"
@@ -35,11 +38,11 @@
         <ImageButton
             android:id="@+id/button_addExhibition"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="15"
-            android:background="#0000"
             android:onClick="addExhibition"
-            android:src="@mipmap/add" />
+            android:src="@mipmap/add"
+            android:background="@drawable/buttonbackground"/>
 
     </LinearLayout>
 
@@ -55,25 +58,51 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:textColor="#000010"
             android:text="@string/list_exhibition_room"
-            android:textSize="14dp" />
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/titre_list_artist"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:textColor="#000010"
             android:text="@string/list_exhibition_artist"
-            android:textSize="14dp" />
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/titre_list_artwork"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
+            android:textColor="#000010"
             android:text="@string/list_exhibition_artwork"
-            android:textSize="14dp" />
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--  <CheckedTextView
+              android:id="@+id/list_artiste"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+          </CheckedTextView> -->
+
+        <ListView
+            android:id="@+id/list_exposition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+    </LinearLayout>
+
 
 </LinearLayout>

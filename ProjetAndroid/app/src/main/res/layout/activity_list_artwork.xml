@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.list_artwork">
+    tools:context="hevs.labo.projetandroid.list_artwork"
+    android:background="@drawable/backgroundlist">
 
 
     <!--1ère ligne contenant le titre Oeuvres, le SearchView ainsi que l'imageButton "add"-->
@@ -18,9 +19,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:text="@string/title_Oeuvres"
+            android:textColor="#048B9A"
+            android:textStyle="bold"
             android:typeface="serif"
             android:gravity="center"
-            android:textSize="@dimen/textSize" />
+            android:textSize="30dp" />
 
         <SearchView
             tools:ignore="NewApi"
@@ -35,15 +38,63 @@
         <ImageButton
             android:id="@+id/button_addArtWork"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_weight="15"
-            android:background="#0000"
+            android:background="@drawable/buttonbackground"
             android:src="@mipmap/add"
             android:onClick="addArtwork"/>
 
     </LinearLayout>
 
     <!--Faire la même liste que dans activity_list_artist-->
+    <!--ligne titre-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/title_list_artwork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="70"
+            android:text="@string/title_list_artwork"
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/titre_list_expose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="@string/titre_list_expose"
+            android:textColor="#000010"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--  <CheckedTextView
+              android:id="@+id/list_artiste"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+          </CheckedTextView> -->
+
+        <ListView
+            android:id="@+id/list_artwork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+    </LinearLayout>
 
 
 </LinearLayout>
