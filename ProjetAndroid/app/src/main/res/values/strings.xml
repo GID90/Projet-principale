@@ -1,125 +1,47 @@
 <resources>
-    <string name="app_name">Galerie art</string>
+    <string name="app_name">Galerie d\'art</string>
 
-    <string name="action_settings">Parametres</string>
-    <string name="title_activity_create_artist">Creer artiste</string>
-    <string name="title_activity_card_artist">Artiste</string>
-    <string name="title_activity_list_artist">Liste des artistes</string>
-    <string name="title_activity_list_artwork">Liste des oeuvres</string>
-    <string name="title_activity_modify_artist">Modifier artiste</string>
-    <string name="title_activity_navigation_control">navigation_control</string>
+    <string name="artist">Artiste</string>
+    <string name="artists">Artistes</string>
 
-    <!--DANS L ORDRE D APPARITION DES XML DANS LE FICHIER LAYOUT-->
+    <string name="artwork">Oeuvre</string>
+    <string name="artworks">Oeuvres</string>
 
-    <!--********************************strings activity_card_artist*****************************-->
-    <string name="titre_fiche_artiste">ArtisteNAN</string>
-    <string name="titre_list_oeuvre">Oeuvres et Type</string>
-    <string name="tv_descriptionArtiste">Description</string>
-    
-    <!--*******************************strings activity_card_artwork*****************************-->
-    <string name="titre_fiche_oeuvre">OeuvreNAN</string>
-    <string name="yearOfCreation_artworkCard">YearNan</string>
-    <string name="artistCardArtwork">ArtistNan</string>
-    <string name="typeCardArtwork">TypeNan</string>
-    <string name="mvtCardArtwork">MovmentNan</string>
-    <string name="descriptionCardArtwork">DescriptionNan</string>
+    <string name="room">Salle</string>
+    <string name="rooms">Salles</string>
 
-    <!--*******************************strings activity_card_room********************************-->
-    <string name="title_card_room">SalleNan</string>
-    <string name="tv_card_room_size">TailleNan</string>
+    <string name="exhibition">Exposition</string>
+    <string name="exhibitions">Expositions</string>
 
-    <!--***************************strings activity_create_artist.xml****************************-->
-    <string name="tv_titreCreer">Créer</string>
-
-    <!--***************************strings activity_create_artwork.xml***************************-->
-    <string name="titre_creer_oeuvre">Créer</string>
-    <string name="tv_nomOeuvreCreate">Nom</string>
-    <string name="tv_ArtistArtworkCreate">Artiste</string>
-    <string name="tv_RealisationArtworkCreate">Réalisation</string>
-    <string name="tv_typeArtworkCreate">Type</string>
-    <string name="tv_movmentArtworkCreate">Mouvement</string>
-    <string name="tv_descriptionArtworkCreate">Description</string>
-
-    <!--***************************strings activity_create_room.xml******************************-->
-    <string name="title_create_room">Créer une salle</string>
-    <string name="tv_room_name">Nom</string>
-    <string name="tv_room_size">Taille</string>
-
-    <!--***************************strings activity_create_exhibition.xml******************************-->
-
-
-    <!--****************************strings activity_list_artist.xml*****************************-->
-    <string name="title">Artistes</string>
-    <string name="titre_list_artiste">Nom Prénom / Pseudo</string>
-    <string name="titre_list_expose">Exposé</string>
-
-    <!--***************************style activity_list_artist************************************-->
-    <dimen name="textSize">30dp</dimen>
-
-    <!--***************************strings activity_list_artwork.xml*****************************-->
-    <string name="title_Oeuvres">Oeuvres</string>
-    <string name="title_list_artwork">Oeuvres / Type </string>
-
-
-    <!--***************************strings activity_list_exhibition.xml*****************************-->
-    <string name="title_exhibition">Expositions</string>
-    <string name="list_exhibition_room">Salle</string>
-    <string name="list_exhibition_artist">Artiste</string>
-    <string name="list_exhibition_artwork">Oeuvre</string>
-
-    <!--***************************strings activity_list_room.xml*****************************-->
-    <string name="title_list_room">Salles</string>
-    <string name="title_list_room_name">Nom</string>
-    <string name="title_list_room_size">Taille</string>
-    <string name="title_list_room_occupated">Occupée</string>
-
-    <!--***********************************strings activity_main.xml*****************************-->
-    <string name="home_title">Etat actuel de la galerie</string>
-    <string name="nb_artworkExposed">Oeuvres exposées : </string>
-    <string name="nb_artistExposed">Artistes exposés : </string>
-    <string name="nb_roomUsed">Salles occupées : </string>
-    <string name="list_artist_navigation">Artistes</string>
-    <string name="list_artwork_navigation">Oeuvres</string>
-    <string name="exposition_navigation">ExpositionS</string>
-    <string name="parametre_navigation">Paramètres</string>
-
-    <!--*********strings activity_modify_artist.xml + strings activity_create_artist.xml*********-->
-    <string name="tv_nomArtistModif">Nom</string>
-    <string name="tv_prenomArtistModif">Prénom</string>
-    <string name="tv_pseudoArtistModif">Pseudo</string>
-    <string name="tv_naissanceArtistModif">Naissance</string>
-    <string name="tv_decesArtistModif">Décès</string>
-    <string name="tv_mvtArtistModif">Mouvement</string>
-
-    <!--*********strings activity_modify_artwork.xml*********************************************-->
-    <string name="titre_modifier_oeuvre">Modifier</string>
-    <string name="tv_nomOeuvreModif">Nom</string>
-    <string name="tv_ArtistArtworkModif">Artiste</string>
-    <string name="tv_RealisationArtworkModif">Réalisation</string>
-    <string name="tv_typeArtworkModif">Type</string>
-    <string name="tv_movmentArtworkModif">Mouvement</string>
-    <string name="tv_descriptionArtworkModif">Description</string>
-
-    <!--*********strings activity_modify_room.xml************************************************-->
-    <string name="title_modify_room">Modifier la salle</string>
-
-    <!--**********************strings activity_settings******************************************-->
-    <string name="tv_settings_language">Langue</string>
-    <string name="tv_title_settings">Paramètres</string>
-    <string name="rb_settings_french">Français</string>
-    <string name="rb_settings_german">Allemand</string>
-    <string name="rb_settings_english">Anglais</string>
-    <string name="tv_settings_rooms">Salles</string>
-    <string name="button_settings_manage_rooms">Gérer</string>
-
-    <!--*******************************************menu******************************************-->
-    <string name="accueil_menu">Accueil</string>
-    <string name="artist_menu">Artistes</string>
-    <string name="list_artwork_menu">Oeuvres</string>
-    <string name="exposition_menu">Exposition</string>
-    <string name="parametres_menu">Parametres</string>
-    <string name="title_activity_card_artwork">Oeuvre art</string>
-    <string name="title_activity_modify_artwork">Modifier oeuvre art</string>
-    <string name="title_activity_create_artwork">Creer oeuvre art</string>
-    <string name="title_activity_list_room">Salles</string>
+    <string name="home">Accueil</string>
+    <string name="settings">Paramètres</string>
+    <string name="description">Description</string>
+    <string name="movement">Mouvement</string>
+    <string name="list">Liste</string>
+    <string name="name">Nom</string>
+    <string name="lastname">Nom</string>
+    <string name="firstname">Prénom</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="firstname_lastname_pseudo">Nom Prénom / Pseudo</string>
+    <string name="type">Type</string>
+    <string name="manage">Gérer</string>
+    <string name="create">Créer</string>
+    <string name="modify">Modifier</string>
+    <string name="modify_artist">Modifier artiste</string>
+    <string name="modify_artwork">Modifier oeuvre</string>
+    <string name="modify_room">Modifier salle</string>
+    <string name="exposed">Exposé</string>
+    <string name="creation_year">Année de création</string>
+    <string name="occupated">Occupée</string>
+    <string name="size">Taille</string>
+    <string name="birthdate">Naissance</string>
+    <string name="deathdate">Décès</string>
+    <string name="language">Langue</string>
+    <string name="french">Français</string>
+    <string name="german">Allemand</string>
+    <string name="english">Anglais</string>
+    <string name="gallery_state">Etat actuel de la galerie</string>
+    <string name="artwork_exposed">Oeuvres exposées : </string>
+    <string name="artist_exposed">Artistes exposés : </string>
+    <string name="room_used">Salles occupées : </string>
 </resources>

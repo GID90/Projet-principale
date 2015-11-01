@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="55"
-            android:text="@string/titre_fiche_artiste"
+            android:text="Artiste NAN"
             android:textColor="#048B9A"
             android:textStyle="bold"
             android:textSize="30dp"
@@ -71,29 +71,27 @@
             android:id="@+id/tv_descriptionArtist_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" 1891 - 1973"
+            android:text="1891 - 1973"
             android:textColor="#000010"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-           />
+            android:layout_marginTop="20dp"/>
+
         <TextView
             android:id="@+id/tv_descriptionArtist_movement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Mouvement "
+            android:text="@string/movement"
             android:textColor="#000010"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-            />
+            android:layout_marginTop="20dp"/>
+
         <TextView
             android:id="@+id/tv_descriptionArtist_descriptionmovement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" surréalisme - cubisme "
+            android:text="surréalisme - cubisme "
             android:textColor="#000010"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            />
+            android:gravity="center"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -107,7 +105,7 @@
             android:id="@+id/titre_list_oeuvre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/titre_list_oeuvre"
+            android:text="@string/artworks"
             android:textSize="20dp"
             android:textColor="#000010"
             android:layout_marginTop="10dp"/>
@@ -116,7 +114,6 @@
             android:id="@+id/list_oeuvre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
         </LinearLayout>
 
 </LinearLayout>

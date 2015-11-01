@@ -18,11 +18,10 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="55"
-        android:text="@string/titre_fiche_oeuvre"
+        android:text="Oeuvre NAN"
         android:textColor="#048B9A"
         android:textStyle="bold"
         android:typeface="serif"
-        android:textSize="@dimen/textSize"
         android:gravity="center"/>
 
         <ImageButton
@@ -50,8 +49,6 @@
             android:src="@mipmap/trash"/>
     </LinearLayout>
 
-
-
         <ImageView
             android:id="@+id/ImageView_artworkCard"
             android:layout_width="200dp"
@@ -64,7 +61,7 @@
                 android:id="@+id/tv_yearOfCreation"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/yearOfCreation_artworkCard"
+                android:text="Année NAN"
                 android:textSize="18dp"
                 android:layout_marginBottom="15dp"/>
 
@@ -72,7 +69,7 @@
                 android:id="@+id/tv_artistCardArtwork"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/artistCardArtwork"
+                android:text="Artiste NAN"
                 android:textSize="18dp"
                 android:layout_marginBottom="15dp"/>
 
@@ -80,7 +77,7 @@
                 android:id="@+id/tv_styleCardArtwork"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/typeCardArtwork"
+                android:text="Type NAN"
                 android:textSize="18dp"
                 android:layout_marginBottom="15dp"/>
 
@@ -88,7 +85,7 @@
                 android:id="@+id/tv_mvtCardArtwork"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/mvtCardArtwork"
+                android:text="Mouvement NAN"
                 android:textSize="18dp"
                 android:layout_marginBottom="15dp"/>
 
@@ -96,9 +93,8 @@
                 android:id="@+id/tv_descriptionCardArtwork"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/descriptionCardArtwork"
+                android:text="Description NAN"
                 android:textSize="18dp"
                 android:layout_marginBottom="15dp"/>
-
 
 </LinearLayout>

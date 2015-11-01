@@ -19,12 +19,12 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:text="@string/tv_title_settings"
+            android:text="@string/settings"
             android:gravity="center"
             android:textColor="#048B9A"
             android:typeface="serif"
             android:textStyle="bold"
-            android:textSize="@dimen/textSize"
+            android:textSize="30dp"
             android:layout_marginBottom="50dp"
             android:layout_marginTop="10dp"/>
     </LinearLayout>
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="0"
-            android:text="@string/tv_settings_language"
+            android:text="@string/language"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="15dp"
             android:textColor="#000010"
@@ -56,7 +56,7 @@
             <RadioButton
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/rb_settings_french"
+                android:text="@string/french"
                 android:id="@+id/rb_settings_french"
                 android:layout_row="0"
                 android:layout_column="2"
@@ -68,7 +68,7 @@
             <RadioButton
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/rb_settings_english"
+                android:text="@string/english"
                 android:id="@+id/rb_settings_english"
                 android:layout_row="1"
                 android:layout_column="2"
@@ -79,7 +79,7 @@
             <RadioButton
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/rb_settings_german"
+                android:text="@string/german"
                 android:id="@+id/rb_settings_german"
                 android:layout_row="2"
                 android:layout_column="2"
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="3"
-            android:text="@string/tv_settings_rooms"
+            android:text="@string/rooms"
             android:layout_width="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="15dp"
@@ -103,7 +103,7 @@
 
         <Button
             android:id="@+id/button_manage_rooms"
-            android:text="@string/button_settings_manage_rooms"
+            android:text="@string/manage"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_row="3"

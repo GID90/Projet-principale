@@ -17,12 +17,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:text="@string/title"
+            android:text="@string/artists"
             android:typeface="serif"
             android:textColor="#048B9A"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="@dimen/textSize" />
+            android:textSize="30dp" />
 
         <SearchView
             tools:ignore="NewApi"
@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="70"
-            android:text="@string/titre_list_artiste"
+            android:text="@string/firstname_lastname_pseudo"
             android:textColor="#000010"
             android:textSize="20dp"
             android:layout_marginTop="10dp"/>
@@ -67,7 +67,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="30"
-            android:text="@string/titre_list_expose"
+            android:text="@string/exposed"
             android:textColor="#000010"
             android:gravity="right"
             android:layout_marginRight="10dp"

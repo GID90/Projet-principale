@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
-            android:text="@string/titre_modifier_oeuvre"
+            android:text="@string/modify_artwork"
             android:textSize="20dp"
             android:gravity="center"/>
 
@@ -38,17 +38,14 @@
 
     </LinearLayout>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_nomOeuvreModif"
+            android:text="@string/name"
             android:id="@+id/textView_nomArtworkModify"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -60,7 +57,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_ArtistArtworkModif"
+            android:text="@string/artist"
             android:id="@+id/textView_ArtistArtworkModif"
             android:layout_marginTop="35dp"
             android:layout_below="@+id/textView_nomArtworkModify"
@@ -70,7 +67,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_RealisationArtworkModif"
+            android:text="@string/creation_year"
             android:id="@+id/textView_RealisationArtworkModif"
             android:layout_marginTop="35dp"
             android:layout_below="@+id/textView_ArtistArtworkModif"
@@ -80,7 +77,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_typeArtworkModif"
+            android:text="@string/type"
             android:id="@+id/textView_typeArtworkModif"
             android:layout_below="@+id/textView_RealisationArtworkModif"
             android:layout_alignLeft="@+id/textView_RealisationArtworkModif"
@@ -90,7 +87,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_movmentArtworkModif"
+            android:text="@string/movement"
             android:id="@+id/textView_movmentArtworkModif"
             android:layout_below="@+id/textView_typeArtworkModif"
             android:layout_alignLeft="@+id/textView_typeArtworkModif"
@@ -100,7 +97,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="@string/tv_descriptionArtworkModif"
+            android:text="@string/description"
             android:id="@+id/textView_descriptionArtworkModif"
             android:layout_below="@+id/textView_movmentArtworkModif"
             android:layout_alignLeft="@+id/textView_movmentArtworkModif"
@@ -175,6 +172,5 @@
             android:src="@mipmap/download"/>
 
     </RelativeLayout>
-
 
 </LinearLayout>
