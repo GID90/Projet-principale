@@ -19,7 +19,8 @@
             android:text="@string/titre_fiche_artiste"
             android:textColor="#048B9A"
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textSize="30dp"
+            android:typeface="serif"
             android:gravity="center"/>
 
         <ImageButton

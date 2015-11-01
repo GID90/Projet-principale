@@ -27,7 +27,6 @@ public class Modify_room extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()){
-
             case R.id.accueil_menu:
                 Intent intenthome = new Intent(this, MainActivity.class);
                 startActivity(intenthome);
@@ -44,9 +43,13 @@ public class Modify_room extends AppCompatActivity {
                 return true;
 
             case R.id.exposition_menu:
+                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                startActivity(intentexhibition);
                 return true;
 
             case R.id.parametres_menu:
+                Intent intentsettings = new Intent(this, Settings.class);
+                startActivity(intentsettings);
                 return true;
         }
 

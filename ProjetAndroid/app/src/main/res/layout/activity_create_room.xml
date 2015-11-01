@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.Create_room">
+    tools:context="hevs.labo.projetandroid.Create_room"
+    android:background="@drawable/backgroundcard">
 
     <!--1ère ligne : nom de la salle, bouton annuler, bouton sauvegarder-->
     <LinearLayout
@@ -17,7 +18,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="70"
             android:text="@string/title_create_room"
-            android:textSize="@dimen/abc_text_size_headline_material"
+            android:textSize="@dimen/textSize"
+            android:textColor="#048B9A"
+            android:textStyle="bold"
+            android:typeface="serif"
             android:gravity="center_vertical"/>
 
         <ImageButton
@@ -52,7 +56,10 @@
             android:layout_height="wrap_content"
             android:text="@string/tv_room_name"
             android:layout_row="0"
-            android:layout_column="0" />
+            android:layout_column="0"
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp"/>
 
         <EditText
             android:id="@+id/et_create_room_name"
@@ -67,7 +74,10 @@
             android:layout_height="wrap_content"
             android:text="@string/tv_room_size"
             android:layout_row="1"
-            android:layout_column="0" />
+            android:layout_column="0"
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp"/>
 
         <EditText
             android:id="@+id/et_create_room_size"

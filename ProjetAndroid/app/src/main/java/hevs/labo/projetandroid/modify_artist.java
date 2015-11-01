@@ -26,7 +26,7 @@ public class modify_artist extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.accueil_menu:
                 Intent intenthome = new Intent(this, MainActivity.class);
@@ -44,13 +44,16 @@ public class modify_artist extends AppCompatActivity {
                 return true;
 
             case R.id.exposition_menu:
+                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                startActivity(intentexhibition);
                 return true;
 
             case R.id.parametres_menu:
+                Intent intentsettings = new Intent(this, Settings.class);
+                startActivity(intentsettings);
                 return true;
+
         }
-
-
 
         return (super.onOptionsItemSelected(item));
 

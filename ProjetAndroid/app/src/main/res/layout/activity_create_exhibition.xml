@@ -2,13 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.create_exhibition">
+    tools:context="hevs.labo.projetandroid.create_exhibition"
+    android:background="@drawable/backgroundcard">
 
     <!--1ère ligne : nom de l'expo, bouton annuler, bouton sauvegarder-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:id="@+id/tv_titreCreer"
@@ -16,7 +18,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="70"
             android:text="@string/tv_titreCreer"
-            android:textSize="20dp"
+            android:textSize="@dimen/textSize"
+            android:textColor="#048B9A"
+            android:textStyle="bold"
+            android:typeface="serif"
             android:gravity="center"/>
 
         <ImageButton
@@ -49,17 +54,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_activity_list_room"
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp"
             android:id="@+id/textView_room"
             android:layout_row="0"
             android:layout_column="0"
-            android:textSize="@dimen/abc_text_size_medium_material" />
+            />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_room"
             android:layout_row="0"
-            android:layout_column="1"/>
+            android:layout_column="1"
+            android:layout_marginBottom="30dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,14 +77,17 @@
             android:id="@+id/textView_artwork"
             android:layout_row="1"
             android:layout_column="0"
-            android:textSize="@dimen/abc_text_size_medium_material" />
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_artwork"
             android:layout_row="1"
-            android:layout_column="1"/>
+            android:layout_column="1"
+            android:layout_marginBottom="30dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,13 +96,16 @@
             android:id="@+id/textView_artist"
             android:layout_row="2"
             android:layout_column="0"
-            android:textSize="@dimen/abc_text_size_medium_material" />
+            android:textColor="#000010"
+            android:textSize="20dp"
+            android:layout_marginBottom="30dp" />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_artist"
             android:layout_row="2"
-            android:layout_column="1"/>
+            android:layout_column="1"
+            android:layout_marginBottom="30dp"/>
     </GridLayout>
 </LinearLayout>

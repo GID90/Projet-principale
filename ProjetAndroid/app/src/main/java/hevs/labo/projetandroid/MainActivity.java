@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -61,9 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.exposition_menu:
+                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                startActivity(intentexhibition);
                 return true;
 
             case R.id.parametres_menu:
+                Intent intentsettings = new Intent(this, Settings.class);
+                startActivity(intentsettings);
                 return true;
         }
 

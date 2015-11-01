@@ -96,15 +96,24 @@ public class list_room extends AppCompatActivity {
                 startActivity(intenthome);
                 return true;
 
+            case R.id.artist_menu:
+                Intent intentartist = new Intent(this, list_artist.class);
+                startActivity(intentartist);
+                return true;
+
             case R.id.list_artwork_menu:
                 Intent intentartwork = new Intent(this, list_artwork.class);
                 startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
+                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                startActivity(intentexhibition);
                 return true;
 
             case R.id.parametres_menu:
+                Intent intentsettings = new Intent(this, Settings.class);
+                startActivity(intentsettings);
                 return true;
         }
 

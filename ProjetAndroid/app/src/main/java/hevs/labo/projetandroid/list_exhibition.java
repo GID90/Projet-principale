@@ -39,10 +39,14 @@ public class list_exhibition extends AppCompatActivity {
                 startActivity(intentartist);
                 return true;
 
-            case R.id.exposition_menu:
+            case R.id.list_artwork_menu:
+                Intent intentartwork = new Intent(this, list_artwork.class);
+                startActivity(intentartwork);
                 return true;
 
             case R.id.parametres_menu:
+                Intent intentsettings = new Intent(this, Settings.class);
+                startActivity(intentsettings);
                 return true;
         }
 

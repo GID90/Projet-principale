@@ -22,6 +22,7 @@
             android:layout_weight="55"
             android:text="@string/title_card_room"
             android:textColor="#048B9A"
+            android:typeface="serif"
             android:textStyle="bold"
             android:textSize="@dimen/textSize"
             android:gravity="center_vertical" />
@@ -63,7 +64,7 @@
 
     <ImageView
         android:id="@+id/ImageView_card_room"
-        android:layout_width="wrap_content "
+        android:layout_width="350dp "
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src ="@drawable/plan"/>

@@ -46,10 +46,11 @@ public class Settings extends AppCompatActivity {
                 return true;
 
             case R.id.exposition_menu:
+                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                startActivity(intentexhibition);
                 return true;
 
-            case R.id.parametres_menu:
-                return true;
+
         }
 
         return (super.onOptionsItemSelected(item));
