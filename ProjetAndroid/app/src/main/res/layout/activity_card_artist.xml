@@ -17,6 +17,8 @@
             android:layout_height="fill_parent"
             android:layout_weight="55"
             android:text="@string/titre_fiche_artiste"
+            android:textColor="#048B9A"
+            android:textStyle="bold"
             android:textSize="18dp"
             android:gravity="center"/>
 
