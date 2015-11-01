@@ -1,19 +1,46 @@
 package hevs.labo.projetandroid;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 
+import java.util.Locale;
+
 public class Settings extends AppCompatActivity {
+
+    Locale myLocale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+
+        String lang = conf.locale.getDisplayLanguage();
+        lang = lang.substring(0,2);
+
+        RadioButton radioButton;
+
+        if(lang.equals("fr"))
+        {
+            radioButton = (RadioButton) findViewById(R.id.rb_settings_french);
+            radioButton.setChecked(true);
+        }
+        else
+        {
+            radioButton = (RadioButton) findViewById(R.id.rb_settings_english);
+            radioButton.setChecked(true);
+        }
     }
 
     @Override
@@ -49,8 +76,6 @@ public class Settings extends AppCompatActivity {
                 Intent intentexhibition = new Intent(this, list_exhibition.class);
                 startActivity(intentexhibition);
                 return true;
-
-
         }
 
         return (super.onOptionsItemSelected(item));
@@ -62,23 +87,36 @@ public class Settings extends AppCompatActivity {
     }
 
     public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
+        // Is the button now checked
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.rb_settings_english:
                 if (checked)
-
+                    setLocale("en");
                     break;
+
             case R.id.rb_settings_french:
                 if (checked)
-
-                    break;
-            case R.id.rb_settings_german:
-                if (checked)
-
+                    setLocale("fr");
                     break;
         }
+    }
+
+    public void save_language(View view){
+        Intent intent = new Intent(this, list_room.class);
+        startActivity(intent);
+    }
+
+    public void setLocale(String lang) {
+        myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, Settings.class);
+        startActivity(refresh);
     }
 }

@@ -41,7 +41,7 @@ public class list_artist extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        firstname = (intent.getStringExtra("firstname"));
+        firstname = intent.getStringExtra("firstname");
         lastname = intent.getStringExtra("lastname");
         pseudo = intent.getStringExtra("pseudo");
 
@@ -68,7 +68,7 @@ public class list_artist extends AppCompatActivity {
         }
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, valeurstest);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, valeurstest);
 
         listView.setAdapter(adapter);
 

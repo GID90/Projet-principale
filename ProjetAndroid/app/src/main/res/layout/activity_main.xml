@@ -163,8 +163,6 @@
             android:scaleType="fitStart"/>
            <!-- android:background="@drawable/roundcorner" -->
 
-
-
     </LinearLayout>
 
 </LinearLayout>
