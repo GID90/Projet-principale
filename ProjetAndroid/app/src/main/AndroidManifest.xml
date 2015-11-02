@@ -36,31 +36,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".create_artist_temp"
+            android:name=".Create_artist"
             android:label="@string/title_activity_create_artist"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".list_artist_temp">
+            android:parentActivityName=".List_artist">
         </activity>
         <activity
-            android:name=".card_artist_temp"
+            android:name=".Card_artist"
             android:label="@string/title_activity_card_artist"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".list_artist_temp">
+            android:parentActivityName=".List_artist">
         </activity>
         <activity
-            android:name=".list_artist_temp"
+            android:name=".List_artist"
             android:label="@string/title_activity_list_artist"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".list_artwork_temp"
+            android:name=".List_artwork"
             android:label="@string/title_activity_list_artwork"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".modify_artist_temp"
+            android:name=".Modify_artist"
             android:label="@string/title_activity_modify_artist"
             android:theme="@style/AppTheme" >
         </activity>
@@ -73,11 +73,11 @@
             android:label="@string/title_activity_modify_artwork" >
         </activity>
         <activity
-            android:name=".create_artwork_temp"
+            android:name=".Create_artwork"
             android:label="@string/title_activity_create_artwork" >
         </activity>
         <activity
-            android:name=".list_room_temp"
+            android:name=".List_room"
             android:label="@string/title_activity_list_room"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
@@ -99,11 +99,11 @@
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".list_exhibition_temp"
+            android:name=".List_exhibition"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".Create_exhibition"
-            android:parentActivityName=".list_exhibition_temp">
+            android:parentActivityName=".List_exhibition">
         </activity>
     </application>
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class card_artist_temp extends AppCompatActivity {
+public class Card_artist extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +34,17 @@ public class card_artist_temp extends AppCompatActivity {
                 return true;
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist_temp.class);
+                Intent intentartist = new Intent(this, List_artist.class);
                 startActivity(intentartist);
                 return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork_temp.class);
+                Intent intentartwork = new Intent(this, List_artwork.class);
                 startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
+                Intent intentexhibition = new Intent(this, List_exhibition.class);
                 startActivity(intentexhibition);
                 return true;
 

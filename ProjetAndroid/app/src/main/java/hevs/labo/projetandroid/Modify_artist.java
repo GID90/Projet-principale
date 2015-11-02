@@ -5,20 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class list_artwork_temp extends AppCompatActivity {
+public class Modify_artist extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_artwork);
+        setContentView(R.layout.activity_modify_artist);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_list_artwork, menu);
+        getMenuInflater().inflate(R.menu.menu_modify_artist, menu);
         return true;
     }
 
@@ -27,7 +26,7 @@ public class list_artwork_temp extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.accueil_menu:
                 Intent intenthome = new Intent(this, MainActivity.class);
@@ -35,12 +34,17 @@ public class list_artwork_temp extends AppCompatActivity {
                 return true;
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist_temp.class);
+                Intent intentartist = new Intent(this, List_artist.class);
                 startActivity(intentartist);
                 return true;
 
+            case R.id.list_artwork_menu:
+                Intent intentartwork = new Intent(this, List_artwork.class);
+                startActivity(intentartwork);
+                return true;
+
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
+                Intent intentexhibition = new Intent(this, List_exhibition.class);
                 startActivity(intentexhibition);
                 return true;
 
@@ -48,14 +52,10 @@ public class list_artwork_temp extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
         }
 
         return (super.onOptionsItemSelected(item));
-    }
 
-    public void addArtwork(View view){
-        Intent intent = new Intent(this, create_artwork_temp.class);
-
-        startActivity(intent);
     }
 }

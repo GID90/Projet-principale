@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class list_artist_temp extends AppCompatActivity {
+public class List_artist extends AppCompatActivity {
 
     String firstname;
     String lastname;
@@ -116,12 +116,12 @@ public class list_artist_temp extends AppCompatActivity {
                return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork_temp.class);
+                Intent intentartwork = new Intent(this, List_artwork.class);
                 startActivity(intentartwork);
                 return true;
             
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
+                Intent intentexhibition = new Intent(this, List_exhibition.class);
                 startActivity(intentexhibition);
                 return true;
 
@@ -140,7 +140,7 @@ public class list_artist_temp extends AppCompatActivity {
     public void addArtist(View view){
 
 
-        Intent intent = new Intent(this, create_artist_temp.class);
+        Intent intent = new Intent(this, Create_artist.class);
 
         startActivity(intent);
 

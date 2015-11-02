@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class create_artist_temp extends Activity {
+public class Create_artist extends Activity {
 
     private ImageButton saveArtist;
     private EditText firstname;
@@ -36,12 +36,12 @@ public class create_artist_temp extends Activity {
 
 
     public void saveCreateArtist(View view){
-        Intent intent = new Intent(create_artist_temp.this, list_artist_temp.class);
+        Intent intent = new Intent(Create_artist.this, List_artist.class);
         intent.putExtra("firstname", firstname.getText().toString());
         intent.putExtra("lastname", lastname.getText().toString());
         intent.putExtra("pseudo", pseudo.getText().toString());
 
-        create_artist_temp.this.startActivity(intent);
+        Create_artist.this.startActivity(intent);
 
 
 
@@ -69,17 +69,17 @@ public class create_artist_temp extends Activity {
                 return true;
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist_temp.class);
+                Intent intentartist = new Intent(this, List_artist.class);
                 startActivity(intentartist);
                 return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork_temp.class);
+                Intent intentartwork = new Intent(this, List_artwork.class);
                 startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
+                Intent intentexhibition = new Intent(this, List_exhibition.class);
                 startActivity(intentexhibition);
                 return true;
 

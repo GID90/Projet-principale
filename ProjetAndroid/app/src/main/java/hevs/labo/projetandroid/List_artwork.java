@@ -5,19 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class create_artwork_temp extends AppCompatActivity {
+public class List_artwork extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_artwork);
+        setContentView(R.layout.activity_list_artwork);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_create_artwork, menu);
+        getMenuInflater().inflate(R.menu.menu_list_artwork, menu);
         return true;
     }
 
@@ -34,17 +35,12 @@ public class create_artwork_temp extends AppCompatActivity {
                 return true;
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist_temp.class);
+                Intent intentartist = new Intent(this, List_artist.class);
                 startActivity(intentartist);
                 return true;
 
-            case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork_temp.class);
-                startActivity(intentartwork);
-                return true;
-
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
+                Intent intentexhibition = new Intent(this, List_exhibition.class);
                 startActivity(intentexhibition);
                 return true;
 
@@ -55,5 +51,11 @@ public class create_artwork_temp extends AppCompatActivity {
         }
 
         return (super.onOptionsItemSelected(item));
+    }
+
+    public void addArtwork(View view){
+        Intent intent = new Intent(this, Create_artwork.class);
+
+        startActivity(intent);
     }
 }
