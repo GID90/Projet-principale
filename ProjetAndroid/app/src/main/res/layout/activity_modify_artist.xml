@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.modify_artist"
+    tools:context="hevs.labo.projetandroid.modify_artist_temp"
     android:background="@drawable/backgroundcard">
 
     <!--1ère ligne : nom de l'artiste, bouton annuler, bouton sauvegarder-->

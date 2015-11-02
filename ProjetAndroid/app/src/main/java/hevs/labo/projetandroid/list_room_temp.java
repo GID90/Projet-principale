@@ -13,92 +13,70 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class list_artist extends AppCompatActivity {
+public class list_room_temp extends AppCompatActivity {
 
-    String firstname;
-    String lastname;
-    String pseudo;
+    String name;
+    double size;
 
-    CheckedTextView ctv_artitst;
+    CheckedTextView ctv_room;
     ListView listView;
 
-    Artist artist;
-
-    ArrayList<Artist> listArtistCreated = new ArrayList<>();
-    String[] tabArtistCreated;
+    Room room;
+    ArrayList<Room> listRoomCreated = new ArrayList<>();
+    String[] tabRoomCreated;
     int tabSize;
 
-    int cpt= 0;
+    int cpt = 0;
     CheckBox box;
 
-    String[]valeurstest = {"Lus", "Jean", "Paul"};
+    String[]valeurstest = {"S00", "S01", "s02"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_artist);
+        setContentView(R.layout.activity_list_room);
         //getSupportActionBar().show();
 
         Intent intent = getIntent();
 
-        firstname = intent.getStringExtra("firstname");
-        lastname = intent.getStringExtra("lastname");
-        pseudo = intent.getStringExtra("pseudo");
+        name = intent.getStringExtra("name");
+        size = intent.getDoubleExtra("size", 0);
 
-        artist = new Artist();
-        artist.setFirstname(firstname);
-        artist.setLastname(lastname);
-        artist.setPseudo(pseudo);
-        artist.setSelected(false);
+        room = new Room();
+        room.setName(name);
+        room.setSize(size);
+        room.setSelected(false);
 
-        listView = (ListView) findViewById(R.id.list);
-
+        listView = (ListView) findViewById(R.id.listView_room);
         listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
-
         listView.setTextFilterEnabled(true);
 
-        listArtistCreated.add(artist);
+        listRoomCreated.add(room);
         cpt++;
 
+        tabRoomCreated = new String[listRoomCreated.size()];
 
-        tabArtistCreated = new String[listArtistCreated.size()];
-
-        for(int i = 0; i<tabArtistCreated.length; i++){
-            tabArtistCreated[i] = listArtistCreated.get(i).toString() + cpt;
+        for(int i=0; i<tabRoomCreated.length; i++) {
+            tabRoomCreated[i] = listRoomCreated.get(i).toString() + cpt;
         }
-
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, valeurstest);
-
         listView.setAdapter(adapter);
-
-
-
-       /* ctv_artitst = (CheckedTextView)findViewById(R.id.list_artiste);
-
-        ctv_artitst.setText(artist.toString());*/
     }
 
+    public void initPanel() {
+        tabRoomCreated = new String[listRoomCreated.size()];
 
-  /*  public void onListItemClick(ListView parent, View v, int position, long id){
-        CheckedTextView item = (CheckedTextView) v;
-        Toast.makeText(this, tabArtistCreated[position] + "checked : " + item.isChecked(), Toast.LENGTH_SHORT).show();
-    }*/
-
-
-    public void initPanel(){
-
-           tabArtistCreated = new String[listArtistCreated.size()];
-        for(int i = 0; i<tabArtistCreated.length; i++){
-            tabArtistCreated[i] = listArtistCreated.get(i).toString();
+        for(int i=0; i<tabRoomCreated.length; i++) {
+            tabRoomCreated[i] = listRoomCreated.get(i).toString();
         }
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_list_artist, menu);
+        getMenuInflater().inflate(R.menu.menu_list_room, menu);
         return true;
     }
 
@@ -113,15 +91,20 @@ public class list_artist extends AppCompatActivity {
             case R.id.accueil_menu:
                 Intent intenthome = new Intent(this, MainActivity.class);
                 startActivity(intenthome);
-               return true;
+                return true;
+
+            case R.id.artist_menu:
+                Intent intentartist = new Intent(this, list_artist_temp.class);
+                startActivity(intentartist);
+                return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork.class);
+                Intent intentartwork = new Intent(this, list_artwork_temp.class);
                 startActivity(intentartwork);
                 return true;
-            
+
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
                 startActivity(intentexhibition);
                 return true;
 
@@ -131,18 +114,14 @@ public class list_artist extends AppCompatActivity {
                 return true;
         }
 
-
-
         return (super.onOptionsItemSelected(item));
     }
 
+    public void addRoom(View view){
 
-    public void addArtist(View view){
 
-
-        Intent intent = new Intent(this, create_artist.class);
+        Intent intent = new Intent(this, Create_room.class);
 
         startActivity(intent);
-
     }
 }

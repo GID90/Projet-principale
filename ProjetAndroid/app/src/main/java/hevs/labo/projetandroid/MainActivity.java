@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.Set;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,17 +16,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void show_list_artist(View view) {
-        Intent intent = new Intent(this, list_artist.class);
+        Intent intent = new Intent(this, list_artist_temp.class);
         startActivity(intent);
     }
 
     public void show_list_artwork(View view) {
-        Intent intent = new Intent(this, list_artwork.class);
+        Intent intent = new Intent(this, list_artwork_temp.class);
         startActivity(intent);
     }
 
     public void show_list_exhibition(View view) {
-        Intent intent = new Intent(this, list_exhibition.class);
+        Intent intent = new Intent(this, list_exhibition_temp.class);
         startActivity(intent);
     }
 
@@ -53,17 +51,17 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist.class);
+                Intent intentartist = new Intent(this, list_artist_temp.class);
                 startActivity(intentartist);
                 return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork.class);
+                Intent intentartwork = new Intent(this, list_artwork_temp.class);
                 startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
                 startActivity(intentexhibition);
                 return true;
 

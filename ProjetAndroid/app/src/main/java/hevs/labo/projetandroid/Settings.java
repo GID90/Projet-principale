@@ -63,17 +63,17 @@ public class Settings extends AppCompatActivity {
                 return true;
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist.class);
+                Intent intentartist = new Intent(this, list_artist_temp.class);
                 startActivity(intentartist);
                 return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork.class);
+                Intent intentartwork = new Intent(this, list_artwork_temp.class);
                 startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
                 startActivity(intentexhibition);
                 return true;
         }
@@ -82,7 +82,7 @@ public class Settings extends AppCompatActivity {
     }
 
     public void show_list_room(View view){
-        Intent intent = new Intent(this, list_room.class);
+        Intent intent = new Intent(this, list_room_temp.class);
         startActivity(intent);
     }
 
@@ -105,7 +105,7 @@ public class Settings extends AppCompatActivity {
     }
 
     public void save_language(View view){
-        Intent intent = new Intent(this, list_room.class);
+        Intent intent = new Intent(this, list_room_temp.class);
         startActivity(intent);
     }
 

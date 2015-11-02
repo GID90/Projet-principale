@@ -26,7 +26,7 @@ public class Create_room extends AppCompatActivity {
     }
 
     public void saveCreateRoom(View view){
-        Intent intent = new Intent(Create_room.this, list_room.class);
+        Intent intent = new Intent(Create_room.this, list_room_temp.class);
         intent.putExtra("name", name.getText().toString());
         intent.putExtra("size", size.getText().toString());
 
@@ -53,17 +53,17 @@ public class Create_room extends AppCompatActivity {
                 return true;
 
             case R.id.artist_menu:
-                Intent intentartist = new Intent(this, list_artist.class);
+                Intent intentartist = new Intent(this, list_artist_temp.class);
                 startActivity(intentartist);
                 return true;
 
             case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, list_artwork.class);
+                Intent intentartwork = new Intent(this, list_artwork_temp.class);
                 startActivity(intentartwork);
                 return true;
 
             case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, list_exhibition.class);
+                Intent intentexhibition = new Intent(this, list_exhibition_temp.class);
                 startActivity(intentexhibition);
                 return true;
 
