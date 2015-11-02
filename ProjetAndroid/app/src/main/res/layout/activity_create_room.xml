@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundcard"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.Create_room"
-    android:background="@drawable/backgroundcard">
+    tools:context="hevs.labo.projetandroid.Create_room">
 
     <!--1ère ligne : nom de la salle, bouton annuler, bouton sauvegarder-->
     <LinearLayout
@@ -17,89 +17,90 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
+            android:gravity="center_vertical"
             android:text="@string/create"
-            android:textSize="30dp"
             android:textColor="#048B9A"
+            android:textSize="30dp"
             android:textStyle="bold"
-            android:typeface="serif"
-            android:gravity="center_vertical"/>
+            android:typeface="serif" />
 
         <ImageButton
             android:id="@+id/button_cancelCreate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
+            style="@style/imageButton"
             android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveCreate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
+            style="@style/imageButton"
             android:onClick="saveCreateRoom"
             android:src="@mipmap/save" />
 
     </LinearLayout>
 
-
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnCount="2"
-        android:rowCount="3">
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_create_room_name"
-            android:layout_width="80dp"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:textColor="#000010"
-            android:textSize="20dp"
-            android:layout_marginBottom="30dp"/>
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_create_room_name"
-            android:layout_width="150dp"
+            <TextView
+                android:id="@+id/tv_create_room_name"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/name"
+                android:textColor="#000010"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/et_create_room_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="1" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_create_room_size"
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/tv_create_room_size"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/size"
+                android:textColor="#000010"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/et_create_room_size"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/size"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:textColor="#000010"
-            android:textSize="20dp"
-            android:layout_marginBottom="30dp"/>
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_create_room_size"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1" />
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtistCreate"
+                style="@style/imageButton"
+                android:layout_width="wrap_content"
+                android:src="@mipmap/download" />
 
-        <ImageView
-            android:id="@+id/imageView_photoArtistCreate"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_row="2"
-            android:layout_column="1" />
+            <ImageView
+                android:id="@+id/imageView_photoArtistCreate"
+                android:layout_width="130dp"
+                android:layout_height="130dp" />
 
-        <ImageButton
-            android:id="@+id/imageButton_btnDownloadArtistCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/download"
-            android:background="#0000"
-            android:layout_row="2"
-            android:layout_column="0" />
-    </GridLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -29,27 +29,19 @@
 
         <ImageButton
             android:id="@+id/button_back_card_room"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:src="@mipmap/back"
-            android:background="#0000" />
+            style="@style/imageButton"
+            android:src="@mipmap/back" />
 
         <ImageButton
             android:id="@+id/button_modify_card_room"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:src="@mipmap/pencil"
-            android:background="#0000" />
+            style="@style/imageButton"
+            android:src="@mipmap/pencil" />
 
         <ImageButton
             android:id="@+id/button_delete_card_room"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/trash"/>
+            style="@style/imageButton"
+            android:src="@mipmap/trash" />
+
     </LinearLayout>
 
     <TextView

@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundcard"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.Create_artist"
-    android:background="@drawable/backgroundcard">
+    tools:context="hevs.labo.projetandroid.Create_artist">
 
     <!--1ère ligne : nom de l'artiste, bouton annuler, bouton sauvegarder-->
     <LinearLayout
@@ -16,65 +17,55 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
+            android:gravity="center"
             android:text="@string/create"
-            android:textSize="30dp"
             android:textColor="#048B9A"
+            android:textSize="30dp"
             android:textStyle="bold"
-            android:typeface="serif"
-            android:gravity="center"/>
+            android:typeface="serif" />
 
         <ImageButton
             android:id="@+id/button_cancelCreate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/cancel"
-            />
+            style="@style/imageButton"
+            android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveCreate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/save"
-            android:onClick="saveCreateArtist"/>
+            style="@style/imageButton"
+            android:onClick="saveCreateArtist"
+            android:src="@mipmap/save" />
 
     </LinearLayout>
 
 
-
-<!--LinearLayout contenant les différents widgets verticaux-->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginLeft="15dp">
+    <!--LinearLayout contenant les différents widgets verticaux-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                         android:layout_weight="40"
+            <TextView
+                android:id="@+id/textView_nomArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-                        android:text="@string/lastname"
-                        android:id="@+id/textView_nomArtistCreate"
-                        android:textColor="#000010"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"
-                        />
+                android:layout_marginBottom="10dp"
+                android:layout_weight="40"
+                android:text="@string/lastname"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_weight="60"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/editText_nomArtistCreate"
-                    />
+            <EditText
+                android:id="@+id/editText_nomArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60" />
 
         </LinearLayout>
 
@@ -85,24 +76,22 @@
             android:orientation="horizontal">
 
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="40"
-                        android:text="@string/firstname"
-                        android:id="@+id/textView_prenomArtistCreate"
-                        android:textColor="#000010"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"
-                        />
+            <TextView
+                android:id="@+id/textView_prenomArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="40"
+                android:text="@string/firstname"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
 
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="60"
-                        android:id="@+id/editText_prenomArtistCreate"
-                    />
+            <EditText
+                android:id="@+id/editText_prenomArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60" />
 
         </LinearLayout>
 
@@ -112,23 +101,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="40"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pseudo"
-                        android:id="@+id/textView_pseudoArtistCreate"
-                        android:textColor="#000010"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"
-                        />
+            <TextView
+                android:id="@+id/textView_pseudoArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="40"
+                android:text="@string/pseudo"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
-                    <EditText
-                        android:layout_weight="60"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/editText_pseudoArtistCreate"
-                        />
+            <EditText
+                android:id="@+id/editText_pseudoArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60" />
 
 
         </LinearLayout>
@@ -139,25 +126,22 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_weight="40"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/birthdate"
-                        android:id="@+id/textView_naissanceArtistCreate"
-                        android:textColor="#000010"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"
-                        />
+            <TextView
+                android:id="@+id/textView_naissanceArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="40"
+                android:text="@string/birthdate"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
 
-
-                    <EditText
-                        android:layout_weight="60"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/editText_naissanceArtistCreate"
-                        />
+            <EditText
+                android:id="@+id/editText_naissanceArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60" />
 
         </LinearLayout>
 
@@ -167,24 +151,22 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="40"
-                        android:text="@string/deathdate"
-                        android:id="@+id/textView_decesArtistCreate"
-                        android:textColor="#000010"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"
-                        />
+            <TextView
+                android:id="@+id/textView_decesArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="40"
+                android:text="@string/deathdate"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
 
-                    <EditText
-                        android:layout_weight="60"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/editText_decesArtistCreate"
-                        />
+            <EditText
+                android:id="@+id/editText_decesArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60" />
         </LinearLayout>
 
 
@@ -193,44 +175,42 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_weight="40"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/movement"
-                        android:id="@+id/textView_mvtArtistCreate"
-                        android:textColor="#000010"
-                        android:textSize="20dp"
-                        android:layout_marginBottom="10dp"
-                        />
+            <TextView
+                android:id="@+id/textView_mvtArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="40"
+                android:text="@string/movement"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
-
-                    <Spinner
-                        android:layout_weight="60"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner_mvtArtistCreate"
-                        />
+            <Spinner
+                android:id="@+id/spinner_mvtArtistCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtistCreate"
+                style="@style/imageButton"
+                android:src="@mipmap/download" />
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/imageView_photoArtistCreate"
-        android:layout_gravity="center"
-        />
+            <ImageView
+                android:id="@+id/imageView_photoArtistCreate"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton_btnDownloadArtistCreate"
-        android:background="#0000"
-        android:layout_gravity="right"
-        android:src="@mipmap/download"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
-
-    </LinearLayout>

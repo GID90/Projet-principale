@@ -37,10 +37,7 @@
 
         <ImageButton
             android:id="@+id/button_addRoom"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="15"
-            android:background="@drawable/buttonbackground"
+            style="@style/imageButton"
             android:src="@mipmap/add"
             android:onClick="addRoom"/>
 
@@ -68,7 +65,7 @@
             android:id="@+id/title_list_room_size"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="35"
+            android:layout_weight="30"
             android:text="@string/size"
             android:textColor="#000010"
             android:gravity="center"
@@ -80,7 +77,7 @@
             android:id="@+id/title_list_room_occupated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="25"
+            android:layout_weight="30"
             android:text="@string/occupated"
             android:textColor="#000010"
             android:gravity="center"
@@ -90,10 +87,10 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <!--  <CheckedTextView
               android:id="@+id/list_artiste"
@@ -107,6 +104,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
 
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

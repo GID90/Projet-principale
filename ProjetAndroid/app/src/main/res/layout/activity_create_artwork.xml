@@ -26,20 +26,13 @@
 
         <ImageButton
             android:id="@+id/button_cancelCreateArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/cancel"
-            />
+            style="@style/imageButton"
+            android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveCreateArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/save"/>
+            style="@style/imageButton"
+            android:src="@mipmap/save" />
 
     </LinearLayout>
 
@@ -184,7 +177,6 @@
                 />
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -201,7 +193,6 @@
                 android:layout_marginBottom="10dp"
                 />
 
-
             <EditText
                 android:layout_weight="60"
                 android:layout_width="0dp"
@@ -211,24 +202,24 @@
 
         </LinearLayout>
 
-
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/imageView_photoArtworktCreate"
-            android:layout_gravity="center"
-            />
-
-        <ImageButton
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton_btnDownloadArtworktCreated"
-            android:background="#0000"
-            android:layout_gravity="right"
-            android:src="@mipmap/download"/>
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtistCreate"
+                style="@style/imageButton"
+                android:src="@mipmap/download" />
+
+            <ImageView
+                android:id="@+id/imageView_photoArtistCreate"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>

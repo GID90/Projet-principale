@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundcard"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.Card_artist"
-    android:background="@drawable/backgroundcard">
+    tools:context="hevs.labo.projetandroid.Card_artist">
 
 
     <LinearLayout
@@ -16,36 +17,27 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="55"
+            android:gravity="center"
             android:text="Artiste NAN"
             android:textColor="#048B9A"
-            android:textStyle="bold"
             android:textSize="30dp"
-            android:typeface="serif"
-            android:gravity="center"/>
+            android:textStyle="bold"
+            android:typeface="serif" />
 
         <ImageButton
             android:id="@+id/button_backToList"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/back"/>
+            style="@style/imageButton"
+            android:src="@mipmap/back" />
 
         <ImageButton
             android:id="@+id/button_modifyArtist"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/pencil"/>
+            style="@style/imageButton"
+            android:src="@mipmap/pencil" />
 
         <ImageButton
             android:id="@+id/button_deleteArtist"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/trash"/>
+            style="@style/imageButton"
+            android:src="@mipmap/trash" />
 
     </LinearLayout>
 
@@ -67,53 +59,59 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_descriptionArtist_year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1891 - 1973"
-            android:textColor="#000010"
-            android:gravity="center"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/tv_descriptionArtist_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="1891 - 1973"
+                android:textColor="#000010" />
 
-        <TextView
-            android:id="@+id/tv_descriptionArtist_movement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/movement"
-            android:textColor="#000010"
-            android:gravity="center"
-            android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/tv_descriptionArtist_movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/movement"
+                android:textColor="#000010" />
 
-        <TextView
-            android:id="@+id/tv_descriptionArtist_descriptionmovement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="surréalisme - cubisme "
-            android:textColor="#000010"
-            android:gravity="center"/>
+            <TextView
+                android:id="@+id/tv_descriptionArtist_descriptionmovement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="surréalisme - cubisme "
+                android:textColor="#000010" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/titre_list_oeuvre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/artworks"
-            android:textSize="20dp"
-            android:textColor="#000010"
-            android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/titre_list_oeuvre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/artworks"
+                android:textColor="#000010"
+                android:textSize="20dp" />
 
-        <ListView
-            android:id="@+id/list_oeuvre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <ListView
+                android:id="@+id/list_oeuvre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

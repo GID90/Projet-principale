@@ -26,27 +26,19 @@
 
         <ImageButton
             android:id="@+id/button_back_cardArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/back"/>
+            style="@style/imageButton"
+            android:src="@mipmap/back" />
 
         <ImageButton
             android:id="@+id/button_modify_cardArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/pencil"/>
+            style="@style/imageButton"
+            android:src="@mipmap/pencil" />
 
         <ImageButton
             android:id="@+id/button_delete_cardArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/trash"/>
+            style="@style/imageButton"
+            android:src="@mipmap/trash" />
+
     </LinearLayout>
 
         <ImageView

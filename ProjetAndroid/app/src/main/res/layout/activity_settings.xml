@@ -1,91 +1,113 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background4"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@drawable/background4">
+    tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linearLayout">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_title_settings"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:text="@string/settings"
-            android:gravity="center"
-            android:textColor="#048B9A"
-            android:typeface="serif"
-            android:textStyle="bold"
-            android:textSize="30dp"
+            android:layout_height="fill_parent"
             android:layout_marginBottom="50dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/settings"
+            android:textColor="#048B9A"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/linearLayout">
+        android:layout_below="@+id/linearLayout"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_settings_language"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/language"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="15dp"
-            android:textColor="#000010"
-            android:textSize="20dp"/>
+            android:orientation="horizontal">
 
-        <RadioGroup
-            android:id="@+id/rg_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp">
-
-            <RadioButton
+            <TextView
+                android:id="@+id/tv_settings_language"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/french"
-                android:id="@+id/rb_settings_french"
-                android:textSize="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/language"
                 android:textColor="#000010"
-                android:onClick="onRadioButtonClicked"/>
+                android:textSize="20dp"
+                android:layout_weight="40"/>
 
-            <RadioButton
+            <RadioGroup
+                android:id="@+id/rg_settings"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/english"
-                android:id="@+id/rb_settings_english"
-                android:textSize="15dp"
+                android:layout_marginBottom="40dp"
+                android:layout_weight="60">
+
+                <RadioButton
+                    android:id="@+id/rb_settings_french"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/french"
+                    android:textColor="#000010"
+                    android:textSize="15dp" />
+
+                <RadioButton
+                    android:id="@+id/rb_settings_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/english"
+                    android:textColor="#000010"
+                    android:textSize="15dp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_settings_rooms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/rooms"
                 android:textColor="#000010"
-                android:onClick="onRadioButtonClicked"/>
+                android:textSize="20dp"
+                android:layout_weight="40"/>
 
-        </RadioGroup>
+            <Button
+                android:id="@+id/button_manage_rooms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="show_list_room"
+                android:text="@string/manage"
+                android:layout_weight="60"/>
 
-        <TextView
-            android:id="@+id/tv_settings_rooms"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/rooms"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20dp"
-            android:textColor="#000010"/>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button_manage_rooms"
-            android:text="@string/manage"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:onClick="show_list_room"/>
     </LinearLayout>
+
 </LinearLayout>

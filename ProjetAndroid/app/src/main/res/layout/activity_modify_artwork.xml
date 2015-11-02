@@ -1,8 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="hevs.labo.projetandroid.Modify_artwork"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="hevs.labo.projetandroid.Modify_artwork">
 
     <!--1ère ligne : titre modifier, bouton annuler, bouton sauvegarder-->
     <LinearLayout
@@ -15,162 +16,180 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="70"
+            android:gravity="center"
             android:text="@string/modify_artwork"
-            android:textSize="20dp"
-            android:gravity="center"/>
+            android:textSize="20dp" />
 
         <ImageButton
             android:id="@+id/button_cancelModifArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/cancel"
-            />
+            style="@style/imageButton"
+            android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveModifArtwork"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
-            android:src="@mipmap/save"/>
+            style="@style/imageButton"
+            android:src="@mipmap/save" />
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="80dp"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:id="@+id/textView_nomArtworkModify"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="33dp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/textView_nomArtworkModify"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/editText_nameArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/artist"
-            android:id="@+id/textView_ArtistArtworkModif"
-            android:layout_marginTop="35dp"
-            android:layout_below="@+id/textView_nomArtworkModify"
-            android:layout_alignLeft="@+id/textView_nomArtworkModify"
-            android:layout_alignStart="@+id/textView_nomArtworkModify" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/textView_ArtistArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/artist"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/editText_ArtistArtworkCreate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/creation_year"
-            android:id="@+id/textView_RealisationArtworkModif"
-            android:layout_marginTop="35dp"
-            android:layout_below="@+id/textView_ArtistArtworkModif"
-            android:layout_alignLeft="@+id/textView_ArtistArtworkModif"
-            android:layout_alignStart="@+id/textView_ArtistArtworkModif" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/textView_RealisationArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/creation_year"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/editText_realisationArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/type"
-            android:id="@+id/textView_typeArtworkModif"
-            android:layout_below="@+id/textView_RealisationArtworkModif"
-            android:layout_alignLeft="@+id/textView_RealisationArtworkModif"
-            android:layout_alignStart="@+id/textView_RealisationArtworkModif"
-            android:layout_marginTop="35dp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/textView_typeArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/type"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/editText_typeArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/movement"
-            android:id="@+id/textView_movmentArtworkModif"
-            android:layout_below="@+id/textView_typeArtworkModif"
-            android:layout_alignLeft="@+id/textView_typeArtworkModif"
-            android:layout_alignStart="@+id/textView_typeArtworkModif"
-            android:layout_marginTop="35dp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/textView_movmentArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/movement"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/editText_movementArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/description"
-            android:id="@+id/textView_descriptionArtworkModif"
-            android:layout_below="@+id/textView_movmentArtworkModif"
-            android:layout_alignLeft="@+id/textView_movmentArtworkModif"
-            android:layout_alignStart="@+id/textView_movmentArtworkModif"
-            android:layout_marginTop="35dp" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="150dp"
+            <TextView
+                android:id="@+id/textView_descriptionArtworkModif"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/edit_text_descriptionArtworkModify"
+                android:layout_weight="60" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText_nameArtworkModif"
-            android:layout_alignBottom="@+id/textView_nomArtworkModify"
-            android:layout_alignLeft="@+id/edit_text_descriptionArtworkModify"
-            android:layout_alignStart="@+id/edit_text_descriptionArtworkModify" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText_ArtistArtworkCreate"
-            android:layout_alignBottom="@+id/textView_ArtistArtworkModif"
-            android:layout_alignLeft="@+id/editText_nameArtworkModif"
-            android:layout_alignStart="@+id/editText_nameArtworkModif" />
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtworkModify"
+                style="@style/imageButton"
+                android:src="@mipmap/download" />
 
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText_realisationArtworkModif"
-            android:layout_alignBottom="@+id/textView_RealisationArtworkModif"
-            android:layout_alignLeft="@+id/editText_ArtistArtworkCreate"
-            android:layout_alignStart="@+id/editText_ArtistArtworkCreate" />
+            <ImageView
+                android:id="@+id/imageView_photoArtworkModify"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center" />
 
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText_typeArtworkModif"
-            android:layout_alignBottom="@+id/textView_typeArtworkModif"
-            android:layout_alignLeft="@+id/editText_realisationArtworkModif"
-            android:layout_alignStart="@+id/editText_realisationArtworkModif" />
+        </LinearLayout>
 
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText_movementArtworkModif"
-            android:layout_alignBottom="@+id/textView_movmentArtworkModif"
-            android:layout_alignLeft="@+id/edit_text_descriptionArtworkModify"
-            android:layout_alignStart="@+id/edit_text_descriptionArtworkModify" />
-
-        <EditText
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/edit_text_descriptionArtworkModify"
-            android:layout_alignBottom="@+id/textView_descriptionArtworkModif"
-            android:layout_toRightOf="@+id/textView_movmentArtworkModif"
-            android:layout_toEndOf="@+id/textView_movmentArtworkModif"
-            android:layout_below="@+id/editText_movementArtworkModif" />
-
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:id="@+id/imageView_photoArtworktModif"
-            android:layout_alignTop="@+id/textView_nomArtworkModify"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton_btnDownloadArtworktModif"
-            android:layout_alignTop="@+id/textView_typeArtworkModif"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="#0000"
-            android:src="@mipmap/download"/>
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

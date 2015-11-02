@@ -22,74 +22,88 @@
 
         <ImageButton
             android:id="@+id/button_cancelCreate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
+            style="@style/imageButton"
             android:src="@mipmap/cancel" />
 
         <ImageButton
             android:id="@+id/button_saveCreate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:background="#0000"
+            style="@style/imageButton"
             android:onClick="saveModifyRoom"
             android:src="@mipmap/save" />
 
     </LinearLayout>
 
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnCount="2"
-        android:rowCount="3">
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_create_room_name"
-            android:layout_width="80dp"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:text="@string/name" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_create_room_name"
-            android:layout_width="150dp"
+            <TextView
+                android:id="@+id/tv_create_room_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/et_create_room_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="0" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_create_room_size"
-            android:layout_width="80dp"
+            <TextView
+                android:id="@+id/tv_create_room_size"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/size"
+                android:layout_weight="40"
+                android:textColor="#000010"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/et_create_room_size"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="1"
-            android:text="@string/size" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/et_create_room_size"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1" />
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtistCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#0000"
+                android:src="@mipmap/download" />
 
-        <ImageView
-            android:id="@+id/imageView_photoArtistCreate"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_column="1"
-            android:layout_row="2" />
+            <ImageView
+                android:id="@+id/imageView_photoArtistCreate"
+                android:layout_width="130dp"
+                android:layout_height="130dp" />
 
-        <ImageButton
-            android:id="@+id/imageButton_btnDownloadArtistCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="2"
-            android:background="#0000"
-            android:src="@mipmap/download" />
-    </GridLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </LinearLayout>
