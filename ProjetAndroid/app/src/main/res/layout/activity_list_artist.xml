@@ -25,21 +25,22 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <SearchView
+        <!--Dans Action Bar-->
+
+      <!--  <SearchView
             android:id="@+id/edit_text_rechercheArtiste"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="35"
             android:hint="recherche"
             tools:ignore="NewApi"
+            />-->
 
-            />
-
-        <ImageButton
+       <!-- <ImageButton
             android:id="@+id/button_addArtiste"
             style="@style/imageButton"
             android:onClick="addArtist"
-            android:src="@mipmap/add" />
+            android:src="@mipmap/add" />-->
 
     </LinearLayout>
 

@@ -52,6 +52,12 @@ public class Create_artwork extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.cancelartworkcreated_menu:
+                return true;
+
+            case R.id.saveartworkcreated_menu:
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

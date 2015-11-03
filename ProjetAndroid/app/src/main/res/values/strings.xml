@@ -65,4 +65,37 @@
     <string name="title_activity_list_artist">Artists</string>
 
     <string name="title_activity_navigation_control">navigation_control</string>
+
+
+    <!--***********************Menu action bar icon**********************************************-->
+    <string name="addArtist_menu">Add an Artist</string>
+    <string name="search_artist">Search Artist</string>
+    <string name="search_artwork">Search Artwork</string>
+    <string name="addArtwork_menu">Add an Artwork</string>
+    <string name="addExhibition_menu">Add an Exhibition</string>
+    <string name="search_exhibition">Search Exhibition</string>
+    <string name="addRoom_menu">Add a room</string>
+    <string name="search_room">Search Room</string>
+    <string name="backToListArtist_menu">Back to list Artist</string>
+    <string name="modifyArtist_menu">Modify Artist</string>
+    <string name="deleteArtist_menu">Delete Artist</string>
+    <string name="modifyArtwork_menu">Modify Artwork</string>
+    <string name="deleteArtwork_menu">Delete Artwork</string>
+    <string name="modifyRoom_menu">Modify Room</string>
+    <string name="deleteRoom_menu">Delete Room</string>
+    <string name="cancelartistcreated_menu">Cancel Artist created</string>
+    <string name="saveartistcreated_menu">Save Artist created</string>
+    <string name="cancelartworkcreated_menu">Cancel Artwork created</string>
+    <string name="saveartworkcreated_menu">Save Artwork created</string>
+    <string name="cancelroomcreated_menu">Cancel Room created</string>
+    <string name="saveroomcreated_menu">Save Room created</string>
+    <string name="cancelexhibitioncreated_menu">Cancel Exhibition created</string>
+    <string name="saveexhibitioncreated_menu">Save Exhibition created</string>
+    <string name="cancelartistmodified_menu">Cancel Artist modified</string>
+    <string name="saveartistmodified_menu">Save Artist modified</string>
+    <string name="cancelartworkmodified_menu">Cancel Artwork modified</string>
+    <string name="saveartworkmodified_menu">Save Artwork modified</string>
+    <string name="cancelroommodified_menu">Cancel Room modified</string>
+    <string name="saveroommodified_menu">Save Room modified</string>
+
 </resources>

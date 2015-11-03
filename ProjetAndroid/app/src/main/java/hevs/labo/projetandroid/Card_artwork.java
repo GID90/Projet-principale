@@ -52,6 +52,14 @@ public class Card_artwork extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.modifyArtwork_menu:
+                Intent intentmodifyArtwork = new Intent(this, Modify_artwork.class);
+                startActivity(intentmodifyArtwork);
+                return true;
+
+            case R.id.deleteArtwork_menu:
+                return true;
         }
 
 

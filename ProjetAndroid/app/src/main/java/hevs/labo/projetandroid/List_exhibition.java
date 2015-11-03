@@ -48,6 +48,11 @@ public class List_exhibition extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.addExhibition_menu:
+                Intent intentaddExhibition = new Intent(this, Create_exhibition.class);
+                startActivity(intentaddExhibition);
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

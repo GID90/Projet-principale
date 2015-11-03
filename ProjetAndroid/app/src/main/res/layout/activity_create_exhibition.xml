@@ -15,9 +15,8 @@
 
         <TextView
             android:id="@+id/tv_titreCreer"
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="70"
             android:gravity="center"
             android:text="@string/create"
             android:textColor="#048B9A"
@@ -25,7 +24,9 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <ImageButton
+        <!--Dans l'Action bar désormais-->
+
+      <!--  <ImageButton
             android:id="@+id/button_cancelCreate"
             style="@style/imageButton"
             android:src="@mipmap/cancel" />
@@ -35,7 +36,7 @@
             style="@style/imageButton"
             android:onClick="saveCreateExhibition"
             android:src="@mipmap/save" />
-
+-->
     </LinearLayout>
 
     <LinearLayout

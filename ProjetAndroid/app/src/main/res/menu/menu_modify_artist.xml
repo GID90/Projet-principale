@@ -32,4 +32,17 @@
         android:orderInCategory="5"
         app:showAsAction="never"
         />
+
+    <item android:id="@+id/cancelartistmodified_menu"
+        android:title="@string/cancelartistmodified_menu"
+        android:icon="@mipmap/cancelblue"
+        android:orderInCategory="7"
+        app:showAsAction="ifRoom|withText"/>
+
+
+    <item android:id="@+id/saveartistmodified_menu"
+        android:title="@string/saveartistmodified_menu"
+        android:icon="@mipmap/saveblue"
+        android:orderInCategory="8"
+        app:showAsAction="ifRoom|withText"/>
 </menu>

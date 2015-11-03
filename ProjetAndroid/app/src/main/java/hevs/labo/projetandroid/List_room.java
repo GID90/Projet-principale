@@ -112,6 +112,11 @@ public class List_room extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.addRoom_menu:
+                Intent intentaddRoom = new Intent(this, Create_room.class);
+                startActivity(intentaddRoom);
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

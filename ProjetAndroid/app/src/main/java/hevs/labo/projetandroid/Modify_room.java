@@ -51,6 +51,12 @@ public class Modify_room extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.cancelroommodified_menu:
+                return true;
+
+            case R.id.saveroommodified_menu:
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

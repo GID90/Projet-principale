@@ -24,7 +24,9 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <ImageButton
+        <!--Dans Action Bar désormais-->
+
+    <!--   <ImageButton
             android:id="@+id/button_backToList"
             style="@style/imageButton"
             android:src="@mipmap/back" />
@@ -37,7 +39,7 @@
         <ImageButton
             android:id="@+id/button_deleteArtist"
             style="@style/imageButton"
-            android:src="@mipmap/trash" />
+            android:src="@mipmap/trash" /> -->
 
     </LinearLayout>
 

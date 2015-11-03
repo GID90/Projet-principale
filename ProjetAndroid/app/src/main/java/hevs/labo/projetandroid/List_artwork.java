@@ -48,6 +48,11 @@ public class List_artwork extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.addArtwork_menu:
+                Intent intentaddArtworkmenu = new Intent(this, Create_artwork.class);
+                startActivity(intentaddArtworkmenu);
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

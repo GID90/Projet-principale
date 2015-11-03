@@ -52,6 +52,14 @@ public class Card_artist extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.modifyArtist_menu:
+                Intent intentmodifyArtist = new Intent(this, Modify_artist.class);
+                startActivity(intentmodifyArtist);
+                return true;
+
+            case R.id.deleteArtist_menu:
+                return true;
         }
 
 

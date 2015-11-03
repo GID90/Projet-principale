@@ -32,4 +32,17 @@
         android:orderInCategory="5"
         app:showAsAction="never"
         />
+
+    <item android:id ="@+id/addArtwork_menu"
+        android:title="@string/addArtwork_menu"
+        android:icon="@mipmap/addblue"
+        android:orderInCategory="6"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item android:id="@+id/searchArtworkinList"
+        android:title="@string/search_artwork"
+        android:icon="@mipmap/search"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView"/>
+
 </menu>

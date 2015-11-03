@@ -25,7 +25,9 @@
             android:textSize="30dp" />
             android:textSize="30dp" />
 
-        <SearchView
+        <!--Dans Action Bar désormais-->
+
+     <!--   <SearchView
             tools:ignore="NewApi"
             android:id="@+id/edit_text_search_room"
             android:layout_width="0dp"
@@ -39,7 +41,7 @@
             android:id="@+id/button_addRoom"
             style="@style/imageButton"
             android:src="@mipmap/add"
-            android:onClick="addRoom"/>
+            android:onClick="addRoom"/>-->
 
     </LinearLayout>
 

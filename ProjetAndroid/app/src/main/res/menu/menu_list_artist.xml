@@ -1,7 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="hevs.labo.projetandroid.List_artist">
+    tools:context="hevs.labo.projetandroid.List_artist"
+    >
 
     <item android:id="@+id/accueil_menu"
         android:title="@string/home"
@@ -31,5 +32,22 @@
         android:title="@string/settings"
         android:orderInCategory="5"
         app:showAsAction="never"
+
         />
+
+    <item android:id="@+id/addArtist_menu"
+        android:title="@string/addArtist_menu"
+        android:icon="@mipmap/addblue"
+        android:orderInCategory="6"
+        app:showAsAction="ifRoom|withText"
+
+        />
+
+   <item android:d="@+id/searchArtistinList"
+        android:title="@string/search_artist"
+        android:icon="@mipmap/search"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView"/>
+
+
 </menu>

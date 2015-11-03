@@ -71,6 +71,12 @@ public class Create_room extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.cancelexhibitionreated_menu:
+                return true;
+
+            case R.id.saveexhibitioncreated_menu:
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

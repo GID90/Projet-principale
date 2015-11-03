@@ -27,6 +27,8 @@
             android:textSize="30dp"
             android:gravity="center_vertical" />
 
+        <!--Dans l'action bar désormais-->
+<!--
         <ImageButton
             android:id="@+id/button_back_card_room"
             style="@style/imageButton"
@@ -40,7 +42,7 @@
         <ImageButton
             android:id="@+id/button_delete_card_room"
             style="@style/imageButton"
-            android:src="@mipmap/trash" />
+            android:src="@mipmap/trash" /> -->
 
     </LinearLayout>
 

@@ -32,4 +32,17 @@
         android:orderInCategory="5"
         app:showAsAction="never"
         />
+
+    <item android:id="@+id/modifyRoom_menu"
+        android:title="@string/modifyRoom_menu"
+        android:icon="@mipmap/modifyblue"
+        android:orderInCategory="7"
+        app:showAsAction="ifRoom|withText"/>
+
+
+    <item android:id="@+id/deleteRoom_menu"
+        android:title="@string/deleteRoom_menu"
+        android:icon="@mipmap/deleteboxblue"
+        android:orderInCategory="8"
+        app:showAsAction="ifRoom|withText"/>
 </menu>

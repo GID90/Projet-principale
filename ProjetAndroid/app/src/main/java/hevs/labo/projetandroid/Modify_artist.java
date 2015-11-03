@@ -53,6 +53,12 @@ public class Modify_artist extends AppCompatActivity {
                 startActivity(intentsettings);
                 return true;
 
+            case R.id.cancelartistmodified_menu:
+                return true;
+
+            case R.id.saveartistmodified_menu:
+                return true;
+
         }
 
         return (super.onOptionsItemSelected(item));

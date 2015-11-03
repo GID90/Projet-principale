@@ -25,7 +25,9 @@
             android:textColor="#048B9A"
             android:textStyle="bold"/>
 
-        <SearchView
+        <!--Dans Action Bar désormais-->
+
+      <!--  <SearchView
             android:id="@+id/edit_text_rechercheArtiste"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -39,7 +41,7 @@
             android:id="@+id/button_addExhibition"
             style="@style/imageButton"
             android:onClick="addExhibition"
-            android:src="@mipmap/add"/>
+            android:src="@mipmap/add"/> -->
 
     </LinearLayout>
 

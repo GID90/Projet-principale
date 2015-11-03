@@ -32,4 +32,16 @@
         android:orderInCategory="5"
         app:showAsAction="never"
         />
+
+    <item android:id ="@+id/addRoom_menu"
+        android:title="@string/addRoom_menu"
+        android:icon="@mipmap/addblue"
+        android:orderInCategory="6"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item android:id="@+id/searchRoominList"
+        android:title="@string/search_room"
+        android:icon="@mipmap/search"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView"/>
 </menu>

@@ -14,9 +14,8 @@
 
         <TextView
             android:id="@+id/title_createArtwork"
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="70"
             android:text="@string/create"
             android:textSize="30dp"
             android:textColor="#048B9A"
@@ -24,7 +23,9 @@
             android:typeface="serif"
             android:gravity="center"/>
 
-        <ImageButton
+        <!--Dans l'Action bar désormais-->
+
+      <!--  <ImageButton
             android:id="@+id/button_cancelCreateArtwork"
             style="@style/imageButton"
             android:src="@mipmap/cancel" />
@@ -32,7 +33,7 @@
         <ImageButton
             android:id="@+id/button_saveCreateArtwork"
             style="@style/imageButton"
-            android:src="@mipmap/save" />
+            android:src="@mipmap/save" /> -->
 
     </LinearLayout>
 

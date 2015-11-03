@@ -13,14 +13,18 @@
 
         <TextView
             android:id="@+id/title_modifyArtwork"
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="70"
             android:gravity="center"
             android:text="@string/modify_artwork"
-            android:textSize="20dp" />
+            android:textColor="#048B9A"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
-        <ImageButton
+        <!--Dans Action Bar désormais-->
+
+     <!--   <ImageButton
             android:id="@+id/button_cancelModifArtwork"
             style="@style/imageButton"
             android:src="@mipmap/cancel" />
@@ -28,7 +32,7 @@
         <ImageButton
             android:id="@+id/button_saveModifArtwork"
             style="@style/imageButton"
-            android:src="@mipmap/save" />
+            android:src="@mipmap/save" /> -->
 
     </LinearLayout>
 

@@ -52,6 +52,14 @@ public class Card_room extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.modifyRoom_menu:
+                Intent intentmodifyRoom = new Intent(this, Modify_room.class);
+                startActivity(intentmodifyRoom);
+                return true;
+
+            case R.id.deleteRoom_menu:
+                return true;
         }
 
         return (super.onOptionsItemSelected(item));

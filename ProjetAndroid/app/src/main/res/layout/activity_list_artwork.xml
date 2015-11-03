@@ -26,7 +26,9 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <SearchView
+        <!--Dans Action Bar désormais-->
+
+      <!--  <SearchView
             android:id="@+id/edit_text_rechercheArtWork"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -40,7 +42,7 @@
             android:id="@+id/button_addArtWork"
             style="@style/imageButton"
             android:onClick="addArtwork"
-            android:src="@mipmap/add" />
+            android:src="@mipmap/add" /> -->
 
     </LinearLayout>
 

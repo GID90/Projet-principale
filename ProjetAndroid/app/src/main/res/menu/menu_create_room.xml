@@ -32,4 +32,18 @@
         android:orderInCategory="5"
         app:showAsAction="never"
         />
+
+    <item android:id="@+id/cancelroomcreated_menu"
+        android:title="@string/cancelroomcreated_menu"
+        android:icon="@mipmap/cancelblue"
+        android:orderInCategory="7"
+        app:showAsAction="ifRoom|withText"/>
+
+
+    <item android:id="@+id/saveroomcreated_menu"
+        android:title="@string/saveroomcreated_menu"
+        android:icon="@mipmap/saveblue"
+        android:orderInCategory="8"
+        app:showAsAction="ifRoom|withText"/>
+
 </menu>

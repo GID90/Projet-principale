@@ -52,6 +52,12 @@ public class Modify_artwork extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.cancelartworkmodified_menu:
+                return true;
+
+            case R.id.saveartworkmodified_menu:
+                return true;
         }
 
 

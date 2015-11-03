@@ -87,7 +87,14 @@ public class Create_artist extends Activity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.cancelartistcreated_menu:
+                return true;
+
+            case R.id.saveartistcreated_menu:
+                return true;
         }
+
 
 
 

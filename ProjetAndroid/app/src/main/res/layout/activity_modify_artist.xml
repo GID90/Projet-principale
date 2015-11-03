@@ -24,7 +24,9 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <ImageButton
+        <!--Dans Action Bar désormais-->
+
+  <!--      <ImageButton
             android:id="@+id/button_cancelModif"
             style="@style/imageButton"
             android:src="@mipmap/cancel" />
@@ -32,7 +34,7 @@
         <ImageButton
             android:id="@+id/button_saveModif"
             style="@style/imageButton"
-            android:src="@mipmap/save" />
+            android:src="@mipmap/save" /> -->
 
     </LinearLayout>
 

@@ -14,17 +14,18 @@
 
         <TextView
             android:id="@+id/tv_create_room"
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="70"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/create"
             android:textColor="#048B9A"
             android:textSize="30dp"
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <ImageButton
+        <!--Dans l'action bar désormais-->
+
+    <!--    <ImageButton
             android:id="@+id/button_cancelCreate"
             style="@style/imageButton"
             android:src="@mipmap/cancel" />
@@ -33,7 +34,7 @@
             android:id="@+id/button_saveCreate"
             style="@style/imageButton"
             android:onClick="saveCreateRoom"
-            android:src="@mipmap/save" />
+            android:src="@mipmap/save" /> -->
 
     </LinearLayout>
 

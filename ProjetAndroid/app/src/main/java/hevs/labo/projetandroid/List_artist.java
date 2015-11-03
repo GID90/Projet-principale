@@ -129,6 +129,11 @@ public class List_artist extends AppCompatActivity {
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
                 return true;
+
+            case R.id.addArtist_menu:
+                Intent intentaddArtistmenu = new Intent(this, Create_artist.class);
+                startActivity(intentaddArtistmenu);
+                return true;
         }
 
 

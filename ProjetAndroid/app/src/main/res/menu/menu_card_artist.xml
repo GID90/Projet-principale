@@ -32,4 +32,26 @@
         android:orderInCategory="5"
         app:showAsAction="never"
         />
+
+    <!--We don't need the button to come back because it is already in the bottom (standard android)-->
+   <!-- <item android:id="@+id/backToListArtist_menu"
+        android:title="@string/backToListArtist_menu"
+        android:icon="@mipmap/backblue"
+        android:orderInCategory="6"
+        app:showAsAction="ifRoom|withText"
+        />-->
+
+    <item android:id="@+id/modifyArtist_menu"
+        android:title="@string/modifyArtist_menu"
+        android:icon="@mipmap/modifyblue"
+        android:orderInCategory="7"
+        app:showAsAction="ifRoom|withText"/>
+
+
+    <item android:id="@+id/deleteArtist_menu"
+        android:title="@string/deleteArtist_menu"
+        android:icon="@mipmap/deleteboxblue"
+        android:orderInCategory="8"
+        app:showAsAction="ifRoom|withText"/>
+
 </menu>
