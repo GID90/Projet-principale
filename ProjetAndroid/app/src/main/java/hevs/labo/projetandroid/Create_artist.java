@@ -25,7 +25,7 @@ public class Create_artist extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_artist);
 
-        saveArtist = (ImageButton)findViewById(R.id.button_saveCreate);
+       // saveArtist = (ImageButton)findViewById(R.id.button_saveCreate);
         firstname = (EditText)findViewById(R.id.editText_nomArtistCreate);
         lastname = (EditText) findViewById(R.id.editText_prenomArtistCreate);
         pseudo = (EditText) findViewById(R.id.editText_pseudoArtistCreate);

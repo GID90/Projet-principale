@@ -42,7 +42,9 @@
     <item android:id="@+id/searchArtworkinList"
         android:title="@string/search_artwork"
         android:icon="@mipmap/search"
-        android:showAsAction="collapseActionView|ifRoom"
+
         android:actionViewClass="android.widget.SearchView"/>
+
+    <!--android:showAsAction="collapseActionView|ifRoom"-->
 
 </menu>

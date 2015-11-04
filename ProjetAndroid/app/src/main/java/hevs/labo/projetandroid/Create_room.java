@@ -20,7 +20,7 @@ public class Create_room extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_room);
 
-        saveRoom = (ImageButton) findViewById(R.id.button_saveCreate);
+      //  saveRoom = (ImageButton) findViewById(R.id.button_saveCreate);
         name = (EditText) findViewById(R.id.et_create_room_name);
         size = (EditText) findViewById(R.id.et_create_room_size);
     }
