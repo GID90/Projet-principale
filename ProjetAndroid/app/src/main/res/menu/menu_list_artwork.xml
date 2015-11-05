@@ -15,28 +15,22 @@
         app:showAsAction="never"
         />
 
-    <item android:id="@+id/list_artwork_menu"
-        android:title="@string/artworks"
-        android:orderInCategory="3"
-        app:showAsAction="never"
-        />
-
     <item android:id="@+id/exposition_menu"
         android:title="@string/exhibitions"
-        android:orderInCategory="4"
+        android:orderInCategory="3"
         app:showAsAction="never"
         />
 
     <item android:id="@+id/parametres_menu"
         android:title="@string/settings"
-        android:orderInCategory="5"
+        android:orderInCategory="4"
         app:showAsAction="never"
         />
 
     <item android:id ="@+id/addArtwork_menu"
         android:title="@string/addArtwork_menu"
         android:icon="@mipmap/addblue"
-        android:orderInCategory="6"
+        android:orderInCategory="5"
         app:showAsAction="ifRoom|withText"/>
 
     <item android:id="@+id/searchArtworkinList"

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
@@ -49,6 +50,22 @@ public class List_room extends AppCompatActivity {
         room.setSelected(false);
 
         listView = (ListView) findViewById(R.id.listView_room);
+
+        listView.setClickable(true);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Object o = listView.getItemAtPosition(position);
+
+                Intent intent = new Intent(List_room.this, Card_room.class);
+
+                startActivity(intent);
+            }
+        });
+
         listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
         listView.setTextFilterEnabled(true);
 
@@ -88,26 +105,6 @@ public class List_room extends AppCompatActivity {
 
         switch (item.getItemId()){
 
-            case R.id.accueil_menu:
-                Intent intenthome = new Intent(this, MainActivity.class);
-                startActivity(intenthome);
-                return true;
-
-            case R.id.artist_menu:
-                Intent intentartist = new Intent(this, List_artist.class);
-                startActivity(intentartist);
-                return true;
-
-            case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, List_artwork.class);
-                startActivity(intentartwork);
-                return true;
-
-            case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, List_exhibition.class);
-                startActivity(intentexhibition);
-                return true;
-
             case R.id.parametres_menu:
                 Intent intentsettings = new Intent(this, Settings.class);
                 startActivity(intentsettings);
@@ -123,10 +120,10 @@ public class List_room extends AppCompatActivity {
     }
 
     public void addRoom(View view){
-
-
         Intent intent = new Intent(this, Create_room.class);
 
         startActivity(intent);
     }
+
+
 }

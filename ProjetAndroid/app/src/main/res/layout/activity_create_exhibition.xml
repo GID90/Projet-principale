@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundcard"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.create_exhibition">
+    tools:context="hevs.labo.projetandroid.Create_exhibition">
 
     <!--1ère ligne : nom de l'expo, bouton annuler, bouton sauvegarder-->
     <LinearLayout

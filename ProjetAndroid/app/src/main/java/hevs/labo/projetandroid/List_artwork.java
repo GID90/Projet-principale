@@ -57,10 +57,4 @@ public class List_artwork extends AppCompatActivity {
 
         return (super.onOptionsItemSelected(item));
     }
-
-    public void addArtwork(View view){
-        Intent intent = new Intent(this, Create_artwork.class);
-
-        startActivity(intent);
-    }
 }

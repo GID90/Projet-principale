@@ -62,47 +62,60 @@
         <activity
             android:name=".Modify_artist"
             android:label="@string/title_activity_modify_artist"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".Card_artist" >
         </activity>
         <activity
             android:name=".Card_artwork"
-            android:label="@string/title_activity_card_artwork" >
+            android:label="@string/title_activity_card_artwork"
+            android:parentActivityName=".List_artwork" >
         </activity>
         <activity
             android:name=".Modify_artwork"
-            android:label="@string/title_activity_modify_artwork" >
+            android:label="@string/title_activity_modify_artwork"
+            android:parentActivityName=".Card_artwork" >
         </activity>
         <activity
             android:name=".Create_artwork"
-            android:label="@string/title_activity_create_artwork" >
+            android:label="@string/title_activity_create_artwork"
+            android:parentActivityName=".List_artwork" >
         </activity>
         <activity
             android:name=".List_room"
             android:label="@string/title_activity_list_room"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity">
-           <meta-data
+            android:parentActivityName=".Settings">
+            <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="hevs.labo.projetandroid.MainActivity" />
         </activity>
         <activity
-            android:name=".Create_room" >
+            android:name=".Create_room"
+            android:label="@string/title_activity_create_room"
+            android:parentActivityName=".List_room" >
         </activity>
         <activity
-            android:name=".Card_room" >
+            android:name=".Card_room"
+            android:label="@string/title_activity_card_room"
+            android:parentActivityName=".List_room" >
         </activity>
         <activity
-            android:name=".Modify_room" >
+            android:name=".Modify_room"
+            android:label="@string/title_activity_modify_room"
+            android:parentActivityName=".Card_room" >
         </activity>
         <activity
             android:name=".Settings"
+            android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".List_exhibition"
+            android:label="@string/title_activity_list_exhibition"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".Create_exhibition"
+            android:label="@string/title_activity_create_exhibition"
             android:parentActivityName=".List_exhibition">
         </activity>
     </application>

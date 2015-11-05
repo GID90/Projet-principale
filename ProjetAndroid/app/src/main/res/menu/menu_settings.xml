@@ -26,10 +26,4 @@
         android:orderInCategory="4"
         app:showAsAction="never"
         />
-
-    <item android:id="@+id/parametres_menu"
-        android:title="@string/settings"
-        android:orderInCategory="5"
-        app:showAsAction="never"
-        />
 </menu>

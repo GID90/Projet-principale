@@ -57,10 +57,4 @@ public class List_exhibition extends AppCompatActivity {
 
         return (super.onOptionsItemSelected(item));
     }
-
-    public void addExhibition(View view){
-        Intent intent = new Intent(this, Create_exhibition.class);
-
-        startActivity(intent);
-    }
 }

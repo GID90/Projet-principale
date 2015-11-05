@@ -21,22 +21,16 @@
         app:showAsAction="never"
         />
 
-    <item android:id="@+id/exposition_menu"
-        android:title="@string/exhibitions"
-        android:orderInCategory="4"
-        app:showAsAction="never"
-        />
-
     <item android:id="@+id/parametres_menu"
         android:title="@string/settings"
-        android:orderInCategory="5"
+        android:orderInCategory="4"
         app:showAsAction="never"
         />
 
     <item android:id ="@+id/addExhibition_menu"
         android:title="@string/addExhibition_menu"
         android:icon="@mipmap/addblue"
-        android:orderInCategory="6"
+        android:orderInCategory="5"
         app:showAsAction="ifRoom|withText"/>
 
     <item android:id="@+id/searchExhibitioninList"

@@ -3,46 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="hevs.labo.projetandroid.Card_room">
 
-    <item android:id="@+id/accueil_menu"
-        android:title="@string/home"
+    <item android:id="@+id/rooms_menu"
+        android:title="@string/rooms"
         android:orderInCategory="1"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/artist_menu"
-        android:title="@string/artists"
-        android:orderInCategory="2"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/list_artwork_menu"
-        android:title="@string/artworks"
-        android:orderInCategory="3"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/exposition_menu"
-        android:title="@string/exhibitions"
-        android:orderInCategory="4"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/parametres_menu"
-        android:title="@string/settings"
-        android:orderInCategory="5"
         app:showAsAction="never"
         />
 
     <item android:id="@+id/modifyRoom_menu"
         android:title="@string/modifyRoom_menu"
         android:icon="@mipmap/modifyblue"
-        android:orderInCategory="7"
+        android:orderInCategory="2"
         app:showAsAction="ifRoom|withText"/>
 
 
     <item android:id="@+id/deleteRoom_menu"
         android:title="@string/deleteRoom_menu"
         android:icon="@mipmap/deleteboxblue"
-        android:orderInCategory="8"
+        android:orderInCategory="3"
         app:showAsAction="ifRoom|withText"/>
 </menu>

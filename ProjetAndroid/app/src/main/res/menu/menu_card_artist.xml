@@ -3,55 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="hevs.labo.projetandroid.Card_artist">
 
-    <item android:id="@+id/accueil_menu"
-        android:title="@string/home"
+    <item android:id="@+id/artist_menu"
+        android:title="@string/artists"
         android:orderInCategory="1"
         app:showAsAction="never"
         />
 
-    <item android:id="@+id/artist_menu"
-        android:title="@string/artists"
-        android:orderInCategory="2"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/list_artwork_menu"
-        android:title="@string/artworks"
-        android:orderInCategory="3"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/exposition_menu"
-        android:title="@string/exhibitions"
-        android:orderInCategory="4"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/parametres_menu"
-        android:title="@string/settings"
-        android:orderInCategory="5"
-        app:showAsAction="never"
-        />
-
-    <!--We don't need the button to come back because it is already in the bottom (standard android)-->
-   <!-- <item android:id="@+id/backToListArtist_menu"
-        android:title="@string/backToListArtist_menu"
-        android:icon="@mipmap/backblue"
-        android:orderInCategory="6"
-        app:showAsAction="ifRoom|withText"
-        />-->
-
     <item android:id="@+id/modifyArtist_menu"
         android:title="@string/modifyArtist_menu"
         android:icon="@mipmap/modifyblue"
-        android:orderInCategory="7"
+        android:orderInCategory="2"
         app:showAsAction="ifRoom|withText"/>
 
 
     <item android:id="@+id/deleteArtist_menu"
         android:title="@string/deleteArtist_menu"
         android:icon="@mipmap/deleteboxblue"
-        android:orderInCategory="8"
+        android:orderInCategory="3"
         app:showAsAction="ifRoom|withText"/>
 
 </menu>

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
@@ -28,10 +29,10 @@ public class List_artist extends AppCompatActivity {
     String[] tabArtistCreated;
     int tabSize;
 
-    int cpt= 0;
+    int cpt = 0;
     CheckBox box;
 
-    String[]valeurstest = {"Lus", "Jean", "Paul"};
+    String[] valeurstest = {"Lus", "Jean", "Paul"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,21 @@ public class List_artist extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.list);
 
+        listView.setClickable(true);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Object o = listView.getItemAtPosition(position);
+
+                Intent intent = new Intent(List_artist.this, Card_artist.class);
+
+                startActivity(intent);
+            }
+        });
+
         listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
 
         listView.setTextFilterEnabled(true);
@@ -63,7 +79,7 @@ public class List_artist extends AppCompatActivity {
 
         tabArtistCreated = new String[listArtistCreated.size()];
 
-        for(int i = 0; i<tabArtistCreated.length; i++){
+        for (int i = 0; i < tabArtistCreated.length; i++) {
             tabArtistCreated[i] = listArtistCreated.get(i).toString() + cpt;
         }
 
@@ -86,10 +102,10 @@ public class List_artist extends AppCompatActivity {
     }*/
 
 
-    public void initPanel(){
+    public void initPanel() {
 
-           tabArtistCreated = new String[listArtistCreated.size()];
-        for(int i = 0; i<tabArtistCreated.length; i++){
+        tabArtistCreated = new String[listArtistCreated.size()];
+        for (int i = 0; i < tabArtistCreated.length; i++) {
             tabArtistCreated[i] = listArtistCreated.get(i).toString();
         }
 
@@ -108,18 +124,18 @@ public class List_artist extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.accueil_menu:
                 Intent intenthome = new Intent(this, MainActivity.class);
                 startActivity(intenthome);
-               return true;
+                return true;
 
             case R.id.list_artwork_menu:
                 Intent intentartwork = new Intent(this, List_artwork.class);
                 startActivity(intentartwork);
                 return true;
-            
+
             case R.id.exposition_menu:
                 Intent intentexhibition = new Intent(this, List_exhibition.class);
                 startActivity(intentexhibition);
@@ -136,18 +152,6 @@ public class List_artist extends AppCompatActivity {
                 return true;
         }
 
-
-
         return (super.onOptionsItemSelected(item));
-    }
-
-
-    public void addArtist(View view){
-
-
-        Intent intent = new Intent(this, Create_artist.class);
-
-        startActivity(intent);
-
     }
 }

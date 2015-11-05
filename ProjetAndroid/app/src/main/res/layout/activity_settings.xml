@@ -8,28 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity">
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_title_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/settings"
-            android:textColor="#048B9A"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:typeface="serif" />
-    </LinearLayout>
+    tools:context="hevs.labo.projetandroid.Settings">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,10 +27,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="15dp"
+                android:layout_weight="40"
                 android:text="@string/language"
                 android:textColor="#000010"
-                android:textSize="20dp"
-                android:layout_weight="40"/>
+                android:textSize="20dp" />
 
             <RadioGroup
                 android:id="@+id/rg_settings"
@@ -93,21 +72,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="15dp"
+                android:layout_weight="40"
                 android:text="@string/rooms"
                 android:textColor="#000010"
-                android:textSize="20dp"
-                android:layout_weight="40"/>
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/button_manage_rooms"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="60"
                 android:onClick="show_list_room"
-                android:text="@string/manage"
-                android:layout_weight="60"/>
+                android:text="@string/manage" />
 
         </LinearLayout>
 
     </LinearLayout>
 
 </LinearLayout>
+
+

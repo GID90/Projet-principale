@@ -3,22 +3,19 @@ package hevs.labo.projetandroid;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-public class Create_artist extends Activity {
+public class Create_artist extends AppCompatActivity {
 
     private ImageButton saveArtist;
     private EditText firstname;
     private EditText lastname;
     private EditText pseudo;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +26,6 @@ public class Create_artist extends Activity {
         firstname = (EditText)findViewById(R.id.editText_nomArtistCreate);
         lastname = (EditText) findViewById(R.id.editText_prenomArtistCreate);
         pseudo = (EditText) findViewById(R.id.editText_pseudoArtistCreate);
-
-
-
     }
 
 
@@ -42,11 +36,6 @@ public class Create_artist extends Activity {
         intent.putExtra("pseudo", pseudo.getText().toString());
 
         Create_artist.this.startActivity(intent);
-
-
-
-
-
     }
 
     @Override
@@ -63,29 +52,9 @@ public class Create_artist extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()){
 
-            case R.id.accueil_menu:
-                Intent intenthome = new Intent(this, MainActivity.class);
-                startActivity(intenthome);
-                return true;
-
             case R.id.artist_menu:
                 Intent intentartist = new Intent(this, List_artist.class);
                 startActivity(intentartist);
-                return true;
-
-            case R.id.list_artwork_menu:
-                Intent intentartwork = new Intent(this, List_artwork.class);
-                startActivity(intentartwork);
-                return true;
-
-            case R.id.exposition_menu:
-                Intent intentexhibition = new Intent(this, List_exhibition.class);
-                startActivity(intentexhibition);
-                return true;
-
-            case R.id.parametres_menu:
-                Intent intentsettings = new Intent(this, Settings.class);
-                startActivity(intentsettings);
                 return true;
 
             case R.id.cancelartistcreated_menu:
@@ -95,10 +64,6 @@ public class Create_artist extends Activity {
                 return true;
         }
 
-
-
-
         return (super.onOptionsItemSelected(item));
-
     }
 }

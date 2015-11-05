@@ -56,15 +56,20 @@
     <string name="title_activity_list_artwork">Artworks</string>
 
     <string name="title_activity_list_room">Rooms</string>
+    <string name="title_activity_create_room">Create room</string>
+    <string name="title_activity_modify_room">Modify room</string>
+    <string name="title_activity_card_room">Room</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="title_activity_list_exhibition">Exhibitions</string>
+    <string name="title_activity_create_exhibition">Create exhibition</string>
+    <string name="title_activity_card_exhibition">Exhibition</string>
+
+    <string name="title_activity_settings">Settings</string>
 
     <string name="title_activity_card_artist">Artist</string>
     <string name="title_activity_modify_artist">Modify artist</string>
     <string name="title_activity_create_artist">Create artists</string>
     <string name="title_activity_list_artist">Artists</string>
-
-    <string name="title_activity_navigation_control">navigation_control</string>
 
 
     <!--***********************Menu action bar icon**********************************************-->

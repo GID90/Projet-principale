@@ -94,17 +94,10 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <!--  <CheckedTextView
-              android:id="@+id/list_artiste"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical">
-          </CheckedTextView> -->
-
         <ListView
             android:id="@+id/listView_room"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
+            android:layout_height="wrap_content"/>
 
     </ScrollView>
 
