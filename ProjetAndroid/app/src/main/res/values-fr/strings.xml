@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Galerie d\'art</string>
+
+    <string name="artist">Artiste</string>
+    <string name="artists">Artistes</string>
+
+    <string name="artwork">Oeuvre</string>
+    <string name="artworks">Oeuvres</string>
+
+    <string name="room">Salle</string>
+    <string name="rooms">Salles</string>
+
+    <string name="exhibition">Exposition</string>
+    <string name="exhibitions">Expositions</string>
+
+    <string name="home">Accueil</string>
+    <string name="settings">Paramètres</string>
+    <string name="description">Description</string>
+    <string name="movement">Mouvement</string>
+    <string name="list">Liste</string>
+    <string name="name">Nom</string>
+    <string name="lastname">Nom</string>
+    <string name="firstname">Prénom</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="firstname_lastname_pseudo">Nom Prénom / Pseudo</string>
+    <string name="type">Type</string>
+    <string name="manage">Gérer</string>
+    <string name="save">Enregistrer</string>
+    <string name="create">Créer</string>
+    <string name="create_artist">Créer artiste</string>
+    <string name="create_artwork">Créer oeuvre</string>
+    <string name="create_room">Créer salle</string>
+    <string name="modify">Modifier</string>
+    <string name="modify_artist">Modifier artiste</string>
+    <string name="modify_artwork">Modifier oeuvre</string>
+    <string name="modify_room">Modifier salle</string>
+    <string name="exposed">Exposé</string>
+    <string name="creation_year">Année de création</string>
+    <string name="occupated">Occupée</string>
+    <string name="size">Taille</string>
+    <string name="birthdate">Naissance</string>
+    <string name="deathdate">Décès</string>
+    <string name="language">Langue</string>
+    <string name="french">Français</string>
+    <string name="german">Allemand</string>
+    <string name="english">Anglais</string>
+    <string name="gallery_state">Etat actuel de la galerie</string>
+    <string name="artwork_exposed">Oeuvres exposées : </string>
+    <string name="artist_exposed">Artistes exposés : </string>
+    <string name="room_used">Salles occupées : </string>
+
+    <!--**********************Manifest***********************************************************-->
+    <string name="title_activity_card_artwork">Oeuvre art</string>
+    <string name="title_activity_modify_artwork">Modifier oeuvre art</string>
+    <string name="title_activity_create_artwork">Creer oeuvre art</string>
+    <string name="title_activity_list_room">Salles</string>
+    <string name="action_settings">Parametres</string>
+    <string name="title_activity_create_artist">Creer artiste</string>
+    <string name="title_activity_card_artist">Artiste</string>
+    <string name="title_activity_list_artist">Liste des artistes</string>
+    <string name="title_activity_list_artwork">Liste des oeuvres</string>
+    <string name="title_activity_modify_artist">Modifier artiste</string>
+    <string name="title_activity_navigation_control">navigation_control</string>
+</resources>

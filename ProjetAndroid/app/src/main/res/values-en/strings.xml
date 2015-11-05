@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Art gallery</string>
+
+    <string name="artist">Artist</string>
+    <string name="artists">Artists</string>
+
+    <string name="artwork">Artwork</string>
+    <string name="artworks">Artworks</string>
+
+    <string name="room">Room</string>
+    <string name="rooms">Rooms</string>
+
+    <string name="exhibition">Exhibition</string>
+    <string name="exhibitions">Exhibitions</string>
+
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="description">Description</string>
+    <string name="movement">Movement</string>
+    <string name="list">List</string>
+    <string name="name">Name</string>
+    <string name="lastname">Lastname</string>
+    <string name="firstname">Firstname</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="firstname_lastname_pseudo">Lastname Firstname / Pseudo</string>
+    <string name="type">Type</string>
+    <string name="manage">Manage</string>
+    <string name="save">Save</string>
+    <string name="create">Create</string>
+    <string name="create_artist">Create artist</string>
+    <string name="create_artwork">Create artwork</string>
+    <string name="create_room">Create room</string>
+    <string name="modify">Modify</string>
+    <string name="modify_artist">Modify artist</string>
+    <string name="modify_artwork">Modify artwork</string>
+    <string name="modify_room">Modify room</string>
+    <string name="exposed">Exposed</string>
+    <string name="creation_year">Creation year</string>
+    <string name="occupated">Occupated</string>
+    <string name="size">Size</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="deathdate">Deathdate</string>
+    <string name="language">Language</string>
+    <string name="french">French</string>
+    <string name="german">German</string>
+    <string name="english">English</string>
+    <string name="gallery_state">Current gallery state</string>
+    <string name="artwork_exposed">Artworks exposed : </string>
+    <string name="artist_exposed">Artists exposed : </string>
+    <string name="room_used">Rooms occupated : </string>
+
+    <!--**********************Manifest***********************************************************-->
+    <string name="title_activity_card_artwork">Artwork</string>
+    <string name="title_activity_modify_artwork">Modify artwork</string>
+    <string name="title_activity_create_artwork">Create artwork</string>
+    <string name="title_activity_list_artwork">Artworks</string>
+
+    <string name="title_activity_list_room">Rooms</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_card_artist">Artist</string>
+    <string name="title_activity_modify_artist">Modify artist</string>
+    <string name="title_activity_create_artist">Create artists</string>
+    <string name="title_activity_list_artist">Artists</string>
+
+    <string name="title_activity_navigation_control">navigation_control</string>
+</resources>
