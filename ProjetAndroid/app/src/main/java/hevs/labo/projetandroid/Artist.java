@@ -2,6 +2,8 @@ package hevs.labo.projetandroid;
 
 import android.widget.CheckBox;
 
+import java.util.Date;
+
 /**
  * Created by Darlène on 23.10.2015.
  */
@@ -10,15 +12,12 @@ public class Artist {
     private String firstname;
     private String lastname;
     private String pseudo;
-    private String birth;
-    private String death;
+    private Date birth;
+    private Date death;
     private String movement;
     boolean selected;
 
-
-    public  Artist(){
-
-    }
+    public  Artist(){}
 
     public Artist(String firstname, String lastname, String pseudo, boolean selected){/* String birth, String death, String movement**/
         this.firstname = firstname;
@@ -55,11 +54,11 @@ public class Artist {
         this.pseudo = pseudo;
     }
 
-    public void setBirth(String birth){
+    public void setBirth(Date birth){
         this.birth = birth;
     }
 
-    public void setDeath(String death){
+    public void setDeath(Date death){
         this.death = death;
     }
 
@@ -79,11 +78,11 @@ public class Artist {
         return pseudo;
     }
 
-    public String getBirth(){
+    public Date getBirth(){
         return birth;
     }
 
-    public String getDeath(){
+    public Date getDeath(){
         return  death;
     }
 
