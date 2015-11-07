@@ -5,16 +5,19 @@ package hevs.labo.projetandroid.database.Object;
  */
 public class Room {
 
+    private int id;
     private String name;
     private double size;
+    private String image_path;
     private boolean selected;
 
     public Room() {}
 
-    public Room(String name, double size, boolean selected) {
+    public Room(String name, double size, boolean selected, String image_path) {
         this.name = name;
         this.size = size;
         this.selected = selected;
+        this.image_path = image_path;
     }
 
     public String getName() { return name; }
@@ -28,6 +31,14 @@ public class Room {
     public boolean isSelected() { return selected; }
 
     public void setSelected(boolean selected) { this.selected = selected; }
+
+    public String getImage_path() {return image_path; }
+
+    public void setImage_path(String image_path) { this.image_path = image_path; }
+
+    public int getId(){ return id; }
+
+    public void setId(int id) { this.id = id; }
 
     @Override
     public String toString() {
