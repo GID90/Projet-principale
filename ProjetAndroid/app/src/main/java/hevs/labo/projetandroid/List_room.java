@@ -14,6 +14,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import hevs.labo.projetandroid.database.object.Room;
+
 public class List_room extends AppCompatActivity {
 
     String name;
