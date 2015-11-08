@@ -1,21 +1,21 @@
 package hevs.labo.projetandroid.database.Object;
 
-import android.widget.CheckBox;
-
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Darlène on 23.10.2015.
  */
 public class Artist {
 
+    private int id;
     private String firstname;
     private String lastname;
     private String pseudo;
-    private Date birth;
-    private Date death;
+    private String birth;
+    private String death;
     private String movement;
-    boolean selected;
+    private String image_path;
+    private boolean exposed;
 
     public  Artist(){}
 
@@ -23,7 +23,7 @@ public class Artist {
         this.firstname = firstname;
         this.lastname = lastname;
         this.pseudo = pseudo;
-        this.selected = selected;
+        this.exposed = selected;
 
 
       /*  this.birth = birth;
@@ -35,11 +35,14 @@ public class Artist {
         return firstname + "    " + lastname + "    /   " + pseudo;
     }
 
-    public boolean isSelected(){
-        return selected;
+    public boolean isExposed(){
+        return exposed;
     }
-    public void setSelected(boolean selected){
-        this.selected = selected;
+
+    public void setId(int id) { this.id = id; }
+
+    public void setExposed(boolean selected){
+        this.exposed = selected;
     }
 
     public void setFirstname(String firstname){
@@ -54,17 +57,21 @@ public class Artist {
         this.pseudo = pseudo;
     }
 
-    public void setBirth(Date birth){
+    public void setBirth(String birth){
         this.birth = birth;
     }
 
-    public void setDeath(Date death){
+    public void setDeath(String death){
         this.death = death;
     }
+
+    public void setImage_path(String image_path) { this.image_path = image_path; }
 
     public  void setMovement(String movement){
         this.movement = movement;
     }
+
+    public int getId() { return id; }
 
     public String getFirstname(){
         return firstname;
@@ -78,15 +85,17 @@ public class Artist {
         return pseudo;
     }
 
-    public Date getBirth(){
+    public String getBirth(){
         return birth;
     }
 
-    public Date getDeath(){
+    public String getDeath(){
         return  death;
     }
 
     public String getMovement(){
         return  movement;
     }
+
+    public String getImage_path() { return image_path; }
 }

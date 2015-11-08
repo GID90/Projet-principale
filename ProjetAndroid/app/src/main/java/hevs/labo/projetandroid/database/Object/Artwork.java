@@ -20,7 +20,6 @@ public class Artwork {
         this.type = type;
         this.exposed = exposed;
         this.image_path = image_path;
-
     }
 
     public void setId(int id) {this.id = id; }
@@ -43,6 +42,4 @@ public class Artwork {
 
     public void setForeign_key_Room_id(int foreign_key_Room_id) {this.foreign_key_Room_id = foreign_key_Room_id; }
     public int getForeign_key_Room_id(){ return foreign_key_Room_id; }
-
-
 }

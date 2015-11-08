@@ -85,7 +85,7 @@ public final class ArtGalleryContract {
                 + TABLE_ROOM + "("
                 + Room.KEY_ID + " INTEGER PRIMARY KEY, "
                 + Room.KEY_NAME + " TEXT, "
-                + Room.KEY_SIZE + " TEXT, "
+                + Room.KEY_SIZE + " DOUBLE, "
                 + Room.KEY_OCCUPATED + " BOOLEAN, "
                 + Room.KEY_IMAGE_PATH + " TEXT "
                 + ");";
