@@ -11,10 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
-
 import java.util.ArrayList;
 
-import hevs.labo.projetandroid.database.object.Artist;
+import hevs.labo.projetandroid.database.Object.Artist;
 
 public class List_artist extends AppCompatActivity {
 
@@ -52,7 +51,7 @@ public class List_artist extends AppCompatActivity {
         artist.setFirstname(firstname);
         artist.setLastname(lastname);
         artist.setPseudo(pseudo);
-        artist.setSelected(false);
+        artist.setExposed(false);
 
         listView = (ListView) findViewById(R.id.list);
 

@@ -7,12 +7,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import hevs.labo.projetandroid.database.Object.Artwork;
+import hevs.labo.projetandroid.database.SQLiteHelper;
+import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
+
 public class List_artwork extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_artwork);
+
+        ArtworkDataSource ads = new ArtworkDataSource(this);
+
+        Artwork artwork;
+
+
+
+        //close db instance
+        SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
+        sqlHelper.getWritableDatabase().close();
     }
 
     @Override

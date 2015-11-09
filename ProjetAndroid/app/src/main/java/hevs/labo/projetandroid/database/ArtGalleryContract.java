@@ -27,7 +27,7 @@ public final class ArtGalleryContract {
         public static final String KEY_IMAGE_PATH = "image_path";
 
         //Table artist create statement
-        public static final String CREATE_TABLE_ARTIST = "CREATE TABLE"
+        public static final String CREATE_TABLE_ARTIST = "CREATE TABLE "
                 + TABLE_ARTIST + "("
                 + Artist.KEY_ID + " INTEGER PRIMARY KEY, "
                 + Artist.KEY_FIRSTNAME + " TEXT, "
@@ -50,21 +50,29 @@ public final class ArtGalleryContract {
         public static final String KEY_ID = "id";
         public static final String KEY_NAME = "name";
         public static final String KEY_TYPE = "type";
+        public static final String KEY_CREATION_YEAR = "creation_year";
+        public static final String KEY_MOVEMENT = "movement";
+        public static final String KEY_DESCRIPTION = "description";
         public static final String KEY_EXPOSED = "exposed";
         public static final String KEY_IMAGE_PATH = "image_path";
         public static final String KEY_ARTIST_ID = "artist_id";
         public static final String KEY_ROOM_ID = "room_id";
 
         //Table artist create statement
-        public static final String CREATE_TABLE_ARTOWORK = "CREATE TABLE"
+        public static final String CREATE_TABLE_ARTOWORK = "CREATE TABLE "
                 + TABLE_ARTWORK + "("
                 + Artwork.KEY_ID + " INTEGER PRIMARY KEY, "
                 + Artwork.KEY_NAME + " TEXT, "
                 + Artwork.KEY_TYPE + " TEXT, "
+                + Artwork.KEY_CREATION_YEAR + " INTEGER, "
+                + Artwork.KEY_MOVEMENT + " TEXT, "
+                + Artwork.KEY_DESCRIPTION + " TEXT, "
                 + Artwork.KEY_EXPOSED + " BOOLEAN, "
                 + Artwork.KEY_IMAGE_PATH + " TEXT, "
-                + "FOREIGN KEY " + Artwork.KEY_ARTIST_ID + ") REFERENCES " + Artist.TABLE_ARTIST + " (" + Artist.KEY_ID + "), "
-                + "FOREIGN KEY " + Artwork.KEY_ROOM_ID + ") REFERENCES " + Room.TABLE_ROOM + " (" + Room.KEY_ID + "), "
+                + Artwork.KEY_ARTIST_ID + " INTEGER, "
+                + Artwork.KEY_ROOM_ID + " INTEGER, "
+                + "FOREIGN KEY (" + Artwork.KEY_ARTIST_ID + ") REFERENCES " + Artist.TABLE_ARTIST + " (" + Artist.KEY_ID + "), "
+                + "FOREIGN KEY (" + Artwork.KEY_ROOM_ID + ") REFERENCES " + Room.TABLE_ROOM + " (" + Room.KEY_ID + ")"
                 + ");";
     }
 
@@ -81,7 +89,7 @@ public final class ArtGalleryContract {
         public static final String KEY_OCCUPATED = "occupated";
 
         //Table artist create statement
-        public static final String CREATE_TABLE_ROOM = "CREATE TABLE"
+        public static final String CREATE_TABLE_ROOM = "CREATE TABLE "
                 + TABLE_ROOM + "("
                 + Room.KEY_ID + " INTEGER PRIMARY KEY, "
                 + Room.KEY_NAME + " TEXT, "

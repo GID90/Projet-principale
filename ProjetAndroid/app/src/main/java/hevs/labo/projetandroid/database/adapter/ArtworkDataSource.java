@@ -36,6 +36,9 @@ public class ArtworkDataSource {
 
         values.put(ArtGalleryContract.Artwork.KEY_NAME, artwork.getName());
         values.put(ArtGalleryContract.Artwork.KEY_TYPE, artwork.getType());
+        values.put(ArtGalleryContract.Artwork.KEY_CREATION_YEAR, artwork.getCreationYear());
+        values.put(ArtGalleryContract.Artwork.KEY_MOVEMENT, artwork.getMovement());
+        values.put(ArtGalleryContract.Artwork.KEY_DESCRIPTION, artwork.getDescription());
         values.put(ArtGalleryContract.Artwork.KEY_EXPOSED, artwork.getExposed());
         values.put(ArtGalleryContract.Artwork.KEY_IMAGE_PATH, artwork.getImage_path());
 
@@ -61,6 +64,9 @@ public class ArtworkDataSource {
         artwork.setId(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ID)));
         artwork.setName(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_NAME)));
         artwork.setType(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_TYPE)));
+        artwork.setCreationYear(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_CREATION_YEAR)));
+        artwork.setMovement(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_MOVEMENT)));
+        artwork.setDescription(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_DESCRIPTION)));
         artwork.setImage_path(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_IMAGE_PATH)));
         artwork.setExposed(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_EXPOSED)) == 1);
 
@@ -83,6 +89,9 @@ public class ArtworkDataSource {
                 artwork.setId(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ID)));
                 artwork.setName(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_NAME)));
                 artwork.setType(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_TYPE)));
+                artwork.setCreationYear(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_CREATION_YEAR)));
+                artwork.setMovement(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_MOVEMENT)));
+                artwork.setDescription(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_DESCRIPTION)));
                 artwork.setImage_path(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_IMAGE_PATH)));
                 artwork.setExposed(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_EXPOSED)) == 1);
 
@@ -104,6 +113,9 @@ public class ArtworkDataSource {
 
         values.put(ArtGalleryContract.Artwork.KEY_NAME, artwork.getName());
         values.put(ArtGalleryContract.Artwork.KEY_TYPE, artwork.getType());
+        values.put(ArtGalleryContract.Artwork.KEY_CREATION_YEAR, artwork.getCreationYear());
+        values.put(ArtGalleryContract.Artwork.KEY_MOVEMENT, artwork.getMovement());
+        values.put(ArtGalleryContract.Artwork.KEY_DESCRIPTION, artwork.getDescription());
         values.put(ArtGalleryContract.Artwork.KEY_IMAGE_PATH, artwork.getImage_path());
         values.put(ArtGalleryContract.Artwork.KEY_EXPOSED, artwork.getExposed());
 

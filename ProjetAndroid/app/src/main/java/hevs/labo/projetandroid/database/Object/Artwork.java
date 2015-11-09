@@ -8,6 +8,9 @@ public class Artwork {
     private int id;
     private String name;
     private String type;
+    private int creationYear;
+    private String movement;
+    private String description;
     private boolean exposed;
     private String image_path;
     private int foreign_key_Artist_id;
@@ -30,6 +33,27 @@ public class Artwork {
 
     public void setType(String type) {this.type = type; }
     public String getType() {return type; }
+
+    public int getCreationYear() {
+        return creationYear;
+    }
+    public void setCreationYear(int creationYear) {
+        this.creationYear = creationYear;
+    }
+
+    public String getMovement() {
+        return movement;
+    }
+    public void setMovement(String movement) {
+        this.movement = movement;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public void setExposed(boolean exposed){this.exposed = exposed; }
     public boolean getExposed() {return exposed;}
