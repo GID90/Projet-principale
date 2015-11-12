@@ -66,4 +66,9 @@ public class Artwork {
 
     public void setForeign_key_Room_id(int foreign_key_Room_id) {this.foreign_key_Room_id = foreign_key_Room_id; }
     public int getForeign_key_Room_id(){ return foreign_key_Room_id; }
+
+    public String toString()
+    {
+        return name + " " + type + "    ";
+    }
 }

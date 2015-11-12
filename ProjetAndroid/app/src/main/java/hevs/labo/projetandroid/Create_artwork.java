@@ -50,8 +50,8 @@ public class Create_artwork extends AppCompatActivity {
 
                 EditText et = (EditText) findViewById(R.id.editText_nameArtworkCreate);
                 artwork.setName(et.toString());
-                //et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
-                //artwork.setCreationYear(Integer.parseInt(et.toString()));
+                et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
+                artwork.setCreationYear(Integer.parseInt(et.toString()));
                 et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
                 artwork.setType(et.toString());
                 et = (EditText) findViewById(R.id.editText_movementArtworkCreate);

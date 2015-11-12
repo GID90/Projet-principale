@@ -124,7 +124,7 @@ public class ArtistDataSource {
     }
 
     /**
-     * Delete an artist
+     * Delete an artist this will also delete all the artwork rrelated to this artist
      */
     public void deleteArtist(long id){
 

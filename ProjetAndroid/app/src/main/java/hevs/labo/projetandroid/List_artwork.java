@@ -5,12 +5,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 import hevs.labo.projetandroid.database.object.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 
 public class List_artwork extends AppCompatActivity {
+    ListView listView;
+    String[] tabArtworkCreated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +27,42 @@ public class List_artwork extends AppCompatActivity {
 
         ArtworkDataSource ads = new ArtworkDataSource(this);
 
-        Artwork artwork;
+        List<Artwork> artworkList = ads.getAllArtworks();
 
+        listView = (ListView) findViewById(R.id.list_artwork);
 
+        listView.setClickable(true);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Object o = listView.getItemAtPosition(position);
+
+                Intent intent = new Intent(List_artwork.this, Card_artist.class);
+
+                startActivity(intent);
+            }
+        });
+
+        listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
+
+        listView.setTextFilterEnabled(true);
+
+        if(artworkList == null)
+                return;
+
+        tabArtworkCreated = new String[artworkList.size()];
+
+        for(int i = 0; i < artworkList.size(); i++)
+        {
+            tabArtworkCreated[i] = artworkList.get(i).toString();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, tabArtworkCreated);
+
+        listView.setAdapter(adapter);
 
         //close db instance
         SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
