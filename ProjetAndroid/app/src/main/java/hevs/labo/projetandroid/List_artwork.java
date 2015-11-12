@@ -5,9 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import hevs.labo.projetandroid.database.Object.Artwork;
+import hevs.labo.projetandroid.database.Object_temp.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 

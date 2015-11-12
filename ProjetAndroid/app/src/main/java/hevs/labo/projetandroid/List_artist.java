@@ -13,7 +13,7 @@ import android.widget.CheckedTextView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
-import hevs.labo.projetandroid.database.Object.Artist;
+import hevs.labo.projetandroid.database.Object_temp.Artist;
 
 public class List_artist extends AppCompatActivity {
 

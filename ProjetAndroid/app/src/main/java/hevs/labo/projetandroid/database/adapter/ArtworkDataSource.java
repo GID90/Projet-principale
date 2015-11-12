@@ -10,7 +10,7 @@ import java.util.List;
 
 import hevs.labo.projetandroid.database.ArtGalleryContract;
 import hevs.labo.projetandroid.database.SQLiteHelper;
-import hevs.labo.projetandroid.database.Object.Artwork;
+import hevs.labo.projetandroid.database.Object_temp.Artwork;
 
 /**
  * Created by Darlène on 07.11.2015.
