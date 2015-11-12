@@ -49,15 +49,15 @@ public class Create_artwork extends AppCompatActivity {
                 ArtworkDataSource ads = new ArtworkDataSource(this);
 
                 EditText et = (EditText) findViewById(R.id.editText_nameArtworkCreate);
-                artwork.setName(et.toString());
+                artwork.setName(et.getText().toString());
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
-                artwork.setCreationYear(Integer.parseInt(et.toString()));
+                artwork.setCreationYear(Integer.parseInt(et.getText().toString()));
                 et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
-                artwork.setType(et.toString());
+                artwork.setType(et.getText().toString());
                 et = (EditText) findViewById(R.id.editText_movementArtworkCreate);
-                artwork.setMovement(et.toString());
+                artwork.setMovement(et.getText().toString());
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkCreate);
-                artwork.setDescription(et.toString());
+                artwork.setDescription(et.getText().toString());
 
                 artwork.setId((int) ads.createArtwork(artwork));
 

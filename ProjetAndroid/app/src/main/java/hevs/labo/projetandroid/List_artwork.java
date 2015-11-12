@@ -46,7 +46,7 @@ public class List_artwork extends AppCompatActivity {
             }
         });
 
-        listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
+        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
 
         listView.setTextFilterEnabled(true);
 
@@ -57,7 +57,7 @@ public class List_artwork extends AppCompatActivity {
 
         for(int i = 0; i < artworkList.size(); i++)
         {
-            tabArtworkCreated[i] = artworkList.get(i).toString();
+            tabArtworkCreated[i] = artworkList.get(i).toString() ;
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, tabArtworkCreated);
