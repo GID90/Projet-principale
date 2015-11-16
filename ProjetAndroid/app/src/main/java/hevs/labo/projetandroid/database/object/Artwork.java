@@ -18,9 +18,12 @@ public class Artwork {
 
     public Artwork(){}
 
-    public Artwork(String name, String type, boolean exposed, String image_path){
+    public Artwork(String name, int creationYear, String type, String movement, String description, boolean exposed, String image_path){
         this.name = name;
+        this.creationYear = creationYear;
         this.type = type;
+        this.movement = movement;
+        this.description = description;
         this.exposed = exposed;
         this.image_path = image_path;
     }
@@ -69,6 +72,6 @@ public class Artwork {
 
     public String toString()
     {
-        return name + " " + type + "    ";
+        return name + " " + type + "    " ;
     }
 }

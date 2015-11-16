@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/backgroundcard"
     tools:context="hevs.labo.projetandroid.Modify_room">
 
     <!--1ère ligne : nom de la salle, bouton annuler, bouton sauvegarder-->

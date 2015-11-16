@@ -12,28 +12,17 @@ import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
+import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 
 public class List_artist extends AppCompatActivity {
 
-    String firstname;
-    String lastname;
-    String pseudo;
-
-    CheckedTextView ctv_artitst;
-    ListView listView;
-
-    Artist artist;
-
-    ArrayList<Artist> listArtistCreated = new ArrayList<>();
+    ListView listView_artist;
     String[] tabArtistCreated;
-    int tabSize;
 
-    int cpt = 0;
-    CheckBox box;
-
-    String[] valeurstest = {"Lus", "Jean", "Paul"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,59 +30,41 @@ public class List_artist extends AppCompatActivity {
         setContentView(R.layout.activity_list_artist);
         //getSupportActionBar().show();
 
-        Intent intent = getIntent();
+        ArtistDataSource ards = new ArtistDataSource(this);
+        List<Artist> artistList = ards.getAllArtists();
 
-        firstname = intent.getStringExtra("firstname");
-        lastname = intent.getStringExtra("lastname");
-        pseudo = intent.getStringExtra("pseudo");
+        listView_artist = (ListView) findViewById(R.id.list_artist);
+        listView_artist.setClickable(true);
 
-        artist = new Artist();
-        artist.setFirstname(firstname);
-        artist.setLastname(lastname);
-        artist.setPseudo(pseudo);
-        artist.setExposed(false);
-
-        listView = (ListView) findViewById(R.id.list);
-
-        listView.setClickable(true);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView_artist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Object o = listView.getItemAtPosition(position);
+                Object o = listView_artist.getItemAtPosition(position);
 
                 Intent intent = new Intent(List_artist.this, Card_artist.class);
 
                 startActivity(intent);
             }
         });
+        listView_artist.setChoiceMode(listView_artist.CHOICE_MODE_SINGLE);
+        listView_artist.setTextFilterEnabled(true);
 
-        listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
-
-        listView.setTextFilterEnabled(true);
-
-        listArtistCreated.add(artist);
-        cpt++;
-
-
-        tabArtistCreated = new String[listArtistCreated.size()];
-
-        for (int i = 0; i < tabArtistCreated.length; i++) {
-            tabArtistCreated[i] = listArtistCreated.get(i).toString() + cpt;
+        if(artistList == null){
+            return;
         }
 
+        tabArtistCreated = new String[artistList.size()];
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, valeurstest);
+        for(int i = 0; i < artistList.size(); i++)
+        {
+            tabArtistCreated[i] = artistList.get(i).toString() ;
+        }
 
-        listView.setAdapter(adapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, tabArtistCreated);
+        listView_artist.setAdapter(adapter);
 
-
-
-       /* ctv_artitst = (CheckedTextView)findViewById(R.id.list_artiste);
-
-        ctv_artitst.setText(artist.toString());*/
     }
 
 
@@ -102,15 +73,6 @@ public class List_artist extends AppCompatActivity {
         Toast.makeText(this, tabArtistCreated[position] + "checked : " + item.isChecked(), Toast.LENGTH_SHORT).show();
     }*/
 
-
-    public void initPanel() {
-
-        tabArtistCreated = new String[listArtistCreated.size()];
-        for (int i = 0; i < tabArtistCreated.length; i++) {
-            tabArtistCreated[i] = listArtistCreated.get(i).toString();
-        }
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

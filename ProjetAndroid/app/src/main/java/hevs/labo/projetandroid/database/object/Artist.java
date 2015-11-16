@@ -22,8 +22,6 @@ public class Artist {
         this.lastname = lastname;
         this.pseudo = pseudo;
         this.exposed = selected;
-
-
       /*  this.birth = birth;
         this.death = death;
         this.movement = movement;*/

@@ -212,12 +212,13 @@
                 android:id="@+id/imageButton_btnDownloadArtistCreate"
                 style="@style/imageButton"
                 android:src="@mipmap/download"
+                android:onClick="pickPicture"
                 />
 
             <ImageView
-                android:id="@+id/imageView_photoArtistCreate"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/imageView_photoArtworkCreate"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center" />
 
         </LinearLayout>

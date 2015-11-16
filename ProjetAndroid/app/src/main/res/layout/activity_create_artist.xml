@@ -200,16 +200,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton_btnDownloadArtistCreate"
-                style="@style/imageButton"
-                android:src="@mipmap/download" />
-
             <ImageView
                 android:id="@+id/imageView_photoArtistCreate"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center" />
+
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtistCreate"
+                style="@style/imageButton"
+                android:src="@mipmap/download"
+                />
+
+
 
         </LinearLayout>
 

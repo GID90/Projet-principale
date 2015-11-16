@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="hevs.labo.projetandroid.List_exhibition"
-    android:background="@drawable/backgroundlist">
+    android:background="@drawable/desktop">
 
     <!--1ère ligne contenant le titre Artistes, le SearchView ainsi que l'imageButton "add"-->
     <LinearLayout
