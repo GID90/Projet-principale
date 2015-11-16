@@ -128,7 +128,14 @@ public class ArtistDataSource {
      */
     public void deleteArtist(long id){
 
-        //delete the artist
+        //before deleting an Artist we should delete all Artwork from this Artist
+        //because the table Artwork contain the id of the Artist as foreign key
+
+        //delete Artworks from this Artist
+        this.db.delete(ArtGalleryContract.Artwork.TABLE_ARTWORK, ArtGalleryContract.Artwork.KEY_ARTIST_ID + " = ?",
+                new  String[]{String.valueOf(id)});
+
+        //delete this Artist
         this.db.delete(ArtGalleryContract.Artist.TABLE_ARTIST, ArtGalleryContract.Artist.KEY_ID + " = ?",
                 new String[]{String.valueOf(id)});
     }

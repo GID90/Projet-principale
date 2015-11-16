@@ -211,7 +211,8 @@
             <ImageButton
                 android:id="@+id/imageButton_btnDownloadArtistCreate"
                 style="@style/imageButton"
-                android:src="@mipmap/download" />
+                android:src="@mipmap/download"
+                />
 
             <ImageView
                 android:id="@+id/imageView_photoArtistCreate"

@@ -40,7 +40,7 @@ public class RoomDataSource {
         values.put(ArtGalleryContract.Room.KEY_OCCUPATED, room.isSelected());
         values.put(ArtGalleryContract.Room.KEY_IMAGE_PATH, room.getImage_path());
 
-        id= this.db.insert(ArtGalleryContract.Room.CREATE_TABLE_ROOM, null, values);
+        id= this.db.insert(ArtGalleryContract.Room.TABLE_ROOM, null, values);
         return id;
     }
 
@@ -103,7 +103,9 @@ public class RoomDataSource {
      */
 
     public int updateRoom (Room room){
+
         ContentValues values = new ContentValues();
+
         values.put(ArtGalleryContract.Room.KEY_NAME, room.getName());
         values.put(ArtGalleryContract.Room.KEY_SIZE, room.getSize());
         values.put(ArtGalleryContract.Room.KEY_OCCUPATED, room.isSelected());
@@ -118,5 +120,9 @@ public class RoomDataSource {
      * Delete a Room - this will also delete all records for the room
      */
 
- // TODO selon la table Artwork
+     public void deleteRoom(long id)
+     {
+         this.db.delete(ArtGalleryContract.Room.TABLE_ROOM, ArtGalleryContract.Room.KEY_ID + " = ?",
+                 new String[]{String.valueOf(id)});
+     }
 }
