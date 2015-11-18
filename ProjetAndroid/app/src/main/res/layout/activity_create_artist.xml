@@ -2,14 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundcard"
+    android:background="@drawable/back"
     android:orientation="vertical"
-    tools:context="hevs.labo.projetandroid.Create_artist">
+    tools:context=".List_artist">
 
-    <!--1ère ligne : nom de l'artiste, bouton annuler, bouton sauvegarder-->
+    <!--1ère ligne -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -18,7 +19,7 @@
             android:layout_height="fill_parent"
             android:gravity="center"
             android:text="@string/create"
-            android:textColor="#048B9A"
+            android:textColor="#000000"
             android:textSize="30dp"
             android:textStyle="bold"
             android:typeface="serif" />
@@ -36,7 +37,8 @@
             style="@style/imageButton"
             android:onClick="saveCreateArtist"
             android:src="@mipmap/save" />
--->
+        -->
+
     </LinearLayout>
 
 

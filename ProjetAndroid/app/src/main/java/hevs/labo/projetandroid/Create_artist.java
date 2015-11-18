@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -20,11 +22,13 @@ import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 
-public class Create_artist extends Activity implements View.OnClickListener {
+public class Create_artist extends AppCompatActivity implements View.OnClickListener {
+
     private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
-    private ImageButton saveArtist;
+
     private Artist artist;
 
+    /*Test 2 : il y deux façon de gérer les images, celle-ci et celle dans la classe Create_artwork*/
     ImageView imageToUpload;
     ImageButton bUploadImage;
 
@@ -33,11 +37,16 @@ public class Create_artist extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_artist);
-
+/*
         imageToUpload = (ImageView) findViewById(R.id.imageView_photoArtistCreate);
 
         imageToUpload.setOnClickListener(this);
-        bUploadImage.setOnClickListener(this);
+        bUploadImage.setOnClickListener(this);*/
+
+        //the mvt_array is in the strings.xml
+        Spinner spinner =  (Spinner) findViewById(R.id.spinner_mvtArtistCreate);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mvt_array, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
 
     }
@@ -47,12 +56,12 @@ public class Create_artist extends Activity implements View.OnClickListener {
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_ARTIST_IMAGE);
     }
-
-    public void uploadArtistPicture(View view){
+//méthode si façon 2 --> c'est à dire : methode assignee au bouton dans .xml
+  /*  public void uploadArtistPicture(View view){
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(galleryIntent,RESULT_LOAD_ARTIST_IMAGE );
 
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -63,6 +72,12 @@ public class Create_artist extends Activity implements View.OnClickListener {
             imageToUpload.setImageURI(selectedImage);
 
         }
+
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
+        //an item  was selected
+        //parent.getItemAtPosition(pos)
 
     }
 
@@ -90,7 +105,7 @@ public class Create_artist extends Activity implements View.OnClickListener {
 
             case R.id.saveartistcreated_menu:
                 artist = new Artist();
-                ArtistDataSource ards = new ArtistDataSource(this);
+                ArtistDataSource ads = new ArtistDataSource(this);
 
                 EditText et = (EditText) findViewById(R.id.editText_nomArtistCreate);
                 artist.setLastname(et.getText().toString());
@@ -113,7 +128,7 @@ public class Create_artist extends Activity implements View.OnClickListener {
 
                 //path de la picture
 
-                artist.setId((int) ards.createArtist(artist));
+                artist.setId((int) ads.createArtist(artist));
 
                 SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
                 sqlHelper.getWritableDatabase().close();
@@ -129,3 +144,5 @@ public class Create_artist extends Activity implements View.OnClickListener {
         return (super.onOptionsItemSelected(item));
     }
 }
+
+

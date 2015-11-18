@@ -69,16 +69,19 @@
         <activity
             android:name=".Card_artwork"
             android:label="@string/title_activity_card_artwork"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".List_artwork" >
         </activity>
         <activity
             android:name=".Modify_artwork"
             android:label="@string/title_activity_modify_artwork"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".Card_artwork" >
         </activity>
         <activity
             android:name=".Create_artwork"
             android:label="@string/title_activity_create_artwork"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".List_artwork">
 
         </activity>
@@ -94,35 +97,41 @@
         <activity
             android:name=".Create_room"
             android:label="@string/title_activity_create_room"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".List_room" >
         </activity>
         <activity
             android:name=".Card_room"
             android:label="@string/title_activity_card_room"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".List_room" >
         </activity>
         <activity
             android:name=".Modify_room"
             android:label="@string/title_activity_modify_room"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".Card_room" >
         </activity>
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".List_exhibition"
             android:label="@string/title_activity_list_exhibition"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity android:name=".Create_exhibition"
             android:label="@string/title_activity_create_exhibition"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".List_exhibition">
         </activity>
     </application>
 
-
+    <!--Permission to pick the picture into the gallery, it for the method in the class Create_Artist or Create_Artwork-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 </manifest>

@@ -1,5 +1,6 @@
 package hevs.labo.projetandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +26,7 @@ public class List_artist extends AppCompatActivity {
 
     ListView listView_artist;
     String[] tabArtistCreated;
+    private Artist artistpicked;
 
 
     @Override
@@ -43,11 +48,16 @@ public class List_artist extends AppCompatActivity {
 
                 Object o = listView_artist.getItemAtPosition(position);
 
-                Intent intent = new Intent(List_artist.this, Card_artist.class);
+                String text = (String) o;
+             //   String name =  artistpicked.getFirstname();
 
+
+                Intent intent = new Intent(List_artist.this, Card_artist.class);
+                intent.putExtra("Name", text);
                 startActivity(intent);
             }
         });
+
         listView_artist.setChoiceMode(listView_artist.CHOICE_MODE_SINGLE);
         listView_artist.setTextFilterEnabled(true);
 

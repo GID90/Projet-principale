@@ -17,55 +17,22 @@ public class Artist {
 
     public  Artist(){}
 
-    public Artist(String firstname, String lastname, String pseudo, boolean selected){/* String birth, String death, String movement**/
+    public Artist(String firstname, String lastname, String pseudo,String birth, String death, String movement,String image_path, boolean selected){
         this.firstname = firstname;
         this.lastname = lastname;
         this.pseudo = pseudo;
-        this.exposed = selected;
-      /*  this.birth = birth;
+        this.birth = birth;
         this.death = death;
-        this.movement = movement;*/
+        this.movement = movement;
+        this.image_path = image_path;
+        this.exposed = selected;
     }
 
     public String toString(){
         return firstname + "    " + lastname + "    /   " + pseudo;
     }
 
-    public boolean isExposed(){
-        return exposed;
-    }
-
-    public void setId(int id) { this.id = id; }
-
-    public void setExposed(boolean selected){
-        this.exposed = selected;
-    }
-
-    public void setFirstname(String firstname){
-        this.firstname = firstname;
-    }
-
-    public void setLastname(String lastname){
-        this.lastname = lastname;
-    }
-
-    public void setPseudo(String pseudo){
-        this.pseudo = pseudo;
-    }
-
-    public void setBirth(String birth){
-        this.birth = birth;
-    }
-
-    public void setDeath(String death){
-        this.death = death;
-    }
-
-    public void setImage_path(String image_path) { this.image_path = image_path; }
-
-    public  void setMovement(String movement){
-        this.movement = movement;
-    }
+    //getter
 
     public int getId() { return id; }
 
@@ -81,6 +48,8 @@ public class Artist {
         return pseudo;
     }
 
+    public boolean isExposed(){return exposed;}
+
     public String getBirth(){
         return birth;
     }
@@ -94,4 +63,40 @@ public class Artist {
     }
 
     public String getImage_path() { return image_path; }
+
+
+    //setter
+    public void setId(int id) { this.id = id; }
+
+    public void setFirstname(String firstname){
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname){
+        this.lastname = lastname;
+    }
+
+    public void setPseudo(String pseudo){
+        this.pseudo = pseudo;
+    }
+
+    public void setExposed(boolean selected){
+        this.exposed = selected;
+    }
+
+    public void setBirth(String birth){
+        this.birth = birth;
+    }
+
+    public void setDeath(String death){
+        this.death = death;
+    }
+
+    public  void setMovement(String movement){
+        this.movement = movement;
+    }
+
+    public void setImage_path(String image_path) { this.image_path = image_path; }
+
+
 }

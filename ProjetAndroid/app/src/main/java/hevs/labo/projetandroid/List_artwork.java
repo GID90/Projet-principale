@@ -42,6 +42,7 @@ public class List_artwork extends AppCompatActivity {
 
                 Intent intent = new Intent(List_artwork.this, Card_artist.class);
 
+
                 startActivity(intent);
             }
         });

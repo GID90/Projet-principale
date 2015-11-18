@@ -48,6 +48,7 @@
     <string name="artwork_exposed">Artworks exposed : </string>
     <string name="artist_exposed">Artists exposed : </string>
     <string name="room_used">Rooms occupated : </string>
+    <string name="measure">m2</string>
 
     <!--**********************Manifest***********************************************************-->
     <string name="title_activity_card_artwork">Artwork</string>
@@ -102,5 +103,26 @@
     <string name="saveartworkmodified_menu">Save Artwork modified</string>
     <string name="cancelroommodified_menu">Cancel Room modified</string>
     <string name="saveroommodified_menu">Save Room modified</string>
+
+
+    <!--Spinner-->
+    <string-array name="mvt_array">
+        <item>Art abstrait</item>
+        <item>Art concret</item>
+        <item>Art nouveau</item>
+        <item>Baroque</item>
+        <item>Classique</item>
+        <item>Cobra</item>
+        <item>Cubisme</item>
+        <item>Futurisme</item>
+        <item>Gothique</item>
+        <item>Impressionnisme</item>
+        <item>Modernisme</item>
+        <item>Naturalisme</item>
+        <item>Renaissance</item>
+        <item>Rococo</item>
+        <item>Romaniste</item>
+        <item>Surréalisme</item>
+    </string-array>
 
 </resources>

@@ -52,10 +52,11 @@ public class Create_room extends AppCompatActivity {
                 startActivity(intenthome);
                 return true;
 
-            case R.id.cancelexhibitionreated_menu:
+            case R.id.cancelroomcreated_menu:
                 return true;
 
-            case R.id.saveexhibitioncreated_menu:
+            case R.id.saveroomcreated_menu:
+
                 return true;
         }
 

@@ -13,19 +13,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import hevs.labo.projetandroid.database.object.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 
-public class Create_artwork extends Activity {
+public class Create_artwork extends AppCompatActivity {
 
     private Artwork artwork;
+
     private static int RESULT_LOAD_IMAGE = 1;
     String imgDecodableString;
 
@@ -34,13 +37,17 @@ public class Create_artwork extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_artwork);
 
+        Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mvt_array, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
     }
 
-   public void pickPicture(View view){
+   public void pickPictureArtwork(View view){
         Intent intentpickImage = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intentpickImage, RESULT_LOAD_IMAGE);
     }
-
+//second choice to pick a picture
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -101,7 +108,7 @@ public class Create_artwork extends Activity {
 
             case R.id.saveartworkcreated_menu:
                 artwork = new Artwork();
-                ArtworkDataSource ads = new ArtworkDataSource(this);
+              /*  ArtworkDataSource ads = new ArtworkDataSource(this);
 
                 EditText et = (EditText) findViewById(R.id.editText_nameArtworkCreate);
                 artwork.setName(et.getText().toString());
@@ -109,8 +116,11 @@ public class Create_artwork extends Activity {
                 artwork.setCreationYear(Integer.parseInt(et.getText().toString()));
                 et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
                 artwork.setType(et.getText().toString());
-                et = (EditText) findViewById(R.id.editText_movementArtworkCreate);
-                artwork.setMovement(et.getText().toString());
+
+                Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
+                String recup = spinner.getSelectedItem().toString();
+                artwork.setMovement(recup);
+
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkCreate);
                 artwork.setDescription(et.getText().toString());
 
@@ -124,7 +134,7 @@ public class Create_artwork extends Activity {
 
                 Toast toast = Toast.makeText(this, "Artwork added", Toast.LENGTH_LONG);
                 toast.show();
-
+*/
                 return true;
         }
 

@@ -35,8 +35,8 @@ public class ArtworkDataSource {
         ContentValues values = new ContentValues();
 
         values.put(ArtGalleryContract.Artwork.KEY_NAME, artwork.getName());
-        values.put(ArtGalleryContract.Artwork.KEY_TYPE, artwork.getType());
         values.put(ArtGalleryContract.Artwork.KEY_CREATION_YEAR, artwork.getCreationYear());
+        values.put(ArtGalleryContract.Artwork.KEY_TYPE, artwork.getType());
         values.put(ArtGalleryContract.Artwork.KEY_MOVEMENT, artwork.getMovement());
         values.put(ArtGalleryContract.Artwork.KEY_DESCRIPTION, artwork.getDescription());
         values.put(ArtGalleryContract.Artwork.KEY_EXPOSED, artwork.getExposed());

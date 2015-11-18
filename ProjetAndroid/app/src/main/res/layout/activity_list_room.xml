@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="hevs.labo.projetandroid.List_artist"
-    android:background="@drawable/desktop">
+    android:background="@drawable/back"
+    >
 
     <!--1ère ligne contenant le titre Artistes, le SearchView ainsi que l'imageButton "add"-->
     <LinearLayout
@@ -19,7 +20,7 @@
             android:layout_weight="50"
             android:text="@string/rooms"
             android:typeface="serif"
-            android:textColor="#048B9A"
+            android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="30dp" />

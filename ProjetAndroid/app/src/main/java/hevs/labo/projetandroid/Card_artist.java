@@ -5,13 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class Card_artist extends AppCompatActivity {
+
+    private TextView firstname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_artist);
+
+        Intent intent = getIntent();
+
+        firstname = (TextView) findViewById(R.id.tv_nom_artiste);
+        firstname.setText(intent.getStringExtra("Name"));
     }
 
     @Override
