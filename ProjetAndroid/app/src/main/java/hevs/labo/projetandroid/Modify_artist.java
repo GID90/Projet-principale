@@ -5,13 +5,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class Modify_artist extends AppCompatActivity {
+
+    private EditText lastname;
+    private EditText firstname;
+    private EditText pseudo;
+    private EditText birthdate;
+    private EditText deathdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_artist);
+
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id_artist_modif");
+        int id_artist_modif = Integer.parseInt(id);
+
+
+
     }
 
     @Override

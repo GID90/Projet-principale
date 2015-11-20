@@ -28,8 +28,15 @@ public class Artist {
         this.exposed = selected;
     }
 
+
+
     public String toString(){
-        return firstname + "    " + lastname + "    /   " + pseudo;
+
+
+
+            return firstname + "    " + lastname + "    /   " + pseudo  ;
+
+
     }
 
     //getter

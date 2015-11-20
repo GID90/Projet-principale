@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.GridView;
@@ -29,9 +30,11 @@ public class List_artist extends AppCompatActivity {
 
 
     ListView listView_artist;
+    List<Artist> al;
     String[] tabArtistCreated;
     private Artist artistpicked;
     private ActionMode mActionMode = null;
+    String expo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +42,10 @@ public class List_artist extends AppCompatActivity {
         setContentView(R.layout.activity_list_artist);
         //getSupportActionBar().show();
 
-        ArtistDataSource ards = new ArtistDataSource(this);
+        final ArtistDataSource ards = new ArtistDataSource(this);
+
         List<Artist> artistList = ards.getAllArtists();
+        al= ards.getAllArtists();
 
         listView_artist = (ListView) findViewById(R.id.list_artist);
 
@@ -51,15 +56,11 @@ public class List_artist extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Object o = listView_artist.getItemAtPosition(position);
+                Artist a = al.get(position);
 
-                String text = (String) o;
-                //   String name =  artistpicked.getFirstname();
-
-                String[] split = text.split(" ");
 
                 Intent intent = new Intent(List_artist.this, Card_artist.class);
-                intent.putExtra("Name", text);
+                intent.putExtra("id_artistRecup", String.valueOf(a.getId()));
                 startActivity(intent);
             }
         });
@@ -75,10 +76,21 @@ public class List_artist extends AppCompatActivity {
 
         for(int i = 0; i < artistList.size(); i++)
         {
-            tabArtistCreated[i] = artistList.get(i).toString() ;
+
+            if(artistList.get(i).isExposed() == true)
+            {
+                 expo = "EXPO";
+
+            }
+            else
+            {
+                 expo = "NOEXPO";
+            }
+           // tabArtistCreated[i] = artistList.get(i).toString();
+            tabArtistCreated[i]= artistList.get(i).getFirstname()+ " " + artistList.get(i).getLastname() + "/" + artistList.get(i).getPseudo()+ "         ---------------" +expo;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, android.R.id.text1, tabArtistCreated);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtistCreated);
 
         listView_artist.setAdapter(adapter);
 

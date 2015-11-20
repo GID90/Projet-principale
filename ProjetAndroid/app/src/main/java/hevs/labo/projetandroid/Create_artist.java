@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import java.io.Console;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Random;
 
 import hevs.labo.projetandroid.database.ArtGalleryContract;
 import hevs.labo.projetandroid.database.SQLiteHelper;
@@ -43,6 +45,8 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
     ImageView imageToUpload;
     ImageButton bUploadImage;
+
+    int compteurPhoto;
 
 
     @Override
@@ -78,7 +82,7 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 imageToUpload.setImageURI(selectedImage);
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
 
-               // isPicture = true;
+                isPicture = true;
             } else {
                 Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
             }
@@ -90,12 +94,18 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
     }
 
 
-    private String saveToInternalSorage(Bitmap bitmapImage) {
+    private String saveToInternalStorage(Bitmap bitmapImage) {
+
+        compteurPhoto++;
+
+        Random rd = new Random();
+        int randomnum = 1+ (int)(Math.random()*4000);
+
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         // Create imageDir
-        File mypath = new File(directory, "profile.jpg");
+        File mypath = new File(directory, randomnum+".jpg");
 
         FileOutputStream fos = null;
         try {
@@ -111,6 +121,8 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
         return mypath.getPath();
     }
+
+
 
     public void onClick(View v){
         switch (v.getId()){
@@ -153,6 +165,18 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.saveartistcreated_menu:
+
+                //retourne le chemin ou est stocké le fichier
+
+                String imagepath = saveToInternalStorage(bitmap);
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+
+
+                Toast toastpict = Toast.makeText(context, imagepath, duration);
+                toastpict.show();
+
+
                 artist = new Artist();
                 ArtistDataSource ads = new ArtistDataSource(this);
 
@@ -176,6 +200,17 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 artist.setMovement(recup);
 
                 //path de la picture
+
+                artist.setImage_path(imagepath);
+
+                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposed);
+                if(bl.isChecked()){
+                    artist.setExposed(true);
+                }
+                else
+                {
+                 artist.setExposed(false);
+                }
 
                 artist.setId((int) ads.createArtist(artist));
 

@@ -113,9 +113,9 @@
             android:src="@mipmap/artist"
             android:scaleType="fitStart"
             android:background="@drawable/buttonbackground"
-            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="50dp"
 
             />
 
@@ -129,6 +129,7 @@
             android:src="@mipmap/artwork"
             android:background="@drawable/buttonbackground"
             android:scaleType="fitStart"
+            android:layout_marginRight="20dp"
 
            />
 
@@ -145,9 +146,9 @@
             android:layout_height="120dp"
             android:onClick="show_list_exhibition"
             android:src="@mipmap/exposition"
-            android:layout_marginRight="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="50dp"
             android:background="@drawable/buttonbackground"
             android:scaleType="fitStart"
             />

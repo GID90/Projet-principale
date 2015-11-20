@@ -48,6 +48,7 @@
     <string name="artwork_exposed">Artworks exposed : </string>
     <string name="artist_exposed">Artists exposed : </string>
     <string name="room_used">Rooms occupated : </string>
+    <string name="artexpose">Exposed</string>
 
     <!--**********************Manifest***********************************************************-->
     <string name="title_activity_card_artwork">Artwork</string>

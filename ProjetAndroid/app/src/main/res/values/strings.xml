@@ -49,6 +49,8 @@
     <string name="artist_exposed">Artists exposed : </string>
     <string name="room_used">Rooms occupated : </string>
     <string name="measure">m2</string>
+    <string name="artexpose">Exposé</string>
+    <string name="nan">nan</string>
 
     <!--**********************Manifest***********************************************************-->
     <string name="title_activity_card_artwork">Artwork</string>

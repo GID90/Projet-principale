@@ -101,7 +101,7 @@ public class ArtistDataSource {
     public List<Artist> getAllArtists() {
         List<Artist> artists = new ArrayList<Artist>();
         String sql = "SELECT * FROM " + ArtGalleryContract.Artist.TABLE_ARTIST + " ORDER BY "
-                + ArtGalleryContract.Artist.KEY_LASTNAME +", " + ArtGalleryContract.Artist.KEY_FIRSTNAME;
+                + ArtGalleryContract.Artist.KEY_FIRSTNAME +", " + ArtGalleryContract.Artist.KEY_LASTNAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
