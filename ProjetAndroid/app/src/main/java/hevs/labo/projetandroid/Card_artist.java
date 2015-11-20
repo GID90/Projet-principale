@@ -11,6 +11,7 @@ public class Card_artist extends AppCompatActivity {
 
     private TextView firstname;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,8 @@ public class Card_artist extends AppCompatActivity {
         Intent intent = getIntent();
 
         firstname = (TextView) findViewById(R.id.tv_nom_artiste);
-        firstname.setText(intent.getStringExtra("Name"));
+        firstname.setText(intent.getStringExtra("firstname"));
+
     }
 
     @Override

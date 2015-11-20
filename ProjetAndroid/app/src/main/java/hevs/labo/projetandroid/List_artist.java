@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,10 +27,11 @@ import hevs.labo.projetandroid.database.object.Artist;
 
 public class List_artist extends AppCompatActivity {
 
+
     ListView listView_artist;
     String[] tabArtistCreated;
     private Artist artistpicked;
-
+    private ActionMode mActionMode = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class List_artist extends AppCompatActivity {
         List<Artist> artistList = ards.getAllArtists();
 
         listView_artist = (ListView) findViewById(R.id.list_artist);
+
         listView_artist.setClickable(true);
 
         listView_artist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -49,8 +54,9 @@ public class List_artist extends AppCompatActivity {
                 Object o = listView_artist.getItemAtPosition(position);
 
                 String text = (String) o;
-             //   String name =  artistpicked.getFirstname();
+                //   String name =  artistpicked.getFirstname();
 
+                String[] split = text.split(" ");
 
                 Intent intent = new Intent(List_artist.this, Card_artist.class);
                 intent.putExtra("Name", text);
@@ -72,8 +78,10 @@ public class List_artist extends AppCompatActivity {
             tabArtistCreated[i] = artistList.get(i).toString() ;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, tabArtistCreated);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, android.R.id.text1, tabArtistCreated);
+
         listView_artist.setAdapter(adapter);
+
 
     }
 

@@ -1,11 +1,15 @@
 package hevs.labo.projetandroid;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +20,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.Console;
+import java.io.File;
+import java.io.FileOutputStream;
 
 import hevs.labo.projetandroid.database.ArtGalleryContract;
 import hevs.labo.projetandroid.database.SQLiteHelper;
@@ -28,7 +36,11 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
     private Artist artist;
 
-    /*Test 2 : il y deux façon de gérer les images, celle-ci et celle dans la classe Create_artwork*/
+    /**Gérer les images : */
+    private Uri selectedImage;
+    private Bitmap bitmap;
+    private boolean isPicture;
+
     ImageView imageToUpload;
     ImageButton bUploadImage;
 
@@ -37,11 +49,13 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_artist);
-/*
+
         imageToUpload = (ImageView) findViewById(R.id.imageView_photoArtistCreate);
+        bUploadImage = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtistCreate);
 
         imageToUpload.setOnClickListener(this);
-        bUploadImage.setOnClickListener(this);*/
+        bUploadImage.setOnClickListener(this);
+
 
         //the mvt_array is in the strings.xml
         Spinner spinner =  (Spinner) findViewById(R.id.spinner_mvtArtistCreate);
@@ -51,35 +65,70 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void onClick(View v)
-    {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, RESULT_LOAD_ARTIST_IMAGE);
-    }
-//méthode si façon 2 --> c'est à dire : methode assignee au bouton dans .xml
-  /*  public void uploadArtistPicture(View view){
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(galleryIntent,RESULT_LOAD_ARTIST_IMAGE );
-
-    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == RESULT_LOAD_ARTIST_IMAGE && resultCode == RESULT_OK && data!=null){
-            Uri selectedImage = data.getData();
-            imageToUpload.setImageURI(selectedImage);
+        try {
 
+            if (requestCode == RESULT_LOAD_ARTIST_IMAGE && resultCode == RESULT_OK && null != data) {
+
+                selectedImage = data.getData();
+                imageToUpload.setImageURI(selectedImage);
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+
+               // isPicture = true;
+            } else {
+                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+            }
+        }catch (Exception e ){
+            Log.e("error", e.toString());
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
         }
 
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
-        //an item  was selected
-        //parent.getItemAtPosition(pos)
 
+    private String saveToInternalSorage(Bitmap bitmapImage) {
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, "profile.jpg");
+
+        FileOutputStream fos = null;
+        try {
+
+            fos = new FileOutputStream(mypath);
+
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mypath.getPath();
     }
+
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.imageView_photoArtistCreate:
+                onLoad();
+                break;
+            case R.id.imageButton_btnDownloadArtistCreate:
+                onLoad();
+                break;
+        }
+    }
+
+    private void onLoad() {
+
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(intent, RESULT_LOAD_ARTIST_IMAGE);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
