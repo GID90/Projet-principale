@@ -63,7 +63,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/editText_nameArtistModiy"
+                android:id="@+id/editText_lastnameArtistModiy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60" />
@@ -78,7 +78,7 @@
 
 
             <TextView
-                android:id="@+id/textView_lastnameArtistModify"
+                android:id="@+id/textView_fistnameArtistModify"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -89,7 +89,7 @@
 
 
             <EditText
-                android:id="@+id/editText_lastnameArtistModify"
+                android:id="@+id/editText_firstsnameArtistModify"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60" />
@@ -199,16 +199,32 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton_btnDownloadArtistModify"
-                style="@style/imageButton"
-                android:src="@mipmap/download" />
 
             <ImageView
                 android:id="@+id/imageView_photoArtistModify"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center" />
+
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadArtistModify"
+                style="@style/imageButton"
+                android:src="@mipmap/download" />
+
+            <TextView
+                android:id="@+id/textView_exposedArtistModify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/artexpose"
+                android:textColor="#000010"
+                android:textSize="20dp"
+                />
+
+            <CheckBox
+                android:id="@+id/chbox_artistExposedModif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

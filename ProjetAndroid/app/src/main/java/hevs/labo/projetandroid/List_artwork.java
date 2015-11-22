@@ -12,6 +12,8 @@ import android.widget.ListView;
 
 import java.util.List;
 
+import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
@@ -19,6 +21,11 @@ import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 public class List_artwork extends AppCompatActivity {
     ListView listView;
     String[] tabArtworkCreated;
+    List<Artwork> arl;
+    String expo;
+    Artist artistForeign_Key;
+    int idArtisstForeign_Key;
+    String nameArtistForeign_Key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +33,10 @@ public class List_artwork extends AppCompatActivity {
         setContentView(R.layout.activity_list_artwork);
 
         ArtworkDataSource ads = new ArtworkDataSource(this);
+        ArtistDataSource artds = new ArtistDataSource(this);
 
         List<Artwork> artworkList = ads.getAllArtworks();
+        arl = ads.getAllArtworks();
 
         listView = (ListView) findViewById(R.id.list_artwork);
 
@@ -37,13 +46,12 @@ public class List_artwork extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Artwork aw = arl.get(position);
 
-                Object o = listView.getItemAtPosition(position);
+                Intent intentaw = new Intent(List_artwork.this, Card_artwork.class);
+                intentaw.putExtra("id_artworkRecup", String.valueOf(aw.getId()));
+                startActivity(intentaw);
 
-                Intent intent = new Intent(List_artwork.this, Card_artist.class);
-
-
-                startActivity(intent);
             }
         });
 
@@ -58,10 +66,28 @@ public class List_artwork extends AppCompatActivity {
 
         for(int i = 0; i < artworkList.size(); i++)
         {
-            tabArtworkCreated[i] = artworkList.get(i).toString() ;
+
+            if(artworkList.get(i).getExposed() == true)
+            {
+                expo = "-------*EXPO*";
+
+            }
+            else
+            {
+                expo = "---*NOEXPO*";
+            }
+
+            idArtisstForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
+
+            artistForeign_Key = artds.getArtistById(idArtisstForeign_Key);
+
+            nameArtistForeign_Key = artistForeign_Key.getLastname();
+
+            tabArtworkCreated[i]= artworkList.get(i).getName() + " " + artworkList.get(i).getType() + " " + nameArtistForeign_Key + " " +expo;
+
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, tabArtworkCreated);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtworkCreated);
 
         listView.setAdapter(adapter);
 

@@ -1,13 +1,19 @@
 package hevs.labo.projetandroid;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,7 +21,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.net.URI;
+import java.util.Random;
 
+import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 
@@ -30,7 +40,13 @@ public class Modify_artist extends AppCompatActivity {
     private ImageButton btn_changePicture;
     private ImageView pictureArtistToModify;
     private Artist artistToModify;
+    private Uri selectedImage;
+    private Bitmap bitmap;
+    private boolean isPicture;
+    private CheckBox checkbexposed;
+    private int id_artist_modif;
 
+    private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
 
 
     @Override
@@ -38,19 +54,29 @@ public class Modify_artist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_artist);
 
+        /**Action sur le bouton de load picture*/
+        btn_changePicture = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtistModify);
+        btn_changePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(intent, RESULT_LOAD_ARTIST_IMAGE);
+            }
+        });
 
         ArtistDataSource ards = new ArtistDataSource(this);
 
         Intent intent = getIntent();
         String id = intent.getStringExtra("id_artist_modif");
-        int id_artist_modif = Integer.parseInt(id);
+        id_artist_modif = Integer.parseInt(id);
 
+        //récupérer les données de l'artiste à modifier pour afficher
         artistToModify = ards.getArtistById(id_artist_modif);
 
-        lastname = (EditText) findViewById(R.id.editText_nameArtistModiy);
+        lastname = (EditText) findViewById(R.id.editText_lastnameArtistModiy);
         lastname.setText(artistToModify.getLastname());
 
-        firstname = (EditText) findViewById(R.id.editText_lastnameArtistModify);
+        firstname = (EditText) findViewById(R.id.editText_firstsnameArtistModify);
         firstname.setText(artistToModify.getFirstname());
 
         pseudo = (EditText) findViewById(R.id.editText_pseudoArtistModify);
@@ -62,6 +88,7 @@ public class Modify_artist extends AppCompatActivity {
         deathdate = (EditText) findViewById(R.id.editText_deathArtistModify);
         deathdate.setText(artistToModify.getDeath());
 
+        /*initialiser le spinner avec le choix précédemment choisi à la création*/
         spinner = (Spinner) findViewById(R.id.spinner_mvtArtistModify);
 
 // Create an ArrayAdapter using the string array and a default spinner layout
@@ -80,6 +107,7 @@ public class Modify_artist extends AppCompatActivity {
         spin.setSelection(ad.getPosition(artistToModify.getMovement()));
 
 
+        /*imageView où est chargée l image choisie a la création*/
         pictureArtistToModify = (ImageView) findViewById(R.id.imageView_photoArtistModify);
         File imgFile = new  File(artistToModify.getImage_path());
 
@@ -89,12 +117,67 @@ public class Modify_artist extends AppCompatActivity {
             pictureArtistToModify.setImageURI(uri);
         }
 
+        checkbexposed = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
+        if(artistToModify.isExposed() == true)
+        {
+            checkbexposed.setSelected(true);
+        }
+        else
+        {
+            checkbexposed.setSelected(false);
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+
+            if (requestCode == RESULT_LOAD_ARTIST_IMAGE && resultCode == RESULT_OK && null != data) {
+
+                selectedImage = data.getData();
+                pictureArtistToModify.setImageURI(selectedImage);
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+
+                isPicture = true;
+            } else {
+                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+            }
+        }catch (Exception e ){
+            Log.e("error", e.toString());
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    private String saveToInternalStorage(Bitmap bitmapImage) {
 
 
 
+        Random rd = new Random();
+        int randomnum = 1+ (int)(Math.random()*4000);
 
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, randomnum+".jpg");
 
+        FileOutputStream fos = null;
+        try {
 
+            fos = new FileOutputStream(mypath);
+
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mypath.getPath();
     }
 
 
@@ -126,66 +209,51 @@ public class Modify_artist extends AppCompatActivity {
 
             case R.id.saveartistmodified_menu:
 
-
-
-
-                /*
                 String imagepath = saveToInternalStorage(bitmap);
-                Context context = getApplicationContext();
-                int duration = Toast.LENGTH_SHORT;
 
-
-                Toast toastpict = Toast.makeText(context, imagepath, duration);
-                toastpict.show();
-
-
-                artist = new Artist();
                 ArtistDataSource ads = new ArtistDataSource(this);
 
-                EditText et = (EditText) findViewById(R.id.editText_nomArtistCreate);
-                artist.setLastname(et.getText().toString());
+                EditText et = (EditText) findViewById(R.id.editText_lastnameArtistModiy);
+                artistToModify.setLastname(et.getText().toString());
 
-                et = (EditText) findViewById(R.id.editText_prenomArtistCreate);
-                artist.setFirstname(et.getText().toString());
+                et = (EditText) findViewById(R.id.editText_firstsnameArtistModify);
+                artistToModify.setFirstname(et.getText().toString());
 
-                et = (EditText) findViewById(R.id.editText_pseudoArtistCreate);
-                artist.setPseudo(et.getText().toString());
+                et = (EditText) findViewById(R.id.editText_pseudoArtistModify);
+                artistToModify.setPseudo(et.getText().toString());
 
-                et = (EditText) findViewById(R.id.editText_naissanceArtistCreate);
-                artist.setBirth(et.getText().toString());
+                et = (EditText) findViewById(R.id.editText_birthArtistModify);
+                artistToModify.setBirth(et.getText().toString());
 
-                et= (EditText) findViewById(R.id.editText_decesArtistCreate);
-                artist.setDeath(et.getText().toString());
+                et= (EditText) findViewById(R.id.editText_deathArtistModify);
+                artistToModify.setDeath(et.getText().toString());
 
-                Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtistCreate);
+                Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtistModify);
                 String recup = spinner.getSelectedItem().toString();
-                artist.setMovement(recup);
+                artistToModify.setMovement(recup);
 
                 //path de la picture
+                artistToModify.setImage_path(imagepath);
 
-                artist.setImage_path(imagepath);
-
-                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposed);
+                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
                 if(bl.isChecked()){
-                    artist.setExposed(true);
+                    artistToModify.setExposed(true);
                 }
                 else
                 {
-                 artist.setExposed(false);
+                    artistToModify.setExposed(false);
                 }
 
-                artist.setId((int) ads.createArtist(artist));
+                ads.updateArtist(artistToModify);
+
 
                 SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
                 sqlHelper.getWritableDatabase().close();
 
                 startActivity(new Intent(this, List_artist.class));
 
-                Toast toast = Toast.makeText(this, "Artist added", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, "Artist modified", Toast.LENGTH_LONG);
                 toast.show();
-
-                return true;*/
-
 
                 return true;
 

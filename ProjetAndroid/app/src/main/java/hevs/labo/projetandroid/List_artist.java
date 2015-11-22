@@ -79,15 +79,15 @@ public class List_artist extends AppCompatActivity {
 
             if(artistList.get(i).isExposed() == true)
             {
-                 expo = "EXPO";
+                 expo = "-------*EXPO*";
 
             }
             else
             {
-                 expo = "NOEXPO";
+                 expo = "---*NOEXPO*";
             }
            // tabArtistCreated[i] = artistList.get(i).toString();
-            tabArtistCreated[i]= artistList.get(i).getFirstname()+ " " + artistList.get(i).getLastname() + "/" + artistList.get(i).getPseudo()+ "         ---------------" +expo;
+            tabArtistCreated[i]= artistList.get(i).getLastname() + " " + artistList.get(i).getFirstname()+ "/" + artistList.get(i).getPseudo()+ " " +expo;
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtistCreated);
