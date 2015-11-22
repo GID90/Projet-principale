@@ -1,6 +1,8 @@
 package hevs.labo.projetandroid;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -10,6 +12,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +24,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Random;
+
+import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
@@ -28,61 +36,107 @@ import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 public class Create_artwork extends AppCompatActivity {
 
     private Artwork artwork;
+    private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
 
-    private static int RESULT_LOAD_IMAGE = 1;
-    String imgDecodableString;
+
+    /**Gérer les images : */
+    private Uri selectedImageArtwork;
+    private Bitmap bitmap;
+    private boolean isPicture;
+
+    ImageView imageArtworkToUpload;
+    ImageButton bUploadImageArtwork;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_artwork);
 
+        imageArtworkToUpload = (ImageView) findViewById(R.id.imageView_photoArtistCreate);
+        bUploadImageArtwork = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtistCreate);
+
+        imageArtworkToUpload.setOnClickListener(this);
+        bUploadImageArtwork.setOnClickListener(this);
+
         Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mvt_array, android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+
     }
 
-   public void pickPictureArtwork(View view){
-        Intent intentpickImage = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intentpickImage, RESULT_LOAD_IMAGE);
-    }
-//second choice to pick a picture
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-            // When an Image is picked
-            if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK
-                    && data != null) {
-                // Get the Image from data
+        try {
 
-                Uri selectedImage = data.getData();
+            if (requestCode == RESULT_LOAD_ARTIST_IMAGE && resultCode == RESULT_OK && null != data) {
 
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+                selectedImageArtwork = data.getData();
+                imageArtworkToUpload.setImageURI(selectedImageArtwork);
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageArtwork);
 
-                // Get the cursor
-                Cursor cursor = getContentResolver().query(selectedImage,
-                        filePathColumn, null, null, null);
-                // Move to first row
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                imgDecodableString = cursor.getString(columnIndex);
-                cursor.close();
-                ImageView imgView = (ImageView) findViewById(R.id.imageView_photoArtworkCreate);
-                // Set the Image in ImageView after decoding the String
-                imgView.setImageBitmap(BitmapFactory
-                        .decodeFile(imgDecodableString));
-
+                isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picked Image",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
             }
-
-
+        }catch (Exception e ){
+            Log.e("error", e.toString());
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
 
     }
+
+    private String saveToInternalStorage(Bitmap bitmapImage) {
+
+
+        Random rd = new Random();
+        int randomnum = 1+ (int)(Math.random()*4000);
+
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, randomnum+".jpg");
+
+        FileOutputStream fos = null;
+        try {
+
+            fos = new FileOutputStream(mypath);
+
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mypath.getPath();
+    }
+
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.imageView_photoArtworkCreate:
+                onLoad();
+                break;
+            case R.id.imageButton_btnDownloadArtworkCreate:
+                onLoad();
+                break;
+        }
+    }
+
+    private void onLoad() {
+
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(intent, RESULT_LOAD_ARTIST_IMAGE);
+    }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,18 +161,32 @@ public class Create_artwork extends AppCompatActivity {
                 return true;
 
             case R.id.saveartworkcreated_menu:
+
+                String imagepath = saveToInternalStorage(bitmap);
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toastpict = Toast.makeText(context, imagepath, duration);
+                toastpict.show();
+
                 artwork = new Artwork();
-              /*  ArtworkDataSource ads = new ArtworkDataSource(this);
+                ArtworkDataSource ads = new ArtworkDataSource(this);
 
                 EditText et = (EditText) findViewById(R.id.editText_nameArtworkCreate);
                 artwork.setName(et.getText().toString());
+
+                Spinner spinnerArtist = (Spinner) findViewById(R.id.spinner_ArtistArtworkCreatede);
+                String recup = spinnerArtist.getSelectedItem().toString();
+               // artwork.setForeign_key_Artist_id();
+
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
                 artwork.setCreationYear(Integer.parseInt(et.getText().toString()));
+
                 et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
                 artwork.setType(et.getText().toString());
 
-                Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
-                String recup = spinner.getSelectedItem().toString();
+                Spinner spinnerMvt = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
+                String recup = spinnerMvt.getSelectedItem().toString();
                 artwork.setMovement(recup);
 
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkCreate);
@@ -134,7 +202,7 @@ public class Create_artwork extends AppCompatActivity {
 
                 Toast toast = Toast.makeText(this, "Artwork added", Toast.LENGTH_LONG);
                 toast.show();
-*/
+
                 return true;
         }
 
