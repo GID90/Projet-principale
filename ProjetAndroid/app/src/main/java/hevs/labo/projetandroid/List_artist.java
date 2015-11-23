@@ -87,7 +87,7 @@ public class List_artist extends AppCompatActivity {
                  expo = "---*NOEXPO*";
             }
            // tabArtistCreated[i] = artistList.get(i).toString();
-            tabArtistCreated[i]= artistList.get(i).getLastname() + " " + artistList.get(i).getFirstname()+ "/" + artistList.get(i).getPseudo()+ " " +expo;
+            tabArtistCreated[i]= artistList.get(i).getLastname() + "\t" + artistList.get(i).getFirstname()+ "\t" + artistList.get(i).getPseudo()+ "\t" +expo;
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtistCreated);

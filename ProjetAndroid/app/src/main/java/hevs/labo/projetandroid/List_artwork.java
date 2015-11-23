@@ -86,7 +86,7 @@ public class List_artwork extends AppCompatActivity {
 
                     nameArtistByFK = artistPickByForeign_Key.getLastname();
 
-                    tabArtworkCreated[i]= artworkList.get(i).getName() + "----- " + artworkList.get(i).getType() + "-----"+ nameArtistByFK + "-----" + expo;
+                    tabArtworkCreated[i]= artworkList.get(i).getName() + "\t " + artworkList.get(i).getType() + "\t"+ nameArtistByFK + "\t" + expo;
 
         }
 

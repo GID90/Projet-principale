@@ -6,13 +6,43 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
+import java.util.List;
+
+import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
+import hevs.labo.projetandroid.database.object.Artist;
+import hevs.labo.projetandroid.database.object.Artwork;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView numberofArtworkexposed;
+    private TextView numberofArtistexposed;
+    List<Artist> nbArtist;
+    List<Artwork> nbArtwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
+        ArtistDataSource artistDataSource = new ArtistDataSource(this);
+
+
+        numberofArtworkexposed = (TextView) findViewById(R.id.nbExposedArtwork);
+        numberofArtistexposed = (TextView) findViewById(R.id.nbExposedArtist);
+
+        nbArtist = artistDataSource.getAllArtists();
+        nbArtwork = artworkDataSource.getAllArtworks();
+
+        numberofArtistexposed.setText(String.valueOf(nbArtist.size()));
+        numberofArtworkexposed.setText(String.valueOf(nbArtwork.size()));
+
+
+
+
     }
 
     public void show_list_artist(View view) {

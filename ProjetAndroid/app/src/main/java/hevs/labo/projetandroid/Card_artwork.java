@@ -111,7 +111,20 @@ public class Card_artwork extends AppCompatActivity {
                 return true;
 
             case R.id.deleteArtwork_menu:
+
+                int id_artworkTodelete  = artworkAafficher.getId();
+                ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
+                artworkDataSource.deleteArtwork(id_artworkTodelete);
+
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(this, "Artwork deleted", duration);
+                toast.show();
+
+                Intent backToListArtwork = new Intent(this, List_artist.class);
+                startActivity(backToListArtwork);
                 return true;
+
         }
 
 

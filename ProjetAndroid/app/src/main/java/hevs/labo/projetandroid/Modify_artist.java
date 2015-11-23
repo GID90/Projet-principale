@@ -233,7 +233,15 @@ public class Modify_artist extends AppCompatActivity {
                 artistToModify.setMovement(recup);
 
                 //path de la picture
-                artistToModify.setImage_path(imagepath);
+                if(imagepath != null){
+                    artistToModify.setImage_path(imagepath);
+                }
+                else
+                {
+                    artistToModify = ads.getArtistById(id_artist_modif);
+                    artistToModify.setImage_path(artistToModify.getImage_path());
+                }
+
 
                 CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
                 if(bl.isChecked()){

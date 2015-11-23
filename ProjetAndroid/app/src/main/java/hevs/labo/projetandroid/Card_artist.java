@@ -7,14 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.List;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
+import hevs.labo.projetandroid.database.object.Artwork;
 
 public class Card_artist extends AppCompatActivity {
 
@@ -24,6 +29,11 @@ public class Card_artist extends AppCompatActivity {
     private TextView artistMouvement;
     private ImageView photoArtist;
 
+    //liste d artwork
+    ListView listView_artworkFromTheArtist;
+    String[] tabArtworkByArtist;
+    String expo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +41,7 @@ public class Card_artist extends AppCompatActivity {
         setContentView(R.layout.activity_card_artist);
 
         ArtistDataSource ards = new ArtistDataSource(this);
+        ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
 
         Intent intent = getIntent();
 
@@ -63,6 +74,41 @@ public class Card_artist extends AppCompatActivity {
             photoArtist.setImageURI(uri);
         }
 
+        listView_artworkFromTheArtist = (ListView) findViewById(R.id.list_oeuvre);
+        //pour supprimer une oeuvre il faut aller directement sur la carte
+        //pas possible de supprimer depuis la liste
+        listView_artworkFromTheArtist.setClickable(false);
+
+        listView_artworkFromTheArtist.setTextFilterEnabled(true);
+
+        List<Artwork> listArtwork = artworkDataSource.getAllArtworksByArtist(id_artist);
+
+        if(listArtwork == null)
+        {
+            return;
+        }
+
+        tabArtworkByArtist = new String[listArtwork.size()];
+
+        for(int i = 0; i < listArtwork.size(); i++)
+        {
+
+            if(listArtwork.get(i).getExposed() == true)
+            {
+                expo = "-------*EXPO*";
+
+            }
+            else
+            {
+                expo = "---*NOEXPO*";
+            }
+            // tabArtistCreated[i] = artistList.get(i).toString();
+            tabArtworkByArtist[i]= listArtwork.get(i).getName() + "\t" + listArtwork.get(i).getType() + "\t" + listArtwork.get(i).getCreationYear() + "\t" +expo;
+        }
+
+        ArrayAdapter<String> adapterArtworkByArtist = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtworkByArtist);
+
+        listView_artworkFromTheArtist.setAdapter(adapterArtworkByArtist);
 
 
 
@@ -101,6 +147,18 @@ public class Card_artist extends AppCompatActivity {
                 return true;
 
             case R.id.deleteArtist_menu:
+
+                int id_artist  = artistAafficher.getId();
+                ArtistDataSource artistDataSource = new ArtistDataSource(this);
+                artistDataSource.deleteArtist(id_artist);
+
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(this, "Artist deleted", duration);
+                toast.show();
+
+                Intent backToList = new Intent(this, List_artist.class);
+                startActivity(backToList);
                 return true;
         }
 

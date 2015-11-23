@@ -39,7 +39,7 @@ import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 public class Create_artwork extends AppCompatActivity implements View.OnClickListener {
 
     private Artwork artwork;
-    private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
+    private static final int RESULT_LOAD_ARTWORKCREATE_IMAGE = 1;
 
 
     /**Gérer les images : */
@@ -89,7 +89,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
 
         try {
 
-            if (requestCode == RESULT_LOAD_ARTIST_IMAGE && resultCode == RESULT_OK && null != data) {
+            if (requestCode == RESULT_LOAD_ARTWORKCREATE_IMAGE && resultCode == RESULT_OK && null != data) {
 
                 selectedImageArtwork = data.getData();
                 imageArtworkToUpload.setImageURI(selectedImageArtwork);
@@ -147,7 +147,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
     private void onLoad() {
 
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(intent, RESULT_LOAD_ARTIST_IMAGE);
+        startActivityForResult(intent, RESULT_LOAD_ARTWORKCREATE_IMAGE);
     }
 
 
@@ -180,7 +180,6 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 String imagepath = saveToInternalStorage(bitmap);
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
-
 
 
                 artwork = new Artwork();
