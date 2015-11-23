@@ -23,9 +23,9 @@ public class List_artwork extends AppCompatActivity {
     String[] tabArtworkCreated;
     List<Artwork> arl;
     String expo;
-    Artist artistForeign_Key;
-    int idArtisstForeign_Key;
-    String nameArtistForeign_Key;
+    Artist artistPickByForeign_Key;
+    int idArtistForeign_Key;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class List_artwork extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Artwork aw = arl.get(position);
 
                 Intent intentaw = new Intent(List_artwork.this, Card_artwork.class);
@@ -77,19 +78,21 @@ public class List_artwork extends AppCompatActivity {
                 expo = "---*NOEXPO*";
             }
 
-            idArtisstForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
+        /*    if(i >0) {
+                idArtistForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
+artistPickByForeign_Key.getLastname()
+                artistPickByForeign_Key = artds.getArtistById(idArtistForeign_Key);
 
-            artistForeign_Key = artds.getArtistById(idArtisstForeign_Key);
+            }*/
 
-            nameArtistForeign_Key = artistForeign_Key.getLastname();
-
-            tabArtworkCreated[i]= artworkList.get(i).getName() + " " + artworkList.get(i).getType() + " " + nameArtistForeign_Key + " " +expo;
+            tabArtworkCreated[i]= artworkList.get(i).getName() + " " + artworkList.get(i).getType() + " " + artworkList.get(i).getForeign_key_Artist_id() + " " + expo;
 
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtworkCreated);
 
         listView.setAdapter(adapter);
+
 
         //close db instance
         SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);

@@ -34,7 +34,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ArtGalleryContract.Artist.CREATE_TABLE_ARTIST);
         db.execSQL(ArtGalleryContract.Room.CREATE_TABLE_ROOM);
-        db.execSQL(ArtGalleryContract.Artwork.CREATE_TABLE_ARTOWORK);
+        db.execSQL(ArtGalleryContract.Artwork.CREATE_TABLE_ARTWORK);
     }
 
     @Override

@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -26,14 +27,16 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.List;
 import java.util.Random;
 
+import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 
-public class Create_artwork extends AppCompatActivity {
+public class Create_artwork extends AppCompatActivity implements View.OnClickListener {
 
     private Artwork artwork;
     private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
@@ -47,6 +50,8 @@ public class Create_artwork extends AppCompatActivity {
     ImageView imageArtworkToUpload;
     ImageButton bUploadImageArtwork;
 
+    List<Artist> spinnerResources;
+    String[] resourcesSpinnerNameArtists;
 
 
     @Override
@@ -54,15 +59,25 @@ public class Create_artwork extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_artwork);
 
-        imageArtworkToUpload = (ImageView) findViewById(R.id.imageView_photoArtistCreate);
-        bUploadImageArtwork = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtistCreate);
+        ArtistDataSource artistds = new ArtistDataSource(this);
+
+        imageArtworkToUpload = (ImageView) findViewById(R.id.imageView_photoArtworkCreate);
+        bUploadImageArtwork = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtworkCreate);
 
         imageArtworkToUpload.setOnClickListener(this);
         bUploadImageArtwork.setOnClickListener(this);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mvt_array, android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        Spinner spinnerArtist = (Spinner) findViewById(R.id.spinner_ArtistArtworkCreated);
+        spinnerResources = artistds.getAllArtists();
+        resourcesSpinnerNameArtists = new String[spinnerResources.size()];
+
+        for(int i = 0; i<spinnerResources.size(); i++){
+            resourcesSpinnerNameArtists[i] = spinnerResources.get(i).getId()+ "  " + spinnerResources.get(i).getLastname() ;
+        }
+
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,  resourcesSpinnerNameArtists);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerArtist.setAdapter(adapter1);
 
 
     }
@@ -95,7 +110,7 @@ public class Create_artwork extends AppCompatActivity {
 
 
         Random rd = new Random();
-        int randomnum = 1+ (int)(Math.random()*4000);
+        int randomnum = 1+ (int)(Math.random()*11000);
 
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
@@ -175,9 +190,12 @@ public class Create_artwork extends AppCompatActivity {
                 EditText et = (EditText) findViewById(R.id.editText_nameArtworkCreate);
                 artwork.setName(et.getText().toString());
 
-                Spinner spinnerArtist = (Spinner) findViewById(R.id.spinner_ArtistArtworkCreatede);
-                String recup = spinnerArtist.getSelectedItem().toString();
-               // artwork.setForeign_key_Artist_id();
+                Spinner spinnerArtistFk = (Spinner) findViewById(R.id.spinner_ArtistArtworkCreated);
+                String recupArtist = spinnerArtistFk.getSelectedItem().toString();
+                String parts[] = recupArtist.split(" ");
+                String idRecupArtist = parts[0];
+                int fkArtist = Integer.parseInt(idRecupArtist);
+                artwork.setForeign_key_Artist_id(fkArtist);
 
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
                 artwork.setCreationYear(Integer.parseInt(et.getText().toString()));
@@ -185,12 +203,19 @@ public class Create_artwork extends AppCompatActivity {
                 et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
                 artwork.setType(et.getText().toString());
 
-                Spinner spinnerMvt = (Spinner) findViewById(R.id.spinner_mvtArtworkCreate);
-                String recup = spinnerMvt.getSelectedItem().toString();
-                artwork.setMovement(recup);
-
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkCreate);
                 artwork.setDescription(et.getText().toString());
+
+                artwork.setImage_path(imagepath);
+
+                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artworkExposed);
+                if(bl.isChecked()){
+                    artwork.setExposed(true);
+                }
+                else
+                {
+                    artwork.setExposed(false);
+                }
 
                 artwork.setId((int) ads.createArtwork(artwork));
 

@@ -89,7 +89,7 @@
                 />
 
             <Spinner
-                android:id="@+id/spinner_ArtistArtworkCreatede"
+                android:id="@+id/spinner_ArtistArtworkCreated"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="60" />
@@ -154,30 +154,7 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="40"
-                android:text="@string/movement"
-                android:id="@+id/textView_movmentArtworkCreate"
-                android:textColor="#000010"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            <Spinner
-                android:id="@+id/spinner_mvtArtworkCreate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="60" />
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"

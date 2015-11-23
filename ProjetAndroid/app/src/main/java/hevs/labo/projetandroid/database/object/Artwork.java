@@ -9,7 +9,6 @@ public class Artwork {
     private String name;
     private String type;
     private int creationYear;
-    private String movement;
     private String description;
     private boolean exposed;
     private String image_path;
@@ -18,14 +17,14 @@ public class Artwork {
 
     public Artwork(){}
 
-    public Artwork(String name, int creationYear, String type, String movement, String description, boolean exposed, String image_path){
+    public Artwork(String name, int creationYear, String type, String description, boolean exposed, String image_path, int foreign_key_Artist_id){
         this.name = name;
         this.creationYear = creationYear;
         this.type = type;
-        this.movement = movement;
         this.description = description;
         this.exposed = exposed;
         this.image_path = image_path;
+        this.foreign_key_Artist_id = foreign_key_Artist_id;
     }
 
     public void setId(int id) {this.id = id; }
@@ -44,12 +43,6 @@ public class Artwork {
         this.creationYear = creationYear;
     }
 
-    public String getMovement() {
-        return movement;
-    }
-    public void setMovement(String movement) {
-        this.movement = movement;
-    }
 
     public String getDescription() {
         return description;

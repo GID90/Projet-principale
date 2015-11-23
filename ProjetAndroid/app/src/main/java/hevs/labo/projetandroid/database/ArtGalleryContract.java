@@ -51,7 +51,6 @@ public final class ArtGalleryContract {
         public static final String KEY_NAME = "name";
         public static final String KEY_TYPE = "type";
         public static final String KEY_CREATION_YEAR = "creation_year";
-        public static final String KEY_MOVEMENT = "movement";
         public static final String KEY_DESCRIPTION = "description";
         public static final String KEY_EXPOSED = "exposed";
         public static final String KEY_IMAGE_PATH = "image_path";
@@ -59,13 +58,12 @@ public final class ArtGalleryContract {
         public static final String KEY_ROOM_ID = "room_id";
 
         //Table artist create statement
-        public static final String CREATE_TABLE_ARTOWORK = "CREATE TABLE "
+        public static final String CREATE_TABLE_ARTWORK = "CREATE TABLE "
                 + TABLE_ARTWORK + "("
                 + Artwork.KEY_ID + " INTEGER PRIMARY KEY, "
                 + Artwork.KEY_NAME + " TEXT, "
                 + Artwork.KEY_TYPE + " TEXT, "
                 + Artwork.KEY_CREATION_YEAR + " INTEGER, "
-                + Artwork.KEY_MOVEMENT + " TEXT, "
                 + Artwork.KEY_DESCRIPTION + " TEXT, "
                 + Artwork.KEY_EXPOSED + " BOOLEAN, "
                 + Artwork.KEY_IMAGE_PATH + " TEXT, "
