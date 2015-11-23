@@ -25,6 +25,7 @@ public class List_artwork extends AppCompatActivity {
     String expo;
     Artist artistPickByForeign_Key;
     int idArtistForeign_Key;
+    String nameArtistByFK;
 
 
     @Override
@@ -78,14 +79,14 @@ public class List_artwork extends AppCompatActivity {
                 expo = "---*NOEXPO*";
             }
 
-        /*    if(i >0) {
-                idArtistForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
-artistPickByForeign_Key.getLastname()
-                artistPickByForeign_Key = artds.getArtistById(idArtistForeign_Key);
 
-            }*/
+                  idArtistForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
 
-            tabArtworkCreated[i]= artworkList.get(i).getName() + " " + artworkList.get(i).getType() + " " + artworkList.get(i).getForeign_key_Artist_id() + " " + expo;
+                    artistPickByForeign_Key = artds.getArtistById(idArtistForeign_Key);
+
+                    nameArtistByFK = artistPickByForeign_Key.getLastname();
+
+                    tabArtworkCreated[i]= artworkList.get(i).getName() + "----- " + artworkList.get(i).getType() + "-----"+ nameArtistByFK + "-----" + expo;
 
         }
 

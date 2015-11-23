@@ -181,8 +181,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toastpict = Toast.makeText(context, imagepath, duration);
-                toastpict.show();
+
 
                 artwork = new Artwork();
                 ArtworkDataSource ads = new ArtworkDataSource(this);
@@ -195,7 +194,11 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 String parts[] = recupArtist.split(" ");
                 String idRecupArtist = parts[0];
                 int fkArtist = Integer.parseInt(idRecupArtist);
+
                 artwork.setForeign_key_Artist_id(fkArtist);
+
+                Toast toastpict = Toast.makeText(context, idRecupArtist, duration);
+                toastpict.show();
 
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
                 artwork.setCreationYear(Integer.parseInt(et.getText().toString()));

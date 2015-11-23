@@ -40,6 +40,7 @@ public class ArtworkDataSource {
         values.put(ArtGalleryContract.Artwork.KEY_DESCRIPTION, artwork.getDescription());
         values.put(ArtGalleryContract.Artwork.KEY_EXPOSED, artwork.getExposed());
         values.put(ArtGalleryContract.Artwork.KEY_IMAGE_PATH, artwork.getImage_path());
+        values.put(ArtGalleryContract.Artwork.KEY_ARTIST_ID, artwork.getForeign_key_Artist_id());
 
         id = this.db.insert(ArtGalleryContract.Artwork.TABLE_ARTWORK, null, values);
 
@@ -67,6 +68,7 @@ public class ArtworkDataSource {
         artwork.setDescription(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_DESCRIPTION)));
         artwork.setImage_path(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_IMAGE_PATH)));
         artwork.setExposed(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_EXPOSED)) == 1);
+        artwork.setForeign_key_Artist_id(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ARTIST_ID)));
 
         return artwork;
     }
@@ -91,6 +93,7 @@ public class ArtworkDataSource {
                 artwork.setDescription(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_DESCRIPTION)));
                 artwork.setImage_path(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_IMAGE_PATH)));
                 artwork.setExposed(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_EXPOSED)) == 1);
+                artwork.setForeign_key_Artist_id(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ARTIST_ID)));
 
                 artworks.add(artwork);
             }
@@ -106,14 +109,13 @@ public class ArtworkDataSource {
     public int updateArtwork(Artwork artwork){
         ContentValues values = new ContentValues();
 
-
-
         values.put(ArtGalleryContract.Artwork.KEY_NAME, artwork.getName());
         values.put(ArtGalleryContract.Artwork.KEY_TYPE, artwork.getType());
         values.put(ArtGalleryContract.Artwork.KEY_CREATION_YEAR, artwork.getCreationYear());
         values.put(ArtGalleryContract.Artwork.KEY_DESCRIPTION, artwork.getDescription());
         values.put(ArtGalleryContract.Artwork.KEY_IMAGE_PATH, artwork.getImage_path());
         values.put(ArtGalleryContract.Artwork.KEY_EXPOSED, artwork.getExposed());
+        values.put(ArtGalleryContract.Artwork.KEY_ARTIST_ID, artwork.getForeign_key_Artist_id());
 
         return this.db.update(ArtGalleryContract.Artwork.TABLE_ARTWORK, values, ArtGalleryContract.Artwork.KEY_ID + " = ?",
                 new String[] { String.valueOf(artwork.getId()) });
