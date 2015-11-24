@@ -107,6 +107,7 @@
     <string name="saveroommodified_menu">Save Room modified</string>
 
 
+
     <!--Spinner-->
     <string-array name="mvt_array">
         <item>Art abstrait</item>

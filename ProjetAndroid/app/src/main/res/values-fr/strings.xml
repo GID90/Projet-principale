@@ -49,6 +49,7 @@
     <string name="artist_exposed">Artistes exposés : </string>
     <string name="room_used">Salles occupées : </string>
     <string name="artexpose">Exposé</string>
+    <string name="roomused">Occupée</string>
 
     <!--**********************Manifest***********************************************************-->
     <string name="title_activity_card_artwork">Oeuvre art</string>
