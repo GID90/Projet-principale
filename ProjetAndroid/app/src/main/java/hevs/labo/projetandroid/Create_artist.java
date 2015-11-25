@@ -162,6 +162,9 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 return true;
 
             case R.id.cancelartistcreated_menu:
+                Intent intentartistcancel = new Intent(this, List_artist.class);
+                startActivity(intentartistcancel);
+
                 return true;
 
             case R.id.saveartistcreated_menu:

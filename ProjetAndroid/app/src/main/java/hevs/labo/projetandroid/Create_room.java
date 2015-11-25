@@ -149,6 +149,7 @@ public class Create_room extends AppCompatActivity implements View.OnClickListen
 
             case R.id.cancelroomcreated_menu:
                 Intent intentCancel = new Intent(this, List_room.class);
+                startActivity(intentCancel);
                 return true;
 
             case R.id.saveroomcreated_menu:

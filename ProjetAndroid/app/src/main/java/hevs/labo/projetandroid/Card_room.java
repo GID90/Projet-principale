@@ -86,6 +86,7 @@ public class Card_room extends AppCompatActivity {
             case R.id.modifyRoom_menu:
 
                 int id_room_modif = roomAafficher.getId();
+
                 Intent intentmodifyRoom = new Intent(this, Modify_room.class);
                 intentmodifyRoom.putExtra("id_room_modif", String.valueOf(id_room_modif));
                 startActivity(intentmodifyRoom);
