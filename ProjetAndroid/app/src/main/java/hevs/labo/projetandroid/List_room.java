@@ -1,5 +1,6 @@
 package hevs.labo.projetandroid;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -69,21 +70,25 @@ public class List_room extends AppCompatActivity {
 
         tabRoomCreated = new String[roomList.size()];
 
+
+
         for(int i = 0; i < roomList.size(); i++)
         {
 
             if(roomList.get(i).isSelected() == true)
             {
-                occup = "-------*OCCUP*";
+                occup = "OCCUP";
 
             }
             else
             {
-                occup = "---*NOCCUP*";
+                occup = "NOCCUP";
             }
             // tabArtistCreated[i] = artistList.get(i).toString();
             tabRoomCreated[i]= roomList.get(i).getName() + "\t" + roomList.get(i).getSize()+ "\t"+ occup;
         }
+
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabRoomCreated);
 
