@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 import hevs.labo.projetandroid.database.ArtGalleryContract;
+import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.RoomDataSource;
 import hevs.labo.projetandroid.database.object.Room;
 
@@ -182,6 +183,15 @@ public class Create_room extends AppCompatActivity implements View.OnClickListen
                     room.setSelected(false);
                 }
 
+                room.setId((int) roomDataSource.createRoom(room));
+
+                SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
+                sqlHelper.getWritableDatabase().close();
+
+                startActivity(new Intent(this, List_room.class));
+
+                Toast toast = Toast.makeText(this, "Room added", Toast.LENGTH_LONG);
+                toast.show();
 
                 return true;
         }

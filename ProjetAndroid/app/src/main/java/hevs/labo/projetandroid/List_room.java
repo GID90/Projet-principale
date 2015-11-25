@@ -3,6 +3,7 @@ package hevs.labo.projetandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,26 +14,22 @@ import android.widget.CheckedTextView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.RoomDataSource;
+import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Room;
 
 public class List_room extends AppCompatActivity {
 
-    String name;
-    double size;
-
-    CheckedTextView ctv_room;
-    ListView listView;
-
-    Room room;
-    ArrayList<Room> listRoomCreated = new ArrayList<>();
+    ListView listView_room;
+    List<Room> list_room;
     String[] tabRoomCreated;
-    int tabSize;
+    private Room roompicked;
+    private ActionMode mActionMode = null;
+    String occup;
 
-    int cpt = 0;
-    CheckBox box;
-
-    String[]valeurstest = {"S00", "S01", "s02"};
 
 
     @Override
@@ -41,55 +38,58 @@ public class List_room extends AppCompatActivity {
         setContentView(R.layout.activity_list_room);
         //getSupportActionBar().show();
 
-        Intent intent = getIntent();
+        final RoomDataSource roomDataSource = new RoomDataSource(this);
 
-        name = intent.getStringExtra("name");
-        size = intent.getDoubleExtra("size", 0);
+        List<Room> roomList = roomDataSource.getAllRooms();
+        list_room= roomDataSource.getAllRooms();
 
-        room = new Room();
-        room.setName(name);
-        room.setSize(size);
-        room.setSelected(false);
+        listView_room = (ListView) findViewById(R.id.listView_room);
 
-        listView = (ListView) findViewById(R.id.listView_room);
+        listView_room.setClickable(true);
 
-        listView.setClickable(true);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView_room.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Object o = listView.getItemAtPosition(position);
+                Room r = list_room.get(position);
 
                 Intent intent = new Intent(List_room.this, Card_room.class);
-
+                intent.putExtra("id_RoomRecup", String.valueOf(r.getId()));
                 startActivity(intent);
             }
         });
 
-        listView.setChoiceMode(listView.CHOICE_MODE_MULTIPLE);
-        listView.setTextFilterEnabled(true);
+        listView_room.setChoiceMode(listView_room.CHOICE_MODE_SINGLE);
+        listView_room.setTextFilterEnabled(true);
 
-        listRoomCreated.add(room);
-        cpt++;
-
-        tabRoomCreated = new String[listRoomCreated.size()];
-
-        for(int i=0; i<tabRoomCreated.length; i++) {
-            tabRoomCreated[i] = listRoomCreated.get(i).toString() + cpt;
+        if(roomList == null){
+            return;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_checked, android.R.id.text1, valeurstest);
-        listView.setAdapter(adapter);
-    }
+        tabRoomCreated = new String[roomList.size()];
 
-    public void initPanel() {
-        tabRoomCreated = new String[listRoomCreated.size()];
+        for(int i = 0; i < roomList.size(); i++)
+        {
 
-        for(int i=0; i<tabRoomCreated.length; i++) {
-            tabRoomCreated[i] = listRoomCreated.get(i).toString();
+            if(roomList.get(i).isSelected() == true)
+            {
+                occup = "-------*OCCUP*";
+
+            }
+            else
+            {
+                occup = "---*NOCCUP*";
+            }
+            // tabArtistCreated[i] = artistList.get(i).toString();
+            tabRoomCreated[i]= roomList.get(i).getName() + "\t" + roomList.get(i).getSize()+ "\t"+ occup;
         }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabRoomCreated);
+
+        listView_room.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -121,11 +121,6 @@ public class List_room extends AppCompatActivity {
         return (super.onOptionsItemSelected(item));
     }
 
-    public void addRoom(View view){
-        Intent intent = new Intent(this, Create_room.class);
-
-        startActivity(intent);
-    }
-
+    
 
 }
