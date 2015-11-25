@@ -6,7 +6,7 @@
     android:background="@drawable/back"
     tools:context="hevs.labo.projetandroid.Modify_room">
 
-    <!--1ère ligne : nom de la salle, bouton annuler, bouton sauvegarder-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,9 +14,8 @@
 
         <TextView
             android:id="@+id/tv_modify_room"
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="70"
             android:gravity="center"
             android:text="@string/modify_room"
             android:textColor="#000000"
@@ -25,21 +24,20 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <!--Dans Action Bar désormais-->
+        <!--Dans l'action bar désormais-->
 
-     <!--   <ImageButton
-            android:id="@+id/button_cancelCreate"
-            style="@style/imageButton"
-            android:src="@mipmap/cancel" />
+        <!--    <ImageButton
+                android:id="@+id/button_cancelCreate"
+                style="@style/imageButton"
+                android:src="@mipmap/cancel" />
 
-        <ImageButton
-            android:id="@+id/button_saveCreate"
-            style="@style/imageButton"
-            android:onClick="saveModifyRoom"
-            android:src="@mipmap/save" /> -->
+            <ImageButton
+                android:id="@+id/button_saveCreate"
+                style="@style/imageButton"
+                android:onClick="saveCreateRoom"
+                android:src="@mipmap/save" /> -->
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,19 +51,18 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_create_room_name"
-                android:layout_width="0dp"
+                android:id="@+id/tv_modify_room_name"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
                 android:text="@string/name"
-                android:layout_weight="40"
                 android:textColor="#000010"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/et_create_room_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="60"/>
+                android:id="@+id/et_modify_room_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
@@ -75,19 +72,44 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_create_room_size"
-                android:layout_width="0dp"
+                android:id="@+id/tv_modify_room_size"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
                 android:text="@string/size"
-                android:layout_weight="40"
                 android:textColor="#000010"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/et_create_room_size"
-                android:layout_width="0dp"
+                android:id="@+id/et_modify_room_size"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_modify_room_unit"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="60"/>
+                android:text="@string/measure"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView_photoRoomModify"
+                android:layout_width="350dp"
+                android:layout_height="200dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton_btnDownloadRoomModify"
+                style="@style/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/download" />
 
         </LinearLayout>
 
@@ -96,21 +118,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/imageButton_btnDownloadArtistCreate"
+            <TextView
+                android:id="@+id/textView_OccupatedRoomModify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#0000"
-                android:src="@mipmap/download" />
+                android:layout_marginBottom="10dp"
+                android:text="@string/room_used"
+                android:textColor="#000010"
+                android:textSize="20dp"
+                />
 
-            <ImageView
-                android:id="@+id/imageView_photoArtistCreate"
-                android:layout_width="130dp"
-                android:layout_height="130dp" />
+
+            <CheckBox
+                android:id="@+id/chbox_roomOccupatedModify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
 
     </LinearLayout>
-
 </LinearLayout>

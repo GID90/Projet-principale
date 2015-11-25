@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
+import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 import hevs.labo.projetandroid.database.adapter.RoomDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Room;
@@ -83,11 +84,26 @@ public class Card_room extends AppCompatActivity {
                 return true;
 
             case R.id.modifyRoom_menu:
+
+                int id_room_modif = roomAafficher.getId();
                 Intent intentmodifyRoom = new Intent(this, Modify_room.class);
+                intentmodifyRoom.putExtra("id_room_modif", String.valueOf(id_room_modif));
                 startActivity(intentmodifyRoom);
                 return true;
 
             case R.id.deleteRoom_menu:
+
+                int id_rooomTodelete  = roomAafficher.getId();
+                RoomDataSource roomDataSource = new RoomDataSource(this);
+                roomDataSource.deleteRoom(id_rooomTodelete);
+
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(this, "Room deleted", duration);
+                toast.show();
+
+                Intent backToListRoom = new Intent(this, List_room.class);
+                startActivity(backToListRoom);
                 return true;
         }
 
