@@ -70,7 +70,7 @@ public class Create_exhibition extends AppCompatActivity {
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,  resourcesSpinnerNameRoom);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRoom.setAdapter(adapter3);
-        
+
 
 
     }

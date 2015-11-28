@@ -25,6 +25,7 @@ public class Card_room extends AppCompatActivity {
     private Room roomAafficher;
 
     private ImageView photoRoom;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,14 @@ public class Card_room extends AppCompatActivity {
         RoomDataSource roomDataSource = new RoomDataSource(this);
         Intent intent = getIntent();
 
-        String id = intent.getStringExtra("id_RoomRecup");
-        int id_room = Integer.parseInt(id);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            id =extras.getInt("id_RoomRecup");
+        }
 
-        roomAafficher = roomDataSource.getRoomById(id_room);
+
+        roomAafficher = roomDataSource.getRoomById(id);
 
         nameRoom = (TextView) findViewById(R.id.tv_name_card_room);
         nameRoom.setText(roomAafficher.getName());

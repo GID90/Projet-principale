@@ -51,9 +51,9 @@ public class MobileArrayAdapter extends ArrayAdapter<String> {
        // System.out.println(s);
 
         if (part2.equals("OCCUP")) {
-            imageView.setImageResource(R.drawable.selecticon);
+            imageView.setImageResource(R.drawable.occuped);
         } else if (s.equals("NOCCUP")) {
-            imageView.setImageResource(R.drawable.crossicon);
+            imageView.setImageResource(R.drawable.dispo);
         }
 
         return rowView;

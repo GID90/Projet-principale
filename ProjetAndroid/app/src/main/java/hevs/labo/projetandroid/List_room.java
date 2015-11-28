@@ -1,18 +1,27 @@
 package hevs.labo.projetandroid;
 
 import android.app.ListActivity;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ActionMode;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +41,8 @@ public class List_room extends AppCompatActivity {
     String occup;
 
 
+    RoomAdapter liste;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,59 +52,28 @@ public class List_room extends AppCompatActivity {
 
         final RoomDataSource roomDataSource = new RoomDataSource(this);
 
-        List<Room> roomList = roomDataSource.getAllRooms();
-        list_room= roomDataSource.getAllRooms();
 
-        listView_room = (ListView) findViewById(R.id.listView_room);
+        liste = new RoomAdapter(this.getApplicationContext());
 
-        listView_room.setClickable(true);
+        ListView lv = (ListView) findViewById(R.id.listView_room);
+        lv.setAdapter(liste);
 
-        listView_room.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Room r = list_room.get(position);
-
-                Intent intent = new Intent(List_room.this, Card_room.class);
-                intent.putExtra("id_RoomRecup", String.valueOf(r.getId()));
-                startActivity(intent);
+                Room i = liste.getRoom(position);
+                sendCarRoom(i.getId());
             }
         });
 
-        listView_room.setChoiceMode(listView_room.CHOICE_MODE_SINGLE);
-        listView_room.setTextFilterEnabled(true);
 
-        if(roomList == null){
-            return;
-        }
-
-        tabRoomCreated = new String[roomList.size()];
+    }
 
 
-
-        for(int i = 0; i < roomList.size(); i++)
-        {
-
-            if(roomList.get(i).isSelected() == true)
-            {
-                occup = "OCCUP";
-
-            }
-            else
-            {
-                occup = "NOCCUP";
-            }
-            // tabArtistCreated[i] = artistList.get(i).toString();
-            tabRoomCreated[i]= roomList.get(i).getName() + "\t" + roomList.get(i).getSize()+ "\t"+ occup;
-        }
-
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabRoomCreated);
-
-        listView_room.setAdapter(adapter);
-
+    public void sendCarRoom(int id){
+        Intent intent = new Intent(this, Card_room.class);
+        intent.putExtra("id_RoomRecup", id);
+        startActivity(intent);
 
     }
 
@@ -128,4 +108,79 @@ public class List_room extends AppCompatActivity {
 
 
 
+    public class RoomAdapter extends BaseAdapter{
+
+        RoomDataSource rds;
+        List<Room> listroomadap;
+
+        public RoomAdapter(Context context){
+            rds = new RoomDataSource(context);
+            listroomadap = getDataForListView();
+        }
+
+
+        public List<Room> getDataForListView() {
+            List<Room> listRoom;
+            listRoom = rds.getAllRooms();
+
+            return listRoom;
+        }
+
+
+        @Override
+        public int getCount() {
+            return listroomadap.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return listroomadap.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null)
+            {
+                LayoutInflater inflater = (LayoutInflater) List_room.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.activity_list_room_test, parent, false);
+            }
+
+            TextView t1 = (TextView)convertView.findViewById(R.id.label1);
+            TextView t2 = (TextView) convertView.findViewById(R.id.label2);
+            ImageView i3 = (ImageView) convertView.findViewById(R.id.logo);
+
+            Room r = listroomadap.get(position);
+
+            t1.setText(r.getName());
+
+            t2.setText(String.valueOf(r.getSize()));
+
+            if(r.isSelected() == true){
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.occuped));
+            }
+            else
+            {
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.dispo));
+            }
+
+            return convertView;
+        }
+
+
+        public Room getRoom(int position) {return listroomadap.get(position);}
+
+
+    }
+
+
+
+
+
 }
+
+
