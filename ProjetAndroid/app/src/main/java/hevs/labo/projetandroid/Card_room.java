@@ -65,8 +65,6 @@ public class Card_room extends AppCompatActivity {
             photoRoom.setImageURI(uri);
         }
 
-
-
     }
 
     @Override

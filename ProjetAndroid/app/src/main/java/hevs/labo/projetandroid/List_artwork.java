@@ -1,22 +1,30 @@
 package hevs.labo.projetandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.RoomDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
+import hevs.labo.projetandroid.database.object.Room;
 
 public class List_artwork extends AppCompatActivity {
     ListView listView;
@@ -61,32 +69,28 @@ public class List_artwork extends AppCompatActivity {
 
         listView.setTextFilterEnabled(true);
 
-        if(artworkList == null)
-                return;
+        if (artworkList == null)
+            return;
 
         tabArtworkCreated = new String[artworkList.size()];
 
-        for(int i = 0; i < artworkList.size(); i++)
-        {
+        for (int i = 0; i < artworkList.size(); i++) {
 
-            if(artworkList.get(i).getExposed() == true)
-            {
+            if (artworkList.get(i).getExposed() == true) {
                 expo = "-------*EXPO*";
 
-            }
-            else
-            {
+            } else {
                 expo = "---*NOEXPO*";
             }
 
 
-                  idArtistForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
+            idArtistForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
 
-                    artistPickByForeign_Key = artds.getArtistById(idArtistForeign_Key);
+            artistPickByForeign_Key = artds.getArtistById(idArtistForeign_Key);
 
-                    nameArtistByFK = artistPickByForeign_Key.getLastname();
+            nameArtistByFK = artistPickByForeign_Key.getLastname();
 
-                    tabArtworkCreated[i]= artworkList.get(i).getName() + "\t " + artworkList.get(i).getType() + "\t"+ nameArtistByFK + "\t" + expo;
+            tabArtworkCreated[i] = artworkList.get(i).getName() + "\t " + artworkList.get(i).getType() + "\t" + nameArtistByFK + "\t" + expo;
 
         }
 
@@ -112,7 +116,7 @@ public class List_artwork extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.accueil_menu:
                 Intent intenthome = new Intent(this, MainActivity.class);
@@ -142,4 +146,5 @@ public class List_artwork extends AppCompatActivity {
 
         return (super.onOptionsItemSelected(item));
     }
+
 }

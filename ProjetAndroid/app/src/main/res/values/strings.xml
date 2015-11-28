@@ -22,7 +22,6 @@
     <string name="lastname">Lastname</string>
     <string name="firstname">Firstname</string>
     <string name="pseudo">Pseudo</string>
-    <string name="firstname_lastname_pseudo">Lastname Firstname / Pseudo</string>
     <string name="type">Type</string>
     <string name="manage">Manage</string>
     <string name="save">Save</string>

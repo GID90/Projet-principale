@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,14 +25,12 @@ import hevs.labo.projetandroid.database.object.Room;
 public class List_room extends AppCompatActivity {
 
     ListView listView_room;
-    List<Room> list_room;
+    //List<Room> list_room;
+    Room[] listRoom;
     String[] tabRoomCreated;
     private Room roompicked;
     private ActionMode mActionMode = null;
     String occup;
-
-
-
 
     RoomAdapter listeadapter;
 
@@ -46,9 +45,13 @@ public class List_room extends AppCompatActivity {
 
         View header = getLayoutInflater().inflate(R.layout.header_row, null);
 
-        list_room = roomDataSource.getAllRooms();
+       // list_room = roomDataSource.getAllRooms();
 
-        listeadapter = new RoomAdapter(this.getApplicationContext(), list_room);
+        List<Room> temp = roomDataSource.getAllRooms();
+        listRoom = new Room[temp.size()];
+        temp.toArray(listRoom);
+
+        listeadapter = new RoomAdapter();
 
 
         ListView lv = (ListView) findViewById(R.id.listView_room);
@@ -62,23 +65,21 @@ public class List_room extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /*
                 Room i = listeadapter.getRoom(position);
-                sendCarRoom(i.getId());
+                sendCarRoom(i.getId());*/
+
+                Room room =listRoom[position-1];
+                sendCarRoom( room.getId());
             }
         });
 
-
-
-
-
     }
-
 
     public void sendCarRoom(int id){
         Intent intent = new Intent(this, Card_room.class);
         intent.putExtra("id_RoomRecup", id);
         startActivity(intent);
-
     }
 
     @Override
@@ -112,25 +113,33 @@ public class List_room extends AppCompatActivity {
 
 
 
-    public class RoomAdapter extends BaseAdapter{
+    public class RoomAdapter extends ArrayAdapter<Room>{
+
 
         RoomDataSource rds;
-        List<Room> listroomadap;
+       // Room[]listroomadap;
 
-        public RoomAdapter(Context context, List<Room> listroom){
-            rds = new RoomDataSource(context);
-            listroomadap = getDataForListView();
+        public RoomAdapter(){
+            super(List_room.this.getApplicationContext(), 0, listRoom);
+          //  listroomadap = objects;
         }
 
 
+
+       /* public RoomAdapter(Context context, Room[] rooms){
+            rds = new RoomDataSource(context);
+            listroomadap = getDataForListView();
+        }*/
+
+/*
         public List<Room> getDataForListView() {
             List<Room> listRoom;
             listRoom = rds.getAllRooms();
 
             return listRoom;
         }
-
-
+*/
+/*
         @Override
         public int getCount() {
             return listroomadap.size();
@@ -144,10 +153,14 @@ public class List_room extends AppCompatActivity {
         @Override
         public long getItemId(int position) {
             return position;
-        }
+        }*/
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+
+//            Room room = listroomadap[position];
+            Room room = listRoom[position];
+
             if(convertView == null)
             {
                 LayoutInflater inflater = (LayoutInflater) List_room.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -158,16 +171,13 @@ public class List_room extends AppCompatActivity {
             TextView t2 = (TextView) convertView.findViewById(R.id.label2);
             ImageView i3 = (ImageView) convertView.findViewById(R.id.logo);
 
-            Room r = listroomadap.get(position);
 
 
+            t1.setText(room.getName());
 
+            t2.setText(String.valueOf(room.getSize()));
 
-            t1.setText(r.getName());
-
-            t2.setText(String.valueOf(r.getSize()));
-
-            if(r.isSelected() == true){
+            if(room.isSelected() == true){
                 i3.setImageDrawable(getResources().getDrawable(R.drawable.occuped));
             }
             else
@@ -179,15 +189,10 @@ public class List_room extends AppCompatActivity {
         }
 
 
-        public Room getRoom(int position) {return listroomadap.get(position);}
+      //  public Room getRoom(int position) {return listroomadap.get(position);}
 
 
     }
-
-
-
-
-
 }
 
 

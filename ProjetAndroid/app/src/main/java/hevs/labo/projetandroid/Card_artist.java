@@ -33,6 +33,7 @@ public class Card_artist extends AppCompatActivity {
     ListView listView_artworkFromTheArtist;
     String[] tabArtworkByArtist;
     String expo;
+    private int id;
 
 
     @Override
@@ -43,13 +44,19 @@ public class Card_artist extends AppCompatActivity {
         ArtistDataSource ards = new ArtistDataSource(this);
         ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
 
-        Intent intent = getIntent();
+       // Intent intent = getIntent();
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            id =extras.getInt("id_artistRecup");
+        }
 
         //récupérer l id puis
-        String id = intent.getStringExtra("id_artistRecup");
-        int id_artist = Integer.parseInt(id);
+      /*  String id = intent.getStringExtra("id_artistRecup");
+        int id_artist = Integer.parseInt(id);*/
 
-        artistAafficher = ards.getArtistById(id_artist);
+        artistAafficher = ards.getArtistById(id);
 
         titre = (TextView) findViewById(R.id.tv_nom_artiste);
         titre.setText(artistAafficher.getFirstname() + " " +artistAafficher.getLastname());
@@ -81,7 +88,7 @@ public class Card_artist extends AppCompatActivity {
 
         listView_artworkFromTheArtist.setTextFilterEnabled(true);
 
-        List<Artwork> listArtwork = artworkDataSource.getAllArtworksByArtist(id_artist);
+        List<Artwork> listArtwork = artworkDataSource.getAllArtworksByArtist(id);
 
         if(listArtwork == null)
         {

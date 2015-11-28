@@ -6,15 +6,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,17 +27,23 @@ import java.util.List;
 import java.util.Objects;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.RoomDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
+import hevs.labo.projetandroid.database.object.Room;
 
-public class List_artist extends AppCompatActivity {
+public class List_artist extends AppCompatActivity{
 
 
     ListView listView_artist;
-    List<Artist> al;
+    List<Artist> list_artist;
     String[] tabArtistCreated;
     private Artist artistpicked;
     private ActionMode mActionMode = null;
-    String expo;
+    String occup_expo;
+
+    ArtistAdapter listadapter_artist;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,66 +51,41 @@ public class List_artist extends AppCompatActivity {
         setContentView(R.layout.activity_list_artist);
         //getSupportActionBar().show();
 
-        final ArtistDataSource ards = new ArtistDataSource(this);
 
-        List<Artist> artistList = ards.getAllArtists();
-        al= ards.getAllArtists();
+        final ArtistDataSource artistDataSource = new ArtistDataSource(this);
 
-        listView_artist = (ListView) findViewById(R.id.list_artist);
+        View header = getLayoutInflater().inflate(R.layout.header_artist, null);
 
-        listView_artist.setClickable(true);
+        list_artist = artistDataSource.getAllArtists();
 
-        listView_artist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listadapter_artist = new ArtistAdapter(this.getApplicationContext(), list_artist);
 
+
+        ListView lv = (ListView) findViewById(R.id.list_artist);
+
+        lv.addHeaderView(header);
+
+        lv.setAdapter(listadapter_artist);
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Artist a = al.get(position);
-
-
-                Intent intent = new Intent(List_artist.this, Card_artist.class);
-                intent.putExtra("id_artistRecup", String.valueOf(a.getId()));
-                startActivity(intent);
+                Artist i = listadapter_artist.getArtist(position);
+                sendCardArtist(i.getId());
             }
         });
-
-        listView_artist.setChoiceMode(listView_artist.CHOICE_MODE_SINGLE);
-        listView_artist.setTextFilterEnabled(true);
-
-        if(artistList == null){
-            return;
-        }
-
-        tabArtistCreated = new String[artistList.size()];
-
-        for(int i = 0; i < artistList.size(); i++)
-        {
-
-            if(artistList.get(i).isExposed() == true)
-            {
-                 expo = "-------*EXPO*";
-
-            }
-            else
-            {
-                 expo = "---*NOEXPO*";
-            }
-           // tabArtistCreated[i] = artistList.get(i).toString();
-            tabArtistCreated[i]= artistList.get(i).getLastname() + "\t" + artistList.get(i).getFirstname()+ "\t" + artistList.get(i).getPseudo()+ "\t" +expo;
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtistCreated);
-
-        listView_artist.setAdapter(adapter);
-
-
     }
 
 
-  /*  public void onListItemClick(ListView parent, View v, int position, long id){
-        CheckedTextView item = (CheckedTextView) v;
-        Toast.makeText(this, tabArtistCreated[position] + "checked : " + item.isChecked(), Toast.LENGTH_SHORT).show();
-    }*/
+
+    public void sendCardArtist(int id){
+        Intent intent = new Intent(this, Card_artist.class);
+        intent.putExtra("id_artistRecup", id);
+        startActivity(intent);
+
+    }
+
 
 
     @Override
@@ -147,4 +131,77 @@ public class List_artist extends AppCompatActivity {
 
         return (super.onOptionsItemSelected(item));
     }
+
+
+
+    public class ArtistAdapter extends BaseAdapter{
+
+        ArtistDataSource ards;
+        List<Artist> listartistdap;
+
+        public ArtistAdapter(Context context, List<Artist> listartist){
+            ards = new ArtistDataSource(context);
+            listartistdap = getDataForListView();
+        }
+
+
+        public List<Artist> getDataForListView() {
+            List<Artist> listArtist;
+            listArtist = ards.getAllArtists();
+
+            return listArtist;
+        }
+
+
+        @Override
+        public int getCount() {
+            return listartistdap.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return listartistdap.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null)
+            {
+                LayoutInflater inflater = (LayoutInflater) List_artist.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.activity_list_artist_adapter, parent, false);
+            }
+
+            TextView t1 = (TextView)convertView.findViewById(R.id.label1_lastname_artist);
+            TextView t2 = (TextView) convertView.findViewById(R.id.label2_pseudo_artist);
+            ImageView i3 = (ImageView) convertView.findViewById(R.id.logo_exposed);
+
+            Artist r = listartistdap.get(position);
+
+            t1.setText(r.getLastname());
+
+            t2.setText(r.getPseudo());
+
+            if(r.isExposed() == true){
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.exposed));
+            }
+            else
+            {
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.notexposed));
+            }
+
+            return convertView;
+        }
+
+
+        public Artist getArtist(int position) {return listartistdap.get(position);}
+
+
+    }
 }
+
+
