@@ -1,7 +1,5 @@
 package hevs.labo.projetandroid;
 
-import android.app.ListActivity;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,22 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.adapter.RoomDataSource;
-import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Room;
 
 public class List_room extends AppCompatActivity {
@@ -41,7 +31,9 @@ public class List_room extends AppCompatActivity {
     String occup;
 
 
-    RoomAdapter liste;
+
+
+    RoomAdapter listeadapter;
 
 
     @Override
@@ -52,19 +44,31 @@ public class List_room extends AppCompatActivity {
 
         final RoomDataSource roomDataSource = new RoomDataSource(this);
 
+        View header = getLayoutInflater().inflate(R.layout.header_row, null);
 
-        liste = new RoomAdapter(this.getApplicationContext());
+        list_room = roomDataSource.getAllRooms();
+
+        listeadapter = new RoomAdapter(this.getApplicationContext(), list_room);
+
 
         ListView lv = (ListView) findViewById(R.id.listView_room);
-        lv.setAdapter(liste);
+
+        lv.addHeaderView(header);
+
+        lv.setAdapter(listeadapter);
+
+
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Room i = liste.getRoom(position);
+                Room i = listeadapter.getRoom(position);
                 sendCarRoom(i.getId());
             }
         });
+
+
+
 
 
     }
@@ -113,7 +117,7 @@ public class List_room extends AppCompatActivity {
         RoomDataSource rds;
         List<Room> listroomadap;
 
-        public RoomAdapter(Context context){
+        public RoomAdapter(Context context, List<Room> listroom){
             rds = new RoomDataSource(context);
             listroomadap = getDataForListView();
         }
@@ -147,7 +151,7 @@ public class List_room extends AppCompatActivity {
             if(convertView == null)
             {
                 LayoutInflater inflater = (LayoutInflater) List_room.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.activity_list_room_test, parent, false);
+                convertView = inflater.inflate(R.layout.activity_list_room_adapter, parent, false);
             }
 
             TextView t1 = (TextView)convertView.findViewById(R.id.label1);
@@ -155,6 +159,9 @@ public class List_room extends AppCompatActivity {
             ImageView i3 = (ImageView) convertView.findViewById(R.id.logo);
 
             Room r = listroomadap.get(position);
+
+
+
 
             t1.setText(r.getName());
 
