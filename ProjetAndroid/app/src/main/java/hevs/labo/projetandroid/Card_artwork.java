@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -46,6 +47,8 @@ public class Card_artwork extends AppCompatActivity {
         {
             id =extras.getInt("id_artworkRecup");
         }
+        Log.e("Card ARtwork", "idartworkrecup: " + id);
+
 
         //recuparate the artwork by is id passed through the activity
         artworkAafficher = artworkdata.getArtworkById(id);
@@ -58,11 +61,6 @@ public class Card_artwork extends AppCompatActivity {
 
         if(imageArtworkFile.exists()) {
             Context context = getApplicationContext();
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
             Uri uri = Uri.fromFile(imageArtworkFile);
             photoArtwork.setImageURI(uri);
         }
@@ -107,10 +105,9 @@ public class Card_artwork extends AppCompatActivity {
                 return true;
 
             case R.id.modifyArtwork_menu:
-                int id_artworkToModify = artworkAafficher.getId();
-
+                Log.e("Card ARtwork", "idartworktomodif: " + id);
                 Intent intentmodifyArtwork = new Intent(this, Modify_artwork.class);
-                intentmodifyArtwork.putExtra("id_artworkToModify" , String.valueOf(id_artworkToModify));
+                intentmodifyArtwork.putExtra("id_artworkToModify" ,id);
                 startActivity(intentmodifyArtwork);
                 return true;
 
@@ -125,7 +122,7 @@ public class Card_artwork extends AppCompatActivity {
                 Toast toast = Toast.makeText(this, "Artwork deleted", duration);
                 toast.show();
 
-                Intent backToListArtwork = new Intent(this, List_artist.class);
+                Intent backToListArtwork = new Intent(this, List_artwork.class);
                 startActivity(backToListArtwork);
                 return true;
 

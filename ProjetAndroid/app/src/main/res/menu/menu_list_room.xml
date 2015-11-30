@@ -15,11 +15,5 @@
         android:orderInCategory="2"
         app:showAsAction="ifRoom|withText"/>
 
-    <item android:id="@+id/searchRoominList"
-        android:title="@string/search_room"
-        android:icon="@mipmap/search"
 
-        android:actionViewClass="android.widget.SearchView"/>
-
-    <!-- android:showAsAction="collapseActionView|ifRoom"-->
 </menu>

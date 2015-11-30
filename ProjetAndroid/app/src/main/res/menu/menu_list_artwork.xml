@@ -33,12 +33,6 @@
         android:orderInCategory="5"
         app:showAsAction="ifRoom|withText"/>
 
-    <item android:id="@+id/searchArtworkinList"
-        android:title="@string/search_artwork"
-        android:icon="@mipmap/search"
 
-        android:actionViewClass="android.widget.SearchView"/>
-
-    <!--android:showAsAction="collapseActionView|ifRoom"-->
 
 </menu>

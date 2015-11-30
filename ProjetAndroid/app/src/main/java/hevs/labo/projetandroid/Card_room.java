@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -32,6 +33,7 @@ public class Card_room extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_room);
 
+
         RoomDataSource roomDataSource = new RoomDataSource(this);
         Intent intent = getIntent();
 
@@ -41,7 +43,7 @@ public class Card_room extends AppCompatActivity {
             id =extras.getInt("id_RoomRecup");
         }
 
-
+        Log.e("Room", "idRoom: " + id);
         roomAafficher = roomDataSource.getRoomById(id);
 
         nameRoom = (TextView) findViewById(R.id.tv_name_card_room);
@@ -50,20 +52,15 @@ public class Card_room extends AppCompatActivity {
         size = (TextView) findViewById(R.id.tv_card_room_size);
         size.setText(String.valueOf(roomAafficher.getSize()));
 
-
+/*
         photoRoom = (ImageView) findViewById(R.id.ImageView_card_room);
         File imgFile = new  File(roomAafficher.getImage_path());
 
         if(imgFile.exists()) {
             Context context = getApplicationContext();
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
             Uri uri = Uri.fromFile(imgFile);
             photoRoom.setImageURI(uri);
-        }
+        }*/
 
     }
 
@@ -87,13 +84,12 @@ public class Card_room extends AppCompatActivity {
                 return true;
 
             case R.id.modifyRoom_menu:
-
-                int id_room_modif = roomAafficher.getId();
-
+                Log.e("Room", "idRoom: " + id);
                 Intent intentmodifyRoom = new Intent(this, Modify_room.class);
-                intentmodifyRoom.putExtra("id_room_modif", String.valueOf(id_room_modif));
+                intentmodifyRoom.putExtra("id_RoomRecup", String.valueOf(id));
                 startActivity(intentmodifyRoom);
                 return true;
+
 
             case R.id.deleteRoom_menu:
 

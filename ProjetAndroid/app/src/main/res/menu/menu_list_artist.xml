@@ -37,10 +37,5 @@
 
         />
 
-   <item android:id="@+id/searchArtistinList"
-        android:title="@string/search_artist"
-        android:icon="@mipmap/search"
-        android:actionViewClass="android.widget.SearchView"/>
-       <!-- android:showAsAction="collapseActionView|ifRoom"-->
 
 </menu>

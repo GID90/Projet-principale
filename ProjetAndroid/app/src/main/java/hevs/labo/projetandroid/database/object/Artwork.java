@@ -8,7 +8,7 @@ public class Artwork {
     private int id;
     private String name;
     private String type;
-    private int creationYear;
+    private String creationYear;
     private String description;
     private boolean exposed;
     private String image_path;
@@ -17,7 +17,7 @@ public class Artwork {
 
     public Artwork(){}
 
-    public Artwork(String name, int creationYear, String type, String description, boolean exposed, String image_path, int foreign_key_Artist_id){
+    public Artwork(String name, String creationYear, String type, String description, boolean exposed, String image_path, int foreign_key_Artist_id){
         this.name = name;
         this.creationYear = creationYear;
         this.type = type;
@@ -36,10 +36,10 @@ public class Artwork {
     public void setType(String type) {this.type = type; }
     public String getType() {return type; }
 
-    public int getCreationYear() {
+    public String getCreationYear() {
         return creationYear;
     }
-    public void setCreationYear(int creationYear) {
+    public void setCreationYear(String creationYear) {
         this.creationYear = creationYear;
     }
 

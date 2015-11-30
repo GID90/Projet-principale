@@ -41,6 +41,7 @@ public class Modify_room extends AppCompatActivity {
     private int id_room_modif;
 
     private static final int RESULT_LOAD_ROOM_IMAGE_MODIFY = 1;
+    private  int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,19 +59,22 @@ public class Modify_room extends AppCompatActivity {
 
         RoomDataSource roomDataSource = new RoomDataSource(this);
 
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("id_room_modif");
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            id =extras.getInt("id_artistRecup");
+        }
 
-        id_room_modif = Integer.parseInt(id);
 
-        roomToModify = roomDataSource.getRoomById(id_room_modif);
+
+        roomToModify = roomDataSource.getRoomById(id);
 
         roomName = (EditText) findViewById(R.id.et_modify_room_name);
         roomName.setText(roomToModify.getName());
 
         sizeRoom = (EditText) findViewById(R.id.et_modify_room_size);
         sizeRoom.setText(String.valueOf(roomToModify.getSize()));
-
+/*
         pictureRoomToModify = (ImageView) findViewById(R.id.imageView_photoRoomModify);
         File imgFile = new  File(roomToModify.getImage_path());
 
@@ -79,15 +83,15 @@ public class Modify_room extends AppCompatActivity {
             Uri uri = Uri.fromFile(imgFile);
             pictureRoomToModify.setImageURI(uri);
         }
-
+*/
         checkoccupatedRoom = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
         if(roomToModify.isSelected() == true)
         {
-            checkoccupatedRoom.setSelected(true);
+            checkoccupatedRoom.setChecked(true);
         }
         else
         {
-            checkoccupatedRoom.setSelected(false);
+            checkoccupatedRoom.setChecked(false);
         }
 
 

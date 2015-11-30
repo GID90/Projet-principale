@@ -1,5 +1,6 @@
 package hevs.labo.projetandroid;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -8,12 +9,14 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -23,21 +26,23 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Random;
 
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 
-public class Modify_artist extends AppCompatActivity {
+public class Modify_artist extends AppCompatActivity implements View.OnClickListener {
 
     private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
 
     private EditText lastname;
     private EditText firstname;
     private EditText pseudo;
-    private EditText birthdate;
-    private EditText deathdate;
+
     private Spinner spinner;
 
     private ImageButton btn_changePicture;
@@ -49,6 +54,16 @@ public class Modify_artist extends AppCompatActivity {
     private CheckBox checkbexposed;
     private int id_artist_modif;
     private boolean isPicture = false;
+
+
+
+    private SimpleDateFormat dateFormat;
+    private DatePickerDialog fromDatePickerDialog;
+    private DatePickerDialog toDatePickerDialog;
+
+    private EditText birthdate;
+    private EditText deathdate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +105,20 @@ public class Modify_artist extends AppCompatActivity {
         deathdate = (EditText) findViewById(R.id.editText_deathArtistModify);
         deathdate.setText(artistToModify.getDeath());
 
+
+        //here we create the dialog for the date
+        dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+
+
+        birthdate.setInputType(InputType.TYPE_NULL);
+        birthdate.requestFocus();
+
+        deathdate = (EditText) findViewById(R.id.editText_deathArtistModify);
+        deathdate.setInputType(InputType.TYPE_NULL);
+
+        birthdate.setOnClickListener(this);
+        deathdate.setOnClickListener(this);
+
         /*initialiser le spinner avec le choix précédemment choisi à la création*/
         spinner = (Spinner) findViewById(R.id.spinner_mvtArtistModify);
 
@@ -129,7 +158,26 @@ public class Modify_artist extends AppCompatActivity {
             checkbexposed.setChecked(false);
         }
 
+
+        Calendar newCalendar =  Calendar.getInstance();
+        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                birthdate.setText(dateFormat.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        toDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                deathdate.setText(dateFormat.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -266,6 +314,22 @@ public class Modify_artist extends AppCompatActivity {
         }
 
         return (super.onOptionsItemSelected(item));
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.editText_birthArtistModify:
+                fromDatePickerDialog.show();
+                break;
+            case R.id.editText_deathArtistModify:
+                toDatePickerDialog.show();
+                break;
+
+        }
 
     }
 }

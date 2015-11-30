@@ -70,7 +70,7 @@ public class List_room extends AppCompatActivity {
                 sendCarRoom(i.getId());*/
 
                 Room room =listRoom[position-1];
-                sendCarRoom( room.getId());
+                sendCarRoom(room.getId());
             }
         });
 

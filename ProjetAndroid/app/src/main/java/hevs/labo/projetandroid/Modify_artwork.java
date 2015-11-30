@@ -33,33 +33,73 @@ import hevs.labo.projetandroid.database.object.Artwork;
 
 public class Modify_artwork extends AppCompatActivity  {
 
-    private int id_artworkToModify;
+
     private Artwork artworktoModify;
     private EditText nameArtwork;
-    private Spinner nameArtistCreator;
     private EditText creationYear;
     private EditText typeArtwork;
     private EditText descriptionArtwork;
+
     private ImageButton btn_changePictureArtworkToModify;
     private ImageView pictureArtworkToModify;
     private Uri selectedImage;
     private Bitmap bitmap;
-    private boolean isPicture;
+
     private CheckBox checkbexposedArtworkToModify;
     private List<Artist> listArtistCreatorToModify;
     String[] resourcesSpinnerNameArtistsToModify;
-    private static final int RESULT_LOAD_ARTWORK_IMAGE = 1;
 
+    private static final int RESULT_LOAD_ARTWORK_IMAGE = 1;
+    private int id;
+    private boolean isPicture = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_artwork);
 
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("id_artworkToModify");
-        id_artworkToModify = Integer.parseInt(id);
+        ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
+        ArtistDataSource artistDataSource = new ArtistDataSource(this);
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            id =extras.getInt("id_artworkToModify");
+        }
+
+        artworktoModify = artworkDataSource.getArtworkById(id);
+
+
+        //the name of the artwork
+        nameArtwork = (EditText) findViewById(R.id.editText_nameArtworkModif);
+        nameArtwork.setText(artworktoModify.getName());
+
+
+        //spinner
+        Spinner spinnerArtist = (Spinner) findViewById(R.id.spinner_ArtistArtworkCreatedToModify);
+        //creation of the data Artist for the spinner
+        listArtistCreatorToModify = artistDataSource.getAllArtists();
+        resourcesSpinnerNameArtistsToModify = new String[listArtistCreatorToModify.size()];
+
+        for(int i = 0; i<listArtistCreatorToModify.size(); i++){
+            resourcesSpinnerNameArtistsToModify[i] = listArtistCreatorToModify.get(i).getId()+ "  " + listArtistCreatorToModify.get(i).getLastname() ;
+        }
+
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,  resourcesSpinnerNameArtistsToModify);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerArtist.setAdapter(adapter1);
+
+        final Spinner spin = (Spinner) findViewById (R.id.spinner_ArtistArtworkCreatedToModify);
+
+        //to put the precedent choice first of the spinner
+        ArrayAdapter<String> adapterModifyArtist = new ArrayAdapter<String>(Modify_artwork.this, android.R.layout.simple_spinner_dropdown_item,resourcesSpinnerNameArtistsToModify);
+        spin.setAdapter(adapterModifyArtist);
+        int fKartistSelected = artworktoModify.getForeign_key_Artist_id();
+        int index = fKartistSelected;
+
+        String content = resourcesSpinnerNameArtistsToModify[index-1];
+        Log.e("Modify_artwork", "content: " + content);
+        spin.setSelection(adapterModifyArtist.getPosition(content));
 
 
         btn_changePictureArtworkToModify = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtworkModify);
@@ -71,39 +111,6 @@ public class Modify_artwork extends AppCompatActivity  {
             }
         });
 
-
-        pictureArtworkToModify = (ImageView) findViewById(R.id.imageView_photoArtworkModify);
-
-
-        ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
-        ArtistDataSource artistDataSource = new ArtistDataSource(this);
-
-        artworktoModify = artworkDataSource.getArtworkById(id_artworkToModify);
-
-        nameArtwork = (EditText) findViewById(R.id.editText_nameArtworkModif);
-        nameArtwork.setText(artworktoModify.getName());
-
-        //spinner : recuperer l artiste createur
-        nameArtistCreator = (Spinner) findViewById(R.id.spinner_ArtistArtworkCreatedToModify);
-
-        listArtistCreatorToModify = artistDataSource.getAllArtists();
-
-        resourcesSpinnerNameArtistsToModify = new String[listArtistCreatorToModify.size()];
-
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<String> adapterArtist = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, resourcesSpinnerNameArtistsToModify);
-
-// Specify the layout to use when the list of choices appears
-        adapterArtist.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        nameArtistCreator.setAdapter(adapterArtist);
-
-        final Spinner spin = (Spinner) findViewById (R.id.spinner_ArtistArtworkCreatedToModify);
-
-        ArrayAdapter<String> adapterModifyArtist = new ArrayAdapter<String>(Modify_artwork.this, android.R.layout.simple_spinner_dropdown_item,resourcesSpinnerNameArtistsToModify);
-        spin.setAdapter(adapterModifyArtist);
-        spin.setSelection(adapterModifyArtist.getPosition(String.valueOf(artworktoModify.getForeign_key_Artist_id())));
-
         creationYear = (EditText) findViewById(R.id.editText_realisationArtworkModif);
         creationYear.setText(artworktoModify.getCreationYear());
 
@@ -113,7 +120,7 @@ public class Modify_artwork extends AppCompatActivity  {
         descriptionArtwork = (EditText) findViewById(R.id.edit_text_descriptionArtworkModify);
         descriptionArtwork.setText(artworktoModify.getDescription());
 
-
+        pictureArtworkToModify = (ImageView) findViewById(R.id.imageView_photoArtworkModify);
 
 
         File imgFile = new  File(artworktoModify.getImage_path());
@@ -124,14 +131,14 @@ public class Modify_artwork extends AppCompatActivity  {
             pictureArtworkToModify.setImageURI(uri);
         }
 
-        checkbexposedArtworkToModify = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
+        checkbexposedArtworkToModify = (CheckBox) findViewById(R.id.chbox_artworkExposedToModify);
         if(artworktoModify.getExposed() == true)
         {
-            checkbexposedArtworkToModify.setSelected(true);
+            checkbexposedArtworkToModify.setChecked(true);
         }
         else
         {
-            checkbexposedArtworkToModify.setSelected(false);
+            checkbexposedArtworkToModify.setChecked(false);
         }
 
 
@@ -169,12 +176,13 @@ public class Modify_artwork extends AppCompatActivity  {
 
         Random rd = new Random();
         int randomnum = 1+ (int)(Math.random()*4000);
+        int nameArtwork = artworktoModify.getId();
 
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         // Create imageDir
-        File mypath = new File(directory, randomnum+".jpg");
+        File mypath = new File(directory, "artiste"+nameArtwork+".jpg");
 
         FileOutputStream fos = null;
         try {
@@ -191,11 +199,7 @@ public class Modify_artwork extends AppCompatActivity  {
         return mypath.getPath();
     }
 
-    private void onLoad() {
 
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(intent, RESULT_LOAD_ARTWORK_IMAGE);
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -215,16 +219,21 @@ public class Modify_artwork extends AppCompatActivity  {
                 startActivity(intentartwork);
                 return true;
 
-            case R.id.cancelartworkmodified_menu:
-                Intent intentcancelArtWork = new Intent(this, Card_artwork.class);
-                startActivity(intentcancelArtWork);
-                return true;
 
             case R.id.saveartworkmodified_menu:
 
                 //voir si on doit faire new artworktoModify
 
-                String imagepathArtworkModify = saveToInternalStorage(bitmap);
+
+
+                String imagepath ="";
+
+                if(isPicture == true){
+                    imagepath = saveToInternalStorage(bitmap);
+                } else {
+                    imagepath =  artworktoModify.getImage_path();
+                }
+
 
                 ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
                 ArtistDataSource artistDataSource = new ArtistDataSource(this);
@@ -241,7 +250,7 @@ public class Modify_artwork extends AppCompatActivity  {
                 artworktoModify.setForeign_key_Artist_id(fkArtist);
 
                 et = (EditText) findViewById(R.id.editText_realisationArtworkModif);
-                artworktoModify.setCreationYear(Integer.parseInt(et.getText().toString()));
+                artworktoModify.setCreationYear(et.getText().toString());
 
                 et = (EditText) findViewById(R.id.editText_typeArtworkModif);
                 artworktoModify.setType(et.getText().toString());
@@ -249,13 +258,7 @@ public class Modify_artwork extends AppCompatActivity  {
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkModify);
                 artworktoModify.setDescription(et.getText().toString());
 
-                if(imagepathArtworkModify !=  null){
-                    artworktoModify.setImage_path(imagepathArtworkModify);
-                }
-                else
-                {
-                    artworktoModify.setImage_path(artworktoModify.getImage_path());
-                }
+               artworktoModify.setImage_path(imagepath);
 
                 CheckBox checkboxArtworkExposed = (CheckBox) findViewById(R.id.chbox_artworkExposedToModify);
                 if(checkboxArtworkExposed.isChecked()){

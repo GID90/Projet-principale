@@ -33,11 +33,5 @@
         android:orderInCategory="5"
         app:showAsAction="ifRoom|withText"/>
 
-    <item android:id="@+id/searchExhibitioninList"
-        android:title="@string/search_exhibition"
-        android:icon="@mipmap/search"
 
-        android:actionViewClass="android.widget.SearchView"/>
-
-    <!--android:showAsAction="collapseActionView|ifRoom"-->
 </menu>

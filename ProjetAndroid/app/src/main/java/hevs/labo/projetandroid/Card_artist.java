@@ -89,13 +89,13 @@ public class Card_artist extends AppCompatActivity {
 
         //image
         photoArtist = (ImageView) findViewById(R.id.imageView_Artist);
-        photoArtist.setOnClickListener(new View.OnClickListener() {
+      /*  photoArtist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 startActivityForResult(intent, RESULT_LOAD_ARTIST_IMAGE);
             }
-        });
+        });*/
 
 // file:///data/data/hevs.labo.projetandroid/app_imageDir/1779.jpg
         //file:///data/data/hevs.labo.projetandroid/app_imageDir/artiste1.jpg
@@ -104,9 +104,9 @@ public class Card_artist extends AppCompatActivity {
             Context context = getApplicationContext();
             CharSequence text = "Hello toast!";
             int duration = Toast.LENGTH_SHORT;
-
+/*
             Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            toast.show();*/
             Uri uri = Uri.fromFile(imgFile);
             photoArtist.setImageURI(uri);
 

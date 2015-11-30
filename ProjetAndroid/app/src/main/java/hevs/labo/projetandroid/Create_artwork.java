@@ -1,6 +1,7 @@
 package hevs.labo.projetandroid;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -27,7 +30,10 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
@@ -52,6 +58,11 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
 
     List<Artist> spinnerResources;
     String[] resourcesSpinnerNameArtists;
+
+    private SimpleDateFormat dateFormat;
+    private DatePickerDialog fromDatePickerDialog;
+
+    EditText creationYearEditText;
 
 
     @Override
@@ -78,6 +89,25 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,  resourcesSpinnerNameArtists);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerArtist.setAdapter(adapter1);
+
+        //here we create the dialog for the date
+        dateFormat = new SimpleDateFormat("yyyy", Locale.US);
+
+        creationYearEditText = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
+        creationYearEditText.setInputType(InputType.TYPE_NULL);
+        creationYearEditText.requestFocus();
+
+        creationYearEditText.setOnClickListener(this);
+
+        Calendar newCalendar =  Calendar.getInstance();
+        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                creationYearEditText.setText(dateFormat.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
 
 
     }
@@ -141,6 +171,9 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
             case R.id.imageButton_btnDownloadArtworkCreate:
                 onLoad();
                 break;
+            case R.id.editText_realisationArtworkCreate:
+                fromDatePickerDialog.show();
+                break;
         }
     }
 
@@ -201,7 +234,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 toastpict.show();
 
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
-                artwork.setCreationYear(Integer.parseInt(et.getText().toString()));
+                artwork.setCreationYear(et.getText().toString());
 
                 et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
                 artwork.setType(et.getText().toString());
