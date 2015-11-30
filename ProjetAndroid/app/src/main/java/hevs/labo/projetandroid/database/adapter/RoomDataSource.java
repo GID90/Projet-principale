@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hevs.labo.projetandroid.database.ArtGalleryContract;
-import hevs.labo.projetandroid.database.object.Room;
 import hevs.labo.projetandroid.database.SQLiteHelper;
+import hevs.labo.projetandroid.database.object.Room;
 
 /**
  * Created by Darlène on 07.11.2015.

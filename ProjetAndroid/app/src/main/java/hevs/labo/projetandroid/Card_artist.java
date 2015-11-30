@@ -128,7 +128,7 @@ public class Card_artist extends AppCompatActivity {
         listView_artworkFromTheArtist.addHeaderView(header);
 
         artworkAdapter = new ArtworkArtistAdapter(this.getApplicationContext(), listArtworkForThisArtist, id);
-        Log.e("Artste", "imagepath: "+ listArtworkForThisArtist);
+        Log.e("Artste", "imagepath: " + listArtworkForThisArtist);
 
         listView_artworkFromTheArtist.setAdapter(artworkAdapter);
 
@@ -317,5 +317,4 @@ public class Card_artist extends AppCompatActivity {
 
     }
 }
-
 

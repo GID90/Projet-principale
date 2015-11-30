@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +18,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 import hevs.labo.projetandroid.database.adapter.RoomDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
@@ -204,5 +205,3 @@ public class List_artwork extends AppCompatActivity {
 
     }
 }
-
-

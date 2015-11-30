@@ -5,9 +5,9 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +24,6 @@ import java.util.Random;
 
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.RoomDataSource;
-import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Room;
 
 public class Modify_room extends AppCompatActivity {

@@ -3,15 +3,19 @@
 
     <string name="artist">Artist</string>
     <string name="artists">Artists</string>
+    <string name="selectArtist">Select an artist...</string>
 
     <string name="artwork">Artwork</string>
     <string name="artworks">Artworks</string>
+    <string name="selectArtwork">Select an artwork...</string>
 
     <string name="room">Room</string>
     <string name="rooms">Rooms</string>
+    <string name="selectRoom">Select a room...</string>
 
     <string name="exhibition">Exhibition</string>
     <string name="exhibitions">Exhibitions</string>
+    <string name="exhibitionAdded">Exhibition added</string>
 
     <string name="home">Home</string>
     <string name="settings">Settings</string>

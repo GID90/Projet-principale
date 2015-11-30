@@ -25,8 +25,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"
-            >
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,48 +36,56 @@
         <activity
             android:name=".Create_artist"
             android:label="@string/title_activity_create_artist"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_artist">
         </activity>
         <activity
             android:name=".Card_artist"
             android:label="@string/title_activity_card_artist"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_artist">
         </activity>
         <activity
             android:name=".List_artist"
             android:label="@string/title_activity_list_artist"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".List_artwork"
             android:label="@string/title_activity_list_artwork"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".Modify_artist"
             android:label="@string/title_activity_modify_artist"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".Card_artist" >
         </activity>
         <activity
             android:name=".Card_artwork"
             android:label="@string/title_activity_card_artwork"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_artwork" >
         </activity>
         <activity
             android:name=".Modify_artwork"
             android:label="@string/title_activity_modify_artwork"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".Card_artwork" >
         </activity>
         <activity
             android:name=".Create_artwork"
             android:label="@string/title_activity_create_artwork"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_artwork">
 
@@ -85,6 +93,7 @@
         <activity
             android:name=".List_room"
             android:label="@string/title_activity_list_room"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".Settings">
             <meta-data
@@ -94,35 +103,42 @@
         <activity
             android:name=".Create_room"
             android:label="@string/title_activity_create_room"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_room" >
         </activity>
         <activity
             android:name=".Card_room"
             android:label="@string/title_activity_card_room"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_room" >
         </activity>
         <activity
             android:name=".Modify_room"
             android:label="@string/title_activity_modify_room"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".Card_room" >
         </activity>
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".List_exhibition"
             android:label="@string/title_activity_list_exhibition"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".Create_exhibition"
+        <activity
+            android:name=".Create_exhibition"
             android:label="@string/title_activity_create_exhibition"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:parentActivityName=".List_exhibition">
         </activity>
