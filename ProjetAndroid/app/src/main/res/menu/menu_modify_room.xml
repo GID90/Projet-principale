@@ -9,12 +9,6 @@
         app:showAsAction="never"
         />
 
-    <item android:id="@+id/cancelroommodified_menu"
-        android:title="@string/cancelroommodified_menu"
-        android:icon="@mipmap/cancelblue"
-        android:orderInCategory="2"
-        app:showAsAction="ifRoom|withText"/>
-
 
     <item android:id="@+id/saveroommodified_menu"
         android:title="@string/saveroommodified_menu"

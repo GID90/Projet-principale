@@ -1,5 +1,6 @@
 package hevs.labo.projetandroid;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -8,12 +9,14 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -22,7 +25,10 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import hevs.labo.projetandroid.database.SQLiteHelper;
@@ -31,7 +37,7 @@ import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
 
-public class Modify_artwork extends AppCompatActivity  {
+public class Modify_artwork extends AppCompatActivity implements View.OnClickListener {
 
 
     private Artwork artworktoModify;
@@ -52,6 +58,9 @@ public class Modify_artwork extends AppCompatActivity  {
     private static final int RESULT_LOAD_ARTWORK_IMAGE = 1;
     private int id;
     private boolean isPicture = false;
+
+    private SimpleDateFormat dateFormat;
+    private DatePickerDialog fromDatePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,8 +120,25 @@ public class Modify_artwork extends AppCompatActivity  {
             }
         });
 
+        dateFormat = new SimpleDateFormat("yyyy", Locale.US);
+
         creationYear = (EditText) findViewById(R.id.editText_realisationArtworkModif);
         creationYear.setText(artworktoModify.getCreationYear());
+
+        creationYear.setInputType(InputType.TYPE_NULL);
+        creationYear.requestFocus();
+
+        creationYear.setOnClickListener(this);
+
+        Calendar newCalendar =  Calendar.getInstance();
+        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                creationYear.setText(dateFormat.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
 
         typeArtwork = (EditText) findViewById(R.id.editText_typeArtworkModif);
         typeArtwork.setText(artworktoModify.getType());
@@ -286,6 +312,18 @@ public class Modify_artwork extends AppCompatActivity  {
 
 
         return (super.onOptionsItemSelected(item));
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+
+            case R.id.editText_realisationArtworkModif:
+                fromDatePickerDialog.show();
+                break;
+        }
 
     }
 }

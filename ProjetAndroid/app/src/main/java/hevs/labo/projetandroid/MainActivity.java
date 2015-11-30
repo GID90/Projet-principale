@@ -12,15 +12,28 @@ import java.util.List;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
+import hevs.labo.projetandroid.database.adapter.RoomDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
+import hevs.labo.projetandroid.database.object.Room;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView numberofArtworkexposed;
     private TextView numberofArtistexposed;
-    List<Artist> nbArtist;
-    List<Artwork> nbArtwork;
+    private TextView numberofRoomoccupated;
+    List<Artist> nbArtistlist;
+    List<Artwork> nbArtworklist;
+    List<Room> nbRoomlist;
+
+    List<Room> roomoccupated;
+    List<Artist> artistexposed;
+    List<Artwork> artworkexposed;
+
+    int cptartist;
+    int cptroom;
+    int cptartwork;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +42,46 @@ public class MainActivity extends AppCompatActivity {
 
         ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
         ArtistDataSource artistDataSource = new ArtistDataSource(this);
+        RoomDataSource roomDataSource = new RoomDataSource(this);
 
+        //We should only keep the ones which are exposed or occupated not all the data
 
         numberofArtworkexposed = (TextView) findViewById(R.id.nbExposedArtwork);
         numberofArtistexposed = (TextView) findViewById(R.id.nbExposedArtist);
+        numberofRoomoccupated = (TextView) findViewById(R.id.nbRoomUsed);
 
-        nbArtist = artistDataSource.getAllArtists();
-        nbArtwork = artworkDataSource.getAllArtworks();
+        nbArtistlist = artistDataSource.getAllArtists();
+        nbArtworklist = artworkDataSource.getAllArtworks();
+        nbRoomlist = roomDataSource.getAllRooms();
 
-        numberofArtistexposed.setText(String.valueOf(nbArtist.size()));
-        numberofArtworkexposed.setText(String.valueOf(nbArtwork.size()));
+
+        for(int i = 0; i<nbArtistlist.size(); i++){
+            if(nbArtistlist.get(i).isExposed()== true)
+            {
+                cptartist++;
+            }
+        }
+
+        for(int i = 0; i<nbArtworklist.size(); i++){
+            if(nbArtworklist.get(i).getExposed() == true)
+            {
+                cptartwork++;
+            }
+        }
+
+        for (int i = 0; i<nbRoomlist.size(); i++)
+        {
+            if(nbRoomlist.get(i).isSelected()== true)
+            {
+                cptroom++;
+            }
+        }
+
+
+
+        numberofArtistexposed.setText(String.valueOf(cptartist));
+        numberofArtworkexposed.setText(String.valueOf(cptartwork));
+        numberofRoomoccupated.setText(String.valueOf(cptroom));
 
 
 

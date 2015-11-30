@@ -36,10 +36,11 @@ public class Create_room extends AppCompatActivity implements View.OnClickListen
     //Gérer image room
     private Uri selectedImageRoom;
     private Bitmap bitmap;
-    private boolean isPicture;
+    private boolean isPicture = false;
 
     private ImageButton saveRoom;
     private ImageView imageRoom;
+
     private EditText name;
     private EditText size;
 
@@ -156,14 +157,11 @@ public class Create_room extends AppCompatActivity implements View.OnClickListen
 
                 String imagepath = saveToInternalStorage(bitmap);
                 Context context = getApplicationContext();
-                int duration = Toast.LENGTH_SHORT;
-
-
+               /* int duration = Toast.LENGTH_SHORT;
                 Toast toastpict = Toast.makeText(context, imagepath, duration);
-                toastpict.show();
+                toastpict.show();*/
 
                 room = new Room();
-
                 RoomDataSource roomDataSource = new RoomDataSource(this);
 
 
