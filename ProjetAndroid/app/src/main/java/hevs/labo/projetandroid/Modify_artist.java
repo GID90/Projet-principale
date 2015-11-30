@@ -46,6 +46,7 @@ public class Modify_artist extends AppCompatActivity {
     private CheckBox checkbexposed;
     private int id_artist_modif;
 
+
     private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
 
 
@@ -65,6 +66,7 @@ public class Modify_artist extends AppCompatActivity {
         });
 
         ArtistDataSource ards = new ArtistDataSource(this);
+
 
         Intent intent = getIntent();
         String id = intent.getStringExtra("id_artist_modif");
@@ -120,11 +122,11 @@ public class Modify_artist extends AppCompatActivity {
         checkbexposed = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
         if(artistToModify.isExposed() == true)
         {
-            checkbexposed.setSelected(true);
+            checkbexposed.setChecked(true);
         }
         else
         {
-            checkbexposed.setSelected(false);
+            checkbexposed.setChecked(false);
         }
 
     }
@@ -158,12 +160,13 @@ public class Modify_artist extends AppCompatActivity {
 
         Random rd = new Random();
         int randomnum = 1+ (int)(Math.random()*4000);
+        int namePicture = artistToModify.getId();
 
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         // Create imageDir
-        File mypath = new File(directory, randomnum+".jpg");
+        File mypath = new File(directory, "artiste"+namePicture+".jpg");
 
         FileOutputStream fos = null;
         try {
@@ -201,17 +204,13 @@ public class Modify_artist extends AppCompatActivity {
                 startActivity(intentartist);
                 return true;
 
-            case R.id.cancelartistmodified_menu:
-                //nous retournons à la page précédente : Card artist sans aucune modification
-                Intent intentcancelArtist = new Intent(this, Card_artist.class);
-                startActivity(intentcancelArtist);
-                return true;
-
             case R.id.saveartistmodified_menu:
 
                 String imagepath = saveToInternalStorage(bitmap);
 
                 ArtistDataSource ads = new ArtistDataSource(this);
+
+
 
                 EditText et = (EditText) findViewById(R.id.editText_lastnameArtistModiy);
                 artistToModify.setLastname(et.getText().toString());
@@ -232,16 +231,8 @@ public class Modify_artist extends AppCompatActivity {
                 String recup = spinner.getSelectedItem().toString();
                 artistToModify.setMovement(recup);
 
-                //path de la picture
-                if(imagepath != null){
-                    artistToModify.setImage_path(imagepath);
-                }
-                else
-                {
-                    artistToModify = ads.getArtistById(id_artist_modif);
-                    artistToModify.setImage_path(artistToModify.getImage_path());
-                }
 
+                artistToModify.setImage_path(imagepath);
 
                 CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
                 if(bl.isChecked()){

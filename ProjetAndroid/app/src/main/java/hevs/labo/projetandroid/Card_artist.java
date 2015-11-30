@@ -5,9 +5,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +40,8 @@ public class Card_artist extends AppCompatActivity {
     String expo;
     private int id;
 
+    ArtworkArtistAdapter artworkAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +59,15 @@ public class Card_artist extends AppCompatActivity {
             id =extras.getInt("id_artistRecup");
         }
 
-        //récupérer l id puis
-      /*  String id = intent.getStringExtra("id_artistRecup");
-        int id_artist = Integer.parseInt(id);*/
-
+        //here we recover the artist from the database by it's id
         artistAafficher = ards.getArtistById(id);
 
+        //we recover the information about the artist to put in the fields which correspond to the information
         titre = (TextView) findViewById(R.id.tv_nom_artiste);
         titre.setText(artistAafficher.getFirstname() + " " +artistAafficher.getLastname());
 
         annee = (TextView) findViewById(R.id.tv_descriptionArtist_year);
-        annee.setText(artistAafficher.getBirth() + " - " + artistAafficher.getDeath());
+        annee.setText(artistAafficher.getBirth() + " / " + artistAafficher.getDeath());
 
         artistMouvement = (TextView) findViewById(R.id.tv_descriptionArtist_descriptionmovement);
         artistMouvement.setText(artistAafficher.getMovement());
@@ -88,37 +93,15 @@ public class Card_artist extends AppCompatActivity {
 
         listView_artworkFromTheArtist.setTextFilterEnabled(true);
 
-        List<Artwork> listArtwork = artworkDataSource.getAllArtworksByArtist(id);
+        final List<Artwork> listArtwork = artworkDataSource.getAllArtworksByArtist(id);
 
-        if(listArtwork == null)
-        {
-            return;
-        }
+        View header = getLayoutInflater().inflate(R.layout.header_artwork_artist, null);
 
-        tabArtworkByArtist = new String[listArtwork.size()];
+        listView_artworkFromTheArtist.addHeaderView(header);
 
-        for(int i = 0; i < listArtwork.size(); i++)
-        {
+       artworkAdapter = new ArtworkArtistAdapter(this.getApplicationContext(), listArtwork);
 
-            if(listArtwork.get(i).getExposed() == true)
-            {
-                expo = "-------*EXPO*";
-
-            }
-            else
-            {
-                expo = "---*NOEXPO*";
-            }
-            // tabArtistCreated[i] = artistList.get(i).toString();
-            tabArtworkByArtist[i]= listArtwork.get(i).getName() + "\t" + listArtwork.get(i).getType() + "\t" + listArtwork.get(i).getCreationYear() + "\t" +expo;
-        }
-
-        ArrayAdapter<String> adapterArtworkByArtist = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtworkByArtist);
-
-        listView_artworkFromTheArtist.setAdapter(adapterArtworkByArtist);
-
-
-
+        listView_artworkFromTheArtist.setAdapter(artworkAdapter);
 
 
     }
@@ -175,5 +158,79 @@ public class Card_artist extends AppCompatActivity {
 
 
     }
+
+    public class ArtworkArtistAdapter extends BaseAdapter {
+
+        ArtworkDataSource ads;
+        ArtistDataSource ards;
+        List<Artwork> listartadap;
+        String[] artworks;
+
+        public ArtworkArtistAdapter(Context context, List<Artwork> listartw){
+            ads = new ArtworkDataSource(context);
+            ards = new ArtistDataSource(context);
+            listartadap = getDataForListView();
+        }
+
+
+        public List<Artwork> getDataForListView() {
+            List<Artwork> listArtwork;
+            listArtwork = ads.getAllArtworks();
+
+            return listArtwork;
+        }
+
+
+        @Override
+        public int getCount() {
+            return listartadap.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return listartadap.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null)
+            {
+                LayoutInflater inflater = (LayoutInflater) Card_artist.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.activity_list_artwork_adapter, parent, false);
+            }
+
+            TextView t1 = (TextView)convertView.findViewById(R.id.label1_NameArtwork);
+            TextView t2 = (TextView) convertView.findViewById(R.id.label2_ArtistArtwork);
+            ImageView i3 = (ImageView) convertView.findViewById(R.id.logo_artworkExposed);
+
+            Artwork r = listartadap.get(position);
+
+            t1.setText(r.getName());
+
+
+            t2.setText(String.valueOf(r.getCreationYear()));
+
+            if(r.getExposed() == true){
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.exposed));
+            }
+            else
+            {
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.occuped));
+            }
+
+            return convertView;
+        }
+
+
+        public Artwork getArtwork(int position) {return listartadap.get(position);}
+
+
+    }
 }
+
 

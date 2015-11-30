@@ -1,36 +1,46 @@
 package hevs.labo.projetandroid;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
+        import android.app.Activity;
+        import android.app.DatePickerDialog;
+        import android.app.Dialog;
+        import android.app.DialogFragment;
+        import android.content.Context;
+        import android.content.ContextWrapper;
+        import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.net.Uri;
+        import android.os.Bundle;
+        import android.provider.MediaStore;
+        import android.support.v7.app.AppCompatActivity;
+        import android.text.InputType;
+        import android.util.Log;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.CheckBox;
+        import android.widget.DatePicker;
+        import android.widget.EditText;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.Spinner;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import java.io.Console;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Random;
+        import java.io.Console;
+        import java.io.File;
+        import java.io.FileOutputStream;
+        import java.text.SimpleDateFormat;
+        import java.util.Calendar;
+        import java.util.Date;
+        import java.util.Locale;
+        import java.util.Random;
 
-import hevs.labo.projetandroid.database.ArtGalleryContract;
-import hevs.labo.projetandroid.database.SQLiteHelper;
-import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
-import hevs.labo.projetandroid.database.object.Artist;
+        import hevs.labo.projetandroid.database.ArtGalleryContract;
+        import hevs.labo.projetandroid.database.SQLiteHelper;
+        import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+        import hevs.labo.projetandroid.database.object.Artist;
 
 public class Create_artist extends AppCompatActivity implements View.OnClickListener {
 
@@ -46,7 +56,16 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
     ImageView imageToUpload;
     ImageButton bUploadImage;
 
+    /**Gérer les dialogues : */
+    EditText birthdate;
+    EditText death;
     int compteurPhoto;
+
+
+    private SimpleDateFormat dateFormat;
+
+    private DatePickerDialog fromDatePickerDialog;
+    private DatePickerDialog toDatePickerDialog;
 
 
     @Override
@@ -66,10 +85,39 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mvt_array, android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        //here we create the dialog for the date
+        dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
+        birthdate = (EditText) findViewById(R.id.editText_naissanceArtistCreate);
+        birthdate.setInputType(InputType.TYPE_NULL);
+        birthdate.requestFocus();
+
+        death = (EditText) findViewById(R.id.editText_decesArtistCreate);
+        death.setInputType(InputType.TYPE_NULL);
+
+        birthdate.setOnClickListener(this);
+        death.setOnClickListener(this);
+
+        Calendar newCalendar =  Calendar.getInstance();
+        fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                birthdate.setText(dateFormat.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        toDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                death.setText(dateFormat.format(newDate.getTime()));
+            }
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
 
-
+    //This is the function to upload the picture
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -93,13 +141,14 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
     }
 
-
+    //This is the function to rename and save the picture
     private String saveToInternalStorage(Bitmap bitmapImage) {
 
         compteurPhoto++;
 
         Random rd = new Random();
         int randomnum = 1+ (int)(Math.random()*4000);
+
 
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
@@ -123,18 +172,26 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
     }
 
 
-
+    //the onClick method deserve the different functions
     public void onClick(View v){
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.imageView_photoArtistCreate:
                 onLoad();
                 break;
             case R.id.imageButton_btnDownloadArtistCreate:
                 onLoad();
                 break;
+            case R.id.editText_naissanceArtistCreate:
+                fromDatePickerDialog.show();
+                break;
+            case R.id.editText_decesArtistCreate:
+                toDatePickerDialog.show();
+                break;
+
         }
     }
 
+    //To upload a picture
     private void onLoad() {
 
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
@@ -170,7 +227,7 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
             case R.id.saveartistcreated_menu:
 
                 //retourne le chemin ou est stocké le fichier
-
+                //Here we take all the informations about the artist which is create to save it in the database
                 String imagepath = saveToInternalStorage(bitmap);
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
@@ -192,11 +249,11 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 et = (EditText) findViewById(R.id.editText_pseudoArtistCreate);
                 artist.setPseudo(et.getText().toString());
 
-                et = (EditText) findViewById(R.id.editText_naissanceArtistCreate);
-                artist.setBirth(et.getText().toString());
+               // et = (EditText) findViewById(R.id.editText_naissanceArtistCreate);
+                artist.setBirth(birthdate.getText().toString());
 
                 et= (EditText) findViewById(R.id.editText_decesArtistCreate);
-                artist.setDeath(et.getText().toString());
+                artist.setDeath(death.getText().toString());
 
                 Spinner spinner = (Spinner) findViewById(R.id.spinner_mvtArtistCreate);
                 String recup = spinner.getSelectedItem().toString();
@@ -212,7 +269,7 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 }
                 else
                 {
-                 artist.setExposed(false);
+                    artist.setExposed(false);
                 }
 
                 artist.setId((int) ads.createArtist(artist));
@@ -231,6 +288,11 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
         return (super.onOptionsItemSelected(item));
     }
+
+
+
 }
+
+
 
 

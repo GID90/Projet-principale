@@ -71,7 +71,7 @@ public class List_artist extends AppCompatActivity{
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Artist i = listadapter_artist.getArtist(position);
+                Artist i = listadapter_artist.getArtist(position -1);
                 sendCardArtist(i.getId());
             }
         });

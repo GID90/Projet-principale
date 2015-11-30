@@ -35,6 +35,8 @@ public class List_artwork extends AppCompatActivity {
     int idArtistForeign_Key;
     String nameArtistByFK;
 
+    ArtworkAdapter artworkAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,65 +46,42 @@ public class List_artwork extends AppCompatActivity {
         ArtworkDataSource ads = new ArtworkDataSource(this);
         ArtistDataSource artds = new ArtistDataSource(this);
 
-        List<Artwork> artworkList = ads.getAllArtworks();
         arl = ads.getAllArtworks();
+
+        View header = getLayoutInflater().inflate(R.layout.header_artwork, null);
+
+        artworkAdapter = new ArtworkAdapter(this.getApplicationContext(), arl);
 
         listView = (ListView) findViewById(R.id.list_artwork);
 
         listView.setClickable(true);
+        listView.addHeaderView(header);
+
+        listView.setAdapter(artworkAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Artwork aw = arl.get(position);
+                Artwork aw = arl.get(position - 1);
 
-                Intent intentaw = new Intent(List_artwork.this, Card_artwork.class);
-                intentaw.putExtra("id_artworkRecup", String.valueOf(aw.getId()));
-                startActivity(intentaw);
+                sendArtworkCard(aw.getId());
 
             }
         });
 
-        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
-
-        listView.setTextFilterEnabled(true);
-
-        if (artworkList == null)
-            return;
-
-        tabArtworkCreated = new String[artworkList.size()];
-
-        for (int i = 0; i < artworkList.size(); i++) {
-
-            if (artworkList.get(i).getExposed() == true) {
-                expo = "-------*EXPO*";
-
-            } else {
-                expo = "---*NOEXPO*";
-            }
-
-
-            idArtistForeign_Key = artworkList.get(i).getForeign_key_Artist_id();
-
-            artistPickByForeign_Key = artds.getArtistById(idArtistForeign_Key);
-
-            nameArtistByFK = artistPickByForeign_Key.getLastname();
-
-            tabArtworkCreated[i] = artworkList.get(i).getName() + "\t " + artworkList.get(i).getType() + "\t" + nameArtistByFK + "\t" + expo;
-
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, tabArtworkCreated);
-
-        listView.setAdapter(adapter);
-
-
-        //close db instance
-        SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
-        sqlHelper.getWritableDatabase().close();
     }
+
+        public void sendArtworkCard(int id) {
+
+        Intent intentaw = new Intent(this, Card_artwork.class);
+        intentaw.putExtra("id_artworkRecup", id);
+        startActivity(intentaw);
+    }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -147,4 +126,91 @@ public class List_artwork extends AppCompatActivity {
         return (super.onOptionsItemSelected(item));
     }
 
+
+    public class ArtworkAdapter extends BaseAdapter {
+
+        ArtworkDataSource ads;
+        ArtistDataSource ards;
+        List<Artwork> listartadap;
+        String[] artworks;
+
+        public ArtworkAdapter(Context context, List<Artwork> listartw){
+            ads = new ArtworkDataSource(context);
+            ards = new ArtistDataSource(context);
+            listartadap = getDataForListView();
+        }
+
+
+        public List<Artwork> getDataForListView() {
+            List<Artwork> listArtwork;
+            listArtwork = ads.getAllArtworks();
+
+            return listArtwork;
+        }
+
+
+        @Override
+        public int getCount() {
+            return listartadap.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return listartadap.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null)
+            {
+                LayoutInflater inflater = (LayoutInflater) List_artwork.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.activity_list_artwork_adapter, parent, false);
+            }
+
+            TextView t1 = (TextView)convertView.findViewById(R.id.label1_NameArtwork);
+            TextView t2 = (TextView) convertView.findViewById(R.id.label2_ArtistArtwork);
+            ImageView i3 = (ImageView) convertView.findViewById(R.id.logo_artworkExposed);
+
+            Artwork r = listartadap.get(position);
+
+            t1.setText(r.getName());
+
+            List<Artwork> listart = ads.getAllArtworks();
+            artworks = new String[listart.size()];
+
+            for(int i = 0; i<listart.size(); i++){
+
+                idArtistForeign_Key = listart.get(i).getForeign_key_Artist_id();
+
+                artistPickByForeign_Key = ards.getArtistById(idArtistForeign_Key);
+
+                nameArtistByFK = artistPickByForeign_Key.getLastname();
+
+            }
+
+            t2.setText(nameArtistByFK);
+
+            if(r.getExposed() == true){
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.exposed));
+            }
+            else
+            {
+                i3.setImageDrawable(getResources().getDrawable(R.drawable.occuped));
+            }
+
+            return convertView;
+        }
+
+
+        public Artwork getArtwork(int position) {return listartadap.get(position);}
+
+
+    }
 }
+
+
