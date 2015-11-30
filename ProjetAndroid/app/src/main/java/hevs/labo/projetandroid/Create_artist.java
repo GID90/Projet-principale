@@ -45,7 +45,7 @@ package hevs.labo.projetandroid;
 public class Create_artist extends AppCompatActivity implements View.OnClickListener {
 
     private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
-
+    int compteurPhoto;
     private Artist artist;
 
     /**Gérer les images : */
@@ -59,11 +59,8 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
     /**Gérer les dialogues : */
     EditText birthdate;
     EditText death;
-    int compteurPhoto;
-
 
     private SimpleDateFormat dateFormat;
-
     private DatePickerDialog fromDatePickerDialog;
     private DatePickerDialog toDatePickerDialog;
 
@@ -232,9 +229,9 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
 
-
+                /*
                 Toast toastpict = Toast.makeText(context, imagepath, duration);
-                toastpict.show();
+                toastpict.show();*/
 
 
                 artist = new Artist();

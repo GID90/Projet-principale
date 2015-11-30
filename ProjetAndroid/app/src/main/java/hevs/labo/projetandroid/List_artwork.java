@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -180,20 +181,11 @@ public class List_artwork extends AppCompatActivity {
 
             t1.setText(r.getName());
 
-            List<Artwork> listart = ads.getAllArtworks();
-            artworks = new String[listart.size()];
+            int searchLastname =  r.getForeign_key_Artist_id();
 
-            for(int i = 0; i<listart.size(); i++){
+            Artist artistForLastname = ards.getArtistById(searchLastname);
 
-                idArtistForeign_Key = listart.get(i).getForeign_key_Artist_id();
-
-                artistPickByForeign_Key = ards.getArtistById(idArtistForeign_Key);
-
-                nameArtistByFK = artistPickByForeign_Key.getLastname();
-
-            }
-
-            t2.setText(nameArtistByFK);
+            t2.setText(artistForLastname.getLastname());
 
             if(r.getExposed() == true){
                 i3.setImageDrawable(getResources().getDrawable(R.drawable.exposed));
@@ -207,8 +199,8 @@ public class List_artwork extends AppCompatActivity {
         }
 
 
-        public Artwork getArtwork(int position) {return listartadap.get(position);}
-
+        public Artwork getArtwork(int position) {
+            return listartadap.get(position);}
 
     }
 }

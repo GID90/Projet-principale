@@ -31,24 +31,24 @@ import hevs.labo.projetandroid.database.object.Artist;
 
 public class Modify_artist extends AppCompatActivity {
 
+    private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
+
     private EditText lastname;
     private EditText firstname;
     private EditText pseudo;
     private EditText birthdate;
     private EditText deathdate;
     private Spinner spinner;
+
     private ImageButton btn_changePicture;
     private ImageView pictureArtistToModify;
+
     private Artist artistToModify;
     private Uri selectedImage;
     private Bitmap bitmap;
-    private boolean isPicture;
     private CheckBox checkbexposed;
     private int id_artist_modif;
-
-
-    private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
-
+    private boolean isPicture = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,7 +206,14 @@ public class Modify_artist extends AppCompatActivity {
 
             case R.id.saveartistmodified_menu:
 
-                String imagepath = saveToInternalStorage(bitmap);
+                String imagepath ="";
+
+                if(isPicture == true){
+                     imagepath = saveToInternalStorage(bitmap);
+                } else {
+                   imagepath =  artistToModify.getImage_path();
+                }
+
 
                 ArtistDataSource ads = new ArtistDataSource(this);
 
@@ -231,7 +238,7 @@ public class Modify_artist extends AppCompatActivity {
                 String recup = spinner.getSelectedItem().toString();
                 artistToModify.setMovement(recup);
 
-
+                Log.e("Artste", "imagepath: "+ imagepath);
                 artistToModify.setImage_path(imagepath);
 
                 CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposedModif);

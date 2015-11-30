@@ -193,6 +193,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 String parts[] = recupArtist.split(" ");
                 String idRecupArtist = parts[0];
                 int fkArtist = Integer.parseInt(idRecupArtist);
+                Log.e("Artiste", "id Artiste recup dans liste pour artwork: " + fkArtist);
 
                 artwork.setForeign_key_Artist_id(fkArtist);
 

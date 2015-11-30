@@ -1,10 +1,14 @@
 package hevs.labo.projetandroid;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,13 +17,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Random;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
@@ -28,10 +35,19 @@ import hevs.labo.projetandroid.database.object.Artwork;
 
 public class Card_artist extends AppCompatActivity {
 
+    private static final int RESULT_LOAD_ARTIST_IMAGE = 1;
+
+    ImageView imageToUpload;
+    private Uri selectedImage;
+    private Bitmap bitmap;
+    private boolean isPicture;
+
+
     private TextView titre;
     private TextView annee;
     private Artist artistAafficher;
     private TextView artistMouvement;
+
     private ImageView photoArtist;
 
     //liste d artwork
@@ -41,7 +57,6 @@ public class Card_artist extends AppCompatActivity {
     private int id;
 
     ArtworkArtistAdapter artworkAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +87,19 @@ public class Card_artist extends AppCompatActivity {
         artistMouvement = (TextView) findViewById(R.id.tv_descriptionArtist_descriptionmovement);
         artistMouvement.setText(artistAafficher.getMovement());
 
+        //image
         photoArtist = (ImageView) findViewById(R.id.imageView_Artist);
-        File imgFile = new  File(artistAafficher.getImage_path());
+        photoArtist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(intent, RESULT_LOAD_ARTIST_IMAGE);
+            }
+        });
 
+// file:///data/data/hevs.labo.projetandroid/app_imageDir/1779.jpg
+        //file:///data/data/hevs.labo.projetandroid/app_imageDir/artiste1.jpg
+        File imgFile = new  File(artistAafficher.getImage_path());
         if(imgFile.exists()) {
             Context context = getApplicationContext();
             CharSequence text = "Hello toast!";
@@ -84,6 +109,9 @@ public class Card_artist extends AppCompatActivity {
             toast.show();
             Uri uri = Uri.fromFile(imgFile);
             photoArtist.setImageURI(uri);
+
+
+            Log.e("Artiste", "imagepath: " + uri);
         }
 
         listView_artworkFromTheArtist = (ListView) findViewById(R.id.list_oeuvre);
@@ -93,17 +121,72 @@ public class Card_artist extends AppCompatActivity {
 
         listView_artworkFromTheArtist.setTextFilterEnabled(true);
 
-        final List<Artwork> listArtwork = artworkDataSource.getAllArtworksByArtist(id);
+        List<Artwork> listArtworkForThisArtist = artworkDataSource.getAllArtworksByArtist(id);
 
         View header = getLayoutInflater().inflate(R.layout.header_artwork_artist, null);
 
         listView_artworkFromTheArtist.addHeaderView(header);
 
-       artworkAdapter = new ArtworkArtistAdapter(this.getApplicationContext(), listArtwork);
+        artworkAdapter = new ArtworkArtistAdapter(this.getApplicationContext(), listArtworkForThisArtist, id);
+        Log.e("Artste", "imagepath: "+ listArtworkForThisArtist);
 
         listView_artworkFromTheArtist.setAdapter(artworkAdapter);
 
 
+    }
+
+    //This is the function to upload the picture
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+
+            if (requestCode == RESULT_LOAD_ARTIST_IMAGE && resultCode == RESULT_OK && null != data) {
+
+                selectedImage = data.getData();
+                imageToUpload.setImageURI(selectedImage);
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+
+                isPicture = true;
+            } else {
+                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+            }
+        }catch (Exception e ){
+            Log.e("error", e.toString());
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    //This is the function to rename and save the picture
+    private String saveToInternalStorage(Bitmap bitmapImage) {
+
+
+
+        Random rd = new Random();
+        int randomnum = 1+ (int)(Math.random()*4000);
+
+
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, randomnum+".jpg");
+
+        FileOutputStream fos = null;
+        try {
+
+            fos = new FileOutputStream(mypath);
+
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mypath.getPath();
     }
 
     @Override
@@ -165,18 +248,19 @@ public class Card_artist extends AppCompatActivity {
         ArtistDataSource ards;
         List<Artwork> listartadap;
         String[] artworks;
+        int id;
 
-        public ArtworkArtistAdapter(Context context, List<Artwork> listartw){
+        public ArtworkArtistAdapter(Context context, List<Artwork> listartwj, int id){
             ads = new ArtworkDataSource(context);
             ards = new ArtistDataSource(context);
-            listartadap = getDataForListView();
+            listartadap = getDataForListView(id);
+
         }
 
-
-        public List<Artwork> getDataForListView() {
+    //Difficulty : we should recuparate the artworks froms this artist in question
+        public List<Artwork> getDataForListView(int id) {
             List<Artwork> listArtwork;
-            listArtwork = ads.getAllArtworks();
-
+            listArtwork = ads.getAllArtworksByArtist(id);
             return listArtwork;
         }
 
@@ -201,17 +285,16 @@ public class Card_artist extends AppCompatActivity {
             if(convertView == null)
             {
                 LayoutInflater inflater = (LayoutInflater) Card_artist.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.activity_list_artwork_adapter, parent, false);
+                convertView = inflater.inflate(R.layout.activity_card_artist_listartwork_adapter, parent, false);
             }
 
             TextView t1 = (TextView)convertView.findViewById(R.id.label1_NameArtwork);
-            TextView t2 = (TextView) convertView.findViewById(R.id.label2_ArtistArtwork);
+            TextView t2 = (TextView) convertView.findViewById(R.id.label2_CreationArtwork);
             ImageView i3 = (ImageView) convertView.findViewById(R.id.logo_artworkExposed);
 
             Artwork r = listartadap.get(position);
 
             t1.setText(r.getName());
-
 
             t2.setText(String.valueOf(r.getCreationYear()));
 
@@ -227,7 +310,9 @@ public class Card_artist extends AppCompatActivity {
         }
 
 
-        public Artwork getArtwork(int position) {return listartadap.get(position);}
+        public Artwork getArtwork(int position) {
+            return listartadap.get(position);
+        }
 
 
     }

@@ -31,20 +31,24 @@ public class Card_artwork extends AppCompatActivity {
     private TextView typeartwork;
     private TextView descriptionartwork;
 
+    private int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_artwork);
 
         ArtworkDataSource artworkdata = new ArtworkDataSource(this);
-        Intent intent = getIntent();
-
         ArtistDataSource artistData = new ArtistDataSource(this);
 
-        String id = intent.getStringExtra("id_artworkRecup");
-        int id_artwork = Integer.parseInt(id);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+        {
+            id =extras.getInt("id_artworkRecup");
+        }
 
-        artworkAafficher = artworkdata.getArtworkById(id_artwork);
+        //recuparate the artwork by is id passed through the activity
+        artworkAafficher = artworkdata.getArtworkById(id);
 
         titreArtwork= (TextView) findViewById(R.id.tv_nom_oeuvre);
         titreArtwork.setText(artworkAafficher.getName());
