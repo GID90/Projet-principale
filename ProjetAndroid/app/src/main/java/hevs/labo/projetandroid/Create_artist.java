@@ -1,5 +1,24 @@
 package hevs.labo.projetandroid;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
         import android.app.Activity;
         import android.app.DatePickerDialog;
         import android.app.Dialog;
@@ -28,6 +47,9 @@ package hevs.labo.projetandroid;
         import android.widget.TextView;
         import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Random;
         import java.io.Console;
         import java.io.File;
         import java.io.FileOutputStream;
@@ -37,6 +59,9 @@ package hevs.labo.projetandroid;
         import java.util.Locale;
         import java.util.Random;
 
+import hevs.labo.projetandroid.database.SQLiteHelper;
+import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.object.Artist;
         import hevs.labo.projetandroid.database.ArtGalleryContract;
         import hevs.labo.projetandroid.database.SQLiteHelper;
         import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
@@ -281,7 +306,6 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
                 return true;
         }
-
 
         return (super.onOptionsItemSelected(item));
     }

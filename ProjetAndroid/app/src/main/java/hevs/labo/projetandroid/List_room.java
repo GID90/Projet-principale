@@ -1,5 +1,6 @@
 package hevs.labo.projetandroid;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -69,8 +71,8 @@ public class List_room extends AppCompatActivity {
                 Room i = listeadapter.getRoom(position);
                 sendCarRoom(i.getId());*/
 
-                Room room =listRoom[position-1];
-                sendCarRoom( room.getId());
+                Room room = listRoom[position - 1];
+                sendCarRoom(room.getId());
             }
         });
 
@@ -194,5 +196,3 @@ public class List_room extends AppCompatActivity {
 
     }
 }
-
-

@@ -3,8 +3,8 @@ package hevs.labo.projetandroid;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -13,9 +13,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
-import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 import hevs.labo.projetandroid.database.adapter.RoomDataSource;
-import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Room;
 
 public class Card_room extends AppCompatActivity {
