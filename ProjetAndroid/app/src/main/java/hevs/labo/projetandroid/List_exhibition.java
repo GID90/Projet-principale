@@ -54,7 +54,7 @@ public class List_exhibition extends AppCompatActivity {
                 Artwork a = artworks.get(position);
 
                 Intent intent = new Intent(List_exhibition.this, Card_exhibition.class);
-                intent.putExtra("id_artworkRecup", String.valueOf(a.getId()));
+                intent.putExtra("id_artworkRecup", a.getId());
                 startActivity(intent);
             }
         });

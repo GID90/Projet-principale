@@ -44,8 +44,8 @@ public class Create_exhibition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exhibition);
 
-        final ArtistDataSource artistDataSource = new ArtistDataSource(this);
-        final ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
+        ArtistDataSource artistDataSource = new ArtistDataSource(this);
+        ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
         RoomDataSource roomDataSource = new RoomDataSource(this);
 
         Spinner spinnerRoom = (Spinner) findViewById(R.id.spinner_room);
@@ -104,6 +104,9 @@ public class Create_exhibition extends AppCompatActivity {
                 String[] parts = recupArtwork.split(" ");
                 String idRecupArtwork = parts[0];
                 int idArtwork = Integer.parseInt(idRecupArtwork);
+
+                ArtistDataSource artistDataSource = new ArtistDataSource(getBaseContext());
+                ArtworkDataSource artworkDataSource = new ArtworkDataSource(getBaseContext());
 
                 artwork.setForeign_key_Artist_id(idArtwork);
                 artist = artistDataSource.getArtistById(artworkDataSource.getArtworkById(idArtwork).getForeign_key_Artist_id());
