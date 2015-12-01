@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
@@ -22,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView numberofArtworkexposed;
     private TextView numberofArtistexposed;
     private TextView numberofRoomoccupated;
-    List<Artist> nbArtistlist;
-    List<Artwork> nbArtworklist;
-    List<Room> nbRoomlist;
+    List<Artist> nbArtist;
+    List<Artwork> nbArtwork;
+    List<Room> nbRoom;
 
     List<Room> roomoccupated;
     List<Artist> artistexposed;
@@ -50,28 +52,28 @@ public class MainActivity extends AppCompatActivity {
         numberofArtistexposed = (TextView) findViewById(R.id.nbExposedArtist);
         numberofRoomoccupated = (TextView) findViewById(R.id.nbRoomUsed);
 
-        nbArtistlist = artistDataSource.getAllArtists();
-        nbArtworklist = artworkDataSource.getAllArtworks();
-        nbRoomlist = roomDataSource.getAllRooms();
+        nbArtist = artistDataSource.getAllArtists();
+        nbArtwork = artworkDataSource.getAllArtworks();
+        nbRoom =  roomDataSource.getAllRooms();
 
 
-        for(int i = 0; i<nbArtistlist.size(); i++){
-            if(nbArtistlist.get(i).isExposed()== true)
+        for(int i = 0; i<nbArtist.size(); i++){
+            if(nbArtist.get(i).isExposed()== true)
             {
                 cptartist++;
             }
         }
 
-        for(int i = 0; i<nbArtworklist.size(); i++){
-            if(nbArtworklist.get(i).getExposed() == true)
+        for(int i = 0; i<nbArtwork.size(); i++){
+            if(nbArtwork.get(i).getExposed() == true)
             {
                 cptartwork++;
             }
         }
 
-        for (int i = 0; i<nbRoomlist.size(); i++)
+        for (int i = 0; i<nbRoom.size(); i++)
         {
-            if(nbRoomlist.get(i).isSelected()== true)
+            if(nbRoom.get(i).isSelected()== true)
             {
                 cptroom++;
             }

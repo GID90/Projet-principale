@@ -29,7 +29,6 @@ import hevs.labo.projetandroid.database.object.Room;
 
 public class List_artist extends AppCompatActivity{
 
-
     ListView listView_artist;
     List<Artist> list_artist;
     String[] tabArtistCreated;
@@ -38,8 +37,6 @@ public class List_artist extends AppCompatActivity{
     String occup_expo;
 
     ArtistAdapter listadapter_artist;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

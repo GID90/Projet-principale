@@ -94,6 +94,7 @@
     <string name="deleteArtwork_menu">Delete Artwork</string>
     <string name="modifyRoom_menu">Modify Room</string>
     <string name="deleteRoom_menu">Delete Room</string>
+    <string name="deleteExhibition_menu">Delete Exhibition</string>
     <string name="cancelartistcreated_menu">Cancel Artist created</string>
     <string name="saveartistcreated_menu">Save Artist created</string>
     <string name="cancelartworkcreated_menu">Cancel Artwork created</string>
@@ -108,7 +109,6 @@
     <string name="saveartworkmodified_menu">Save Artwork modified</string>
     <string name="cancelroommodified_menu">Cancel Room modified</string>
     <string name="saveroommodified_menu">Save Room modified</string>
-
 
 
     <!--Spinner-->

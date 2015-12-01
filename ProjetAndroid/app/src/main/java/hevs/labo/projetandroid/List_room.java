@@ -169,7 +169,7 @@ public class List_room extends AppCompatActivity {
 
             t2.setText(Double.toString(r.getSize()));
 
-            if(r.isSelected() == true){
+            if(r.isSelected() == false){
                 i3.setImageDrawable(getResources().getDrawable(R.drawable.occuped));
             }
             else

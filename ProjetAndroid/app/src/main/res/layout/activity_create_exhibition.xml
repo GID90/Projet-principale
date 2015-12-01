@@ -75,17 +75,17 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView_artist"
+                android:id="@+id/textView_artwork"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:text="@string/artist"
+                android:text="@string/artwork"
                 android:textColor="#000010"
                 android:textSize="20dp"
                 android:layout_weight="30"/>
 
             <Spinner
-                android:id="@+id/spinner_artist"
+                android:id="@+id/spinner_artwork"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -99,17 +99,17 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView_artwork"
+                android:id="@+id/textView_artist"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:text="@string/artwork"
+                android:text="@string/artist"
                 android:textColor="#000010"
                 android:textSize="20dp"
                 android:layout_weight="30"/>
 
-            <Spinner
-                android:id="@+id/spinner_artwork"
+            <TextView
+                android:id="@+id/textView_artist_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"

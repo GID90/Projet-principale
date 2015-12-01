@@ -34,7 +34,7 @@ public class Artist {
 
 
 
-            return firstname + "    " + lastname + "    /   " + pseudo  ;
+            return firstname + "    " + lastname + "    " + pseudo  ;
 
 
     }
