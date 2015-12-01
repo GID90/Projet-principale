@@ -131,22 +131,22 @@
 
     <!--Spinner-->
     <string-array name="mvt_array">
-        <item></item>
-        <item>Art concret</item>
+        <item>Abstract art</item>
+        <item>Concreate art</item>
         <item>Art nouveau</item>
         <item>Baroque</item>
-        <item>Classique</item>
+        <item>Classic</item>
         <item>Cobra</item>
-        <item>Cubisme</item>
-        <item>Futurisme</item>
+        <item>Cubism</item>
+        <item>Futurism</item>
         <item>Gothique</item>
-        <item>Impressionnisme</item>
-        <item>Modernisme</item>
-        <item>Naturalisme</item>
+        <item>Impressionnism</item>
+        <item>Modernism</item>
+        <item>Naturalism</item>
         <item>Renaissance</item>
         <item>Rococo</item>
         <item>Romaniste</item>
-        <item>Surréalisme</item>
+        <item>Surrealism</item>
     </string-array>
 
     <string-array name="type_artwork_array">
