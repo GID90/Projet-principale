@@ -6,9 +6,9 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -25,7 +25,6 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -147,17 +146,6 @@ public class Modify_artist extends AppCompatActivity implements View.OnClickList
             Uri uri = Uri.fromFile(imgFile);
             pictureArtistToModify.setImageURI(uri);
         }
-
-        checkbexposed = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
-        if(artistToModify.isExposed() == true)
-        {
-            checkbexposed.setChecked(true);
-        }
-        else
-        {
-            checkbexposed.setChecked(false);
-        }
-
 
         Calendar newCalendar =  Calendar.getInstance();
         fromDatePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
@@ -289,17 +277,7 @@ public class Modify_artist extends AppCompatActivity implements View.OnClickList
                 Log.e("Artste", "imagepath: "+ imagepath);
                 artistToModify.setImage_path(imagepath);
 
-                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposedModif);
-                if(bl.isChecked()){
-                    artistToModify.setExposed(true);
-                }
-                else
-                {
-                    artistToModify.setExposed(false);
-                }
-
                 ads.updateArtist(artistToModify);
-
 
                 SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
                 sqlHelper.getWritableDatabase().close();

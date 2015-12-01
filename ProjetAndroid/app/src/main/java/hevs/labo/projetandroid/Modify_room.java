@@ -67,7 +67,6 @@ public class Modify_room extends AppCompatActivity {
         });
 
 
-
         roomName = (EditText) findViewById(R.id.et_modify_room_name);
         roomName.setText(roomToModify.getName());
 
@@ -83,15 +82,7 @@ public class Modify_room extends AppCompatActivity {
             pictureRoomToModify.setImageURI(uri);
         }
 
-        checkoccupatedRoom = (CheckBox) findViewById(R.id.chbox_roomOccupatedModify);
-        if(roomToModify.isSelected() == true)
-        {
-            checkoccupatedRoom.setChecked(true);
-        }
-        else
-        {
-            checkoccupatedRoom.setChecked(false);
-        }
+
 
 
     }
@@ -190,16 +181,8 @@ public class Modify_room extends AppCompatActivity {
 
                 roomToModify.setImage_path(imagepath);
 
-                CheckBox bl = (CheckBox) findViewById(R.id.chbox_roomOccupatedModify);
-                if(bl.isChecked()){
-                    roomToModify.setSelected(true);
-                }
-                else
-                {
-                    roomToModify.setSelected(false);
-                }
 
-               roomDataSource.updateRoom(roomToModify);
+                roomDataSource.updateRoom(roomToModify);
 
                 SQLiteHelper sqlHelper = SQLiteHelper.getInstance(this);
                 sqlHelper.getWritableDatabase().close();

@@ -55,7 +55,7 @@ public class Create_exhibition extends AppCompatActivity {
 
 
         //spinnerResourcesArtists = artistDataSource.getAllArtists();
-        spinnerResourcesArtworks = artworkDataSource.getAllArtworks();
+        spinnerResourcesArtworks = artworkDataSource.getArtworksNonExposed();
         spinnerResourcesRoom = roomDataSource.getAllRooms();
 
         //resourcesSpinnerNameArtists = new String[spinnerResourcesArtists.size()];

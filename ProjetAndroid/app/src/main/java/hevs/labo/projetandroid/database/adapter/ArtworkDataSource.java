@@ -168,6 +168,36 @@ public class ArtworkDataSource {
         return artworks;
     }
 
+    public List<Artwork> getArtworksNonExposed() {
+        List<Artwork> artworks = new ArrayList<Artwork>();
+        String sql = "SELECT * FROM " + ArtGalleryContract.Artwork.TABLE_ARTWORK +
+                " WHERE " + ArtGalleryContract.Artwork.KEY_EXPOSED + " = 0" +
+                " ORDER BY " + ArtGalleryContract.Artwork.KEY_NAME;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                Artwork artwork = new Artwork();
+
+                artwork.setId(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ID)));
+                artwork.setName(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_NAME)));
+                artwork.setType(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_TYPE)));
+                artwork.setCreationYear(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_CREATION_YEAR)));
+                artwork.setDescription(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_DESCRIPTION)));
+                artwork.setImage_path(cursor.getString(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_IMAGE_PATH)));
+                artwork.setExposed(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_EXPOSED)) == 1);
+                artwork.setForeign_key_Artist_id(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ARTIST_ID)));
+                artwork.setForeign_key_Room_id(cursor.getInt(cursor.getColumnIndex(ArtGalleryContract.Artwork.KEY_ROOM_ID)));
+
+                artworks.add(artwork);
+            }
+            while(cursor.moveToNext());
+        }
+
+        return artworks;
+    }
+
     /**
      *  Update an artwork
      */

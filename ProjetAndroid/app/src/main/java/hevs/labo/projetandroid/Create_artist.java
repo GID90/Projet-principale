@@ -1,5 +1,6 @@
 package hevs.labo.projetandroid;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -8,64 +9,30 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-        import android.app.Activity;
-        import android.app.DatePickerDialog;
-        import android.app.Dialog;
-        import android.app.DialogFragment;
-        import android.content.Context;
-        import android.content.ContextWrapper;
-        import android.content.Intent;
-        import android.graphics.Bitmap;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.provider.MediaStore;
-        import android.support.v7.app.AppCompatActivity;
-        import android.text.InputType;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.CheckBox;
-        import android.widget.DatePicker;
-        import android.widget.EditText;
-        import android.widget.ImageButton;
-        import android.widget.ImageView;
-        import android.widget.Spinner;
-        import android.widget.TextView;
-        import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Random;
-        import java.io.Console;
-        import java.io.File;
-        import java.io.FileOutputStream;
-        import java.text.SimpleDateFormat;
-        import java.util.Calendar;
-        import java.util.Date;
-        import java.util.Locale;
-        import java.util.Random;
 
 import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
-        import hevs.labo.projetandroid.database.ArtGalleryContract;
-        import hevs.labo.projetandroid.database.SQLiteHelper;
-        import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
-        import hevs.labo.projetandroid.database.object.Artist;
 
 public class Create_artist extends AppCompatActivity implements View.OnClickListener {
 
@@ -285,14 +252,7 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
                 artist.setImage_path(imagepath);
 
-                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artistExposed);
-                if(bl.isChecked()){
-                    artist.setExposed(true);
-                }
-                else
-                {
-                    artist.setExposed(false);
-                }
+                artist.setExposed(false);
 
                 artist.setId((int) ads.createArtist(artist));
 

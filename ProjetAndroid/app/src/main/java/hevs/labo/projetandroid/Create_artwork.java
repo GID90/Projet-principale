@@ -1,25 +1,20 @@
 package hevs.labo.projetandroid;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Picture;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -36,11 +31,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import hevs.labo.projetandroid.database.SQLiteHelper;
 import hevs.labo.projetandroid.database.adapter.ArtistDataSource;
+import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 import hevs.labo.projetandroid.database.object.Artist;
 import hevs.labo.projetandroid.database.object.Artwork;
-import hevs.labo.projetandroid.database.SQLiteHelper;
-import hevs.labo.projetandroid.database.adapter.ArtworkDataSource;
 
 public class Create_artwork extends AppCompatActivity implements View.OnClickListener {
 
@@ -244,14 +239,8 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
 
                 artwork.setImage_path(imagepath);
 
-                CheckBox bl = (CheckBox) findViewById(R.id.chbox_artworkExposed);
-                if(bl.isChecked()){
-                    artwork.setExposed(true);
-                }
-                else
-                {
-                    artwork.setExposed(false);
-                }
+                artwork.setExposed(false);
+
 
                 artwork.setId((int) ads.createArtwork(artwork));
 

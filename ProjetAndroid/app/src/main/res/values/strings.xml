@@ -131,4 +131,11 @@
         <item>Surréalisme</item>
     </string-array>
 
+    <spinner-array name="type_artwork_array">
+        <item>Paint</item>
+        <item>Sculpture</item>
+        <item>Engraving</item>
+        <item>Drawing</item>
+    </spinner-array>
+
 </resources>

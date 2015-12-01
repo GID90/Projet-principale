@@ -172,14 +172,7 @@ public class Create_room extends AppCompatActivity implements View.OnClickListen
 
                 room.setImage_path(imagepath);
 
-                CheckBox bl = (CheckBox) findViewById(R.id.chbox_roomOccupated);
-                if(bl.isChecked()){
-                    room.setSelected(true);
-                }
-                else
-                {
-                    room.setSelected(false);
-                }
+                room.setSelected(false);
 
                 room.setId((int) roomDataSource.createRoom(room));
 

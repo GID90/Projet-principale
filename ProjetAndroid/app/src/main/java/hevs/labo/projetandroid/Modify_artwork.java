@@ -6,9 +6,9 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -157,20 +157,6 @@ public class Modify_artwork extends AppCompatActivity implements View.OnClickLis
             pictureArtworkToModify.setImageURI(uri);
         }
 
-        checkbexposedArtworkToModify = (CheckBox) findViewById(R.id.chbox_artworkExposedToModify);
-        if(artworktoModify.getExposed() == true)
-        {
-            checkbexposedArtworkToModify.setChecked(true);
-        }
-        else
-        {
-            checkbexposedArtworkToModify.setChecked(false);
-        }
-
-
-
-
-
     }
 
     @Override
@@ -284,16 +270,7 @@ public class Modify_artwork extends AppCompatActivity implements View.OnClickLis
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkModify);
                 artworktoModify.setDescription(et.getText().toString());
 
-               artworktoModify.setImage_path(imagepath);
-
-                CheckBox checkboxArtworkExposed = (CheckBox) findViewById(R.id.chbox_artworkExposedToModify);
-                if(checkboxArtworkExposed.isChecked()){
-                    artworktoModify.setExposed(true);
-                }
-                else
-                {
-                    artworktoModify.setExposed(false);
-                }
+                artworktoModify.setImage_path(imagepath);
 
                 artworkDataSource.updateArtwork(artworktoModify);
 
