@@ -14,10 +14,10 @@ import android.widget.SpinnerAdapter;
 public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapter {
 
     protected static final int EXTRA = 1;
-    protected SpinnerAdapter adapter;
+    protected SpinnerAdapter spinnerAdapter;
     protected Context context;
     protected int nothingSelectedLayout;
-    protected int nothingSelectedDropdownLayout;
+    protected int nothingSelectedSpinnerLayout;
     protected LayoutInflater layoutInflater;
 
     /**
@@ -35,10 +35,10 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
      */
     public NothingSelectedSpinnerAdapter(SpinnerAdapter spinnerAdapter,
                                          int nothingSelectedLayout, int nothingSelectedDropdownLayout, Context context) {
-        this.adapter = spinnerAdapter;
+        this.spinnerAdapter = spinnerAdapter;
         this.context = context;
         this.nothingSelectedLayout = nothingSelectedLayout;
-        this.nothingSelectedDropdownLayout = nothingSelectedDropdownLayout;
+        this.nothingSelectedSpinnerLayout = nothingSelectedDropdownLayout;
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -47,7 +47,7 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
         if (position == 0) {
             return getNothingSelectedView(parent);
         }
-        return adapter.getView(position - EXTRA, null, parent);
+        return spinnerAdapter.getView(position - EXTRA, null, parent);
     }
 
     protected View getNothingSelectedView(ViewGroup parent) {
@@ -55,7 +55,7 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
     }
 
     protected View getNothingSelectedDropdownView(ViewGroup parent) {
-        return layoutInflater.inflate(nothingSelectedDropdownLayout, parent, false);
+        return layoutInflater.inflate(nothingSelectedSpinnerLayout, parent, false);
     }
 
     @Override
@@ -65,13 +65,13 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
 
     @Override
     public int getCount() {
-        int count = adapter.getCount();
+        int count = spinnerAdapter.getCount();
         return count == 0 ? 0 : count + EXTRA;
     }
 
     @Override
     public Object getItem(int position) {
-        return position == 0 ? null : adapter.getItem(position - EXTRA);
+        return position == 0 ? null : spinnerAdapter.getItem(position - EXTRA);
     }
 
     @Override
@@ -86,17 +86,17 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
 
     @Override
     public long getItemId(int position) {
-        return position >= EXTRA ? adapter.getItemId(position - EXTRA) : position - EXTRA;
+        return position >= EXTRA ? spinnerAdapter.getItemId(position - EXTRA) : position - EXTRA;
     }
 
     @Override
     public boolean hasStableIds() {
-        return adapter.hasStableIds();
+        return spinnerAdapter.hasStableIds();
     }
 
     @Override
     public boolean isEmpty() {
-        return adapter.isEmpty();
+        return spinnerAdapter.isEmpty();
     }
 
     @Override
@@ -115,9 +115,9 @@ public class NothingSelectedSpinnerAdapter implements SpinnerAdapter, ListAdapte
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         if (position == 0) {
-            return nothingSelectedDropdownLayout == -1 ? new View(context) : getNothingSelectedDropdownView(parent);
+            return nothingSelectedSpinnerLayout == -1 ? new View(context) : getNothingSelectedDropdownView(parent);
         }
 
-        return adapter.getDropDownView(position - EXTRA, null, parent);
+        return spinnerAdapter.getDropDownView(position - EXTRA, null, parent);
     }
 }

@@ -121,11 +121,11 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
                 isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.noImagePicked, Toast.LENGTH_LONG).show();
             }
         }catch (Exception e ){
             Log.e("error", e.toString());
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.stgWentWrong, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -219,7 +219,7 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
                 //Here we take all the informations about the artist which is create to save it in the database
                 String imagepath = saveToInternalStorage(bitmap);
                 Context context = getApplicationContext();
-                int duration = Toast.LENGTH_SHORT;
+                int duration = Toast.LENGTH_LONG;
 
                 /*
                 Toast toastpict = Toast.makeText(context, imagepath, duration);
@@ -261,7 +261,7 @@ public class Create_artist extends AppCompatActivity implements View.OnClickList
 
                 startActivity(new Intent(this, List_artist.class));
 
-                Toast toast = Toast.makeText(this, "Artist added", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, R.string.artistAdded, Toast.LENGTH_LONG);
                 toast.show();
 
                 return true;

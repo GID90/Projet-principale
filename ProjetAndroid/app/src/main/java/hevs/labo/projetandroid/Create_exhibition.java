@@ -85,13 +85,13 @@ public class Create_exhibition extends AppCompatActivity {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerArtwork.setAdapter(adapter2);
         spinnerRoom.setPrompt("Select an artwork");
-        spinnerRoom.setAdapter(new NothingSelectedSpinnerAdapter(adapter2, R.layout.artwork_spinner_row_nothing_selected, this));
+        //spinnerRoom.setAdapter(new NothingSelectedSpinnerAdapter(adapter2, R.layout.artwork_spinner_row_nothing_selected, this));
 
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,  resourcesSpinnerNameRoom);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRoom.setAdapter(adapter3);
         spinnerRoom.setPrompt("Select a room");
-        spinnerRoom.setAdapter(new NothingSelectedSpinnerAdapter(adapter3, R.layout.room_spinner_row_nothing_selected, this));
+        //spinnerRoom.setAdapter(new NothingSelectedSpinnerAdapter(adapter3, R.layout.room_spinner_row_nothing_selected, this));
 
         spinnerArtwork.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

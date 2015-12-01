@@ -181,11 +181,11 @@ public class Modify_artist extends AppCompatActivity implements View.OnClickList
 
                 isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.noImagePicked, Toast.LENGTH_LONG).show();
             }
         }catch (Exception e ){
             Log.e("error", e.toString());
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.stgWentWrong, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -274,7 +274,7 @@ public class Modify_artist extends AppCompatActivity implements View.OnClickList
                 String recup = spinner.getSelectedItem().toString();
                 artistToModify.setMovement(recup);
 
-                Log.e("Artste", "imagepath: "+ imagepath);
+                Log.e("Artste", "imagepath: " + imagepath);
                 artistToModify.setImage_path(imagepath);
 
                 ads.updateArtist(artistToModify);
@@ -284,7 +284,7 @@ public class Modify_artist extends AppCompatActivity implements View.OnClickList
 
                 startActivity(new Intent(this, List_artist.class));
 
-                Toast toast = Toast.makeText(this, "Artist modified", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, R.string.artistModified, Toast.LENGTH_LONG);
                 toast.show();
 
                 return true;

@@ -108,7 +108,7 @@ public class Card_exhibition extends AppCompatActivity {
 
                 artwork.setExposed(false);
                 awds.updateArtwork(artwork);
-                Toast toast = Toast.makeText(this, "Exhibition deleted", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, R.string.exhibitionDeleted, Toast.LENGTH_LONG);
                 toast.show();
 
                 Intent backToListExhibition = new Intent(this, List_exhibition.class);

@@ -94,13 +94,13 @@ public class Card_artist extends AppCompatActivity {
             }
         });*/
 
-// file:///data/data/hevs.labo.projetandroid/app_imageDir/1779.jpg
+        // file:///data/data/hevs.labo.projetandroid/app_imageDir/1779.jpg
         //file:///data/data/hevs.labo.projetandroid/app_imageDir/artiste1.jpg
         File imgFile = new  File(artistAafficher.getImage_path());
         if(imgFile.exists()) {
             Context context = getApplicationContext();
             CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
+            int duration = Toast.LENGTH_LONG;
 /*
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();*/
@@ -147,11 +147,11 @@ public class Card_artist extends AppCompatActivity {
 
                 isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.noImagePicked, Toast.LENGTH_LONG).show();
             }
         }catch (Exception e ){
             Log.e("error", e.toString());
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.stgWentWrong, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -224,7 +224,7 @@ public class Card_artist extends AppCompatActivity {
 
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(this, "Artist deleted", duration);
+                Toast toast = Toast.makeText(this, R.string.artistDeleted, duration);
                 toast.show();
 
                 Intent backToList = new Intent(this, List_artist.class);

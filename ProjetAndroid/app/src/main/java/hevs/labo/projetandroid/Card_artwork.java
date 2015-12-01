@@ -115,9 +115,9 @@ public class Card_artwork extends AppCompatActivity {
                 ArtworkDataSource artworkDataSource = new ArtworkDataSource(this);
                 artworkDataSource.deleteArtwork(id_artworkTodelete);
 
-                int duration = Toast.LENGTH_SHORT;
+                int duration = Toast.LENGTH_LONG;
 
-                Toast toast = Toast.makeText(this, "Artwork deleted", duration);
+                Toast toast = Toast.makeText(this, R.string.artworkDeleted, duration);
                 toast.show();
 
                 Intent backToListArtwork = new Intent(this, List_artwork.class);

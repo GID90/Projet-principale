@@ -15,7 +15,6 @@
 
     <string name="exhibition">Exhibition</string>
     <string name="exhibitions">Exhibitions</string>
-    <string name="exhibitionAdded">Exhibition added</string>
 
     <string name="home">Home</string>
     <string name="settings">Settings</string>
@@ -54,6 +53,25 @@
     <string name="measure">m2</string>
     <string name="artexpose">Exposé</string>
     <string name="nan">nan</string>
+
+
+    <!--**********************Toast***********************************************************-->
+    <string name="noImagePicked">You haven't picket Image</string>
+    <string name="stgWentWrong">Something went wrong</string>
+
+    <string name="exhibitionAdded">Exhibition added</string>
+    <string name="artistAdded">Artist added</string>
+    <string name="artworkAdded">Artwork added</string>
+    <string name="roomAdded">Room added</string>
+
+    <string name="exhibitionDeleted">Exhibition deleted</string>
+    <string name="artistDeleted">Artist deleted</string>
+    <string name="artworkDeleted">Artwork deleted</string>
+    <string name="roomDeleted">Room deleted</string>
+
+    <string name="artistModified">Artist modified</string>
+    <string name="artworkModified">Artwork modified</string>
+    <string name="roomModified">Room Modified</string>
 
     <!--**********************Manifest***********************************************************-->
     <string name="title_activity_card_artwork">Artwork</string>
@@ -113,22 +131,22 @@
 
     <!--Spinner-->
     <string-array name="mvt_array">
-        <item>Art abstrait</item>
-        <item>Art concret</item>
+        <item>Abstract art</item>
+        <item>Concreate art</item>
         <item>Art nouveau</item>
         <item>Baroque</item>
-        <item>Classique</item>
+        <item>Classic</item>
         <item>Cobra</item>
-        <item>Cubisme</item>
-        <item>Futurisme</item>
+        <item>Cubism</item>
+        <item>Futurism</item>
         <item>Gothique</item>
-        <item>Impressionnisme</item>
-        <item>Modernisme</item>
-        <item>Naturalisme</item>
+        <item>Impressionnism</item>
+        <item>Modernism</item>
+        <item>Naturalism</item>
         <item>Renaissance</item>
         <item>Rococo</item>
         <item>Romaniste</item>
-        <item>Surréalisme</item>
+        <item>Surrealism</item>
     </string-array>
 
     <string-array name="type_artwork_array">

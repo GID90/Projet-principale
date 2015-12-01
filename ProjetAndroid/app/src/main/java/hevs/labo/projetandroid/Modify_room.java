@@ -101,11 +101,11 @@ public class Modify_room extends AppCompatActivity {
 
                 isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.noImagePicked, Toast.LENGTH_LONG).show();
             }
         }catch (Exception e ){
             Log.e("error", e.toString());
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.stgWentWrong, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -189,7 +189,7 @@ public class Modify_room extends AppCompatActivity {
 
                 startActivity(new Intent(this, List_room.class));
 
-                Toast toast = Toast.makeText(this, "Room Modified", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, R.string.roomModified, Toast.LENGTH_LONG);
                 toast.show();
 
 

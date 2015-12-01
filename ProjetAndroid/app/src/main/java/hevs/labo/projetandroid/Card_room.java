@@ -91,11 +91,11 @@ public class Card_room extends AppCompatActivity {
 
                 isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.noImagePicked, Toast.LENGTH_LONG).show();
             }
         }catch (Exception e ){
             Log.e("error", e.toString());
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.stgWentWrong, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -168,7 +168,7 @@ public class Card_room extends AppCompatActivity {
 
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(this, "Room deleted", duration);
+                Toast toast = Toast.makeText(this, R.string.roomDeleted, duration);
                 toast.show();
 
                 Intent backToListRoom = new Intent(this, List_room.class);

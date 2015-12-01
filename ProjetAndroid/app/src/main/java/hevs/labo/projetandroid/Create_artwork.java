@@ -127,11 +127,11 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
 
                 isPicture = true;
             } else {
-                Toast.makeText(this, "You haven't picket Image", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.noImagePicked, Toast.LENGTH_LONG).show();
             }
         }catch (Exception e ){
             Log.e("error", e.toString());
-            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.stgWentWrong, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -231,7 +231,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 artwork.setForeign_key_Artist_id(fkArtist);
 
                 Toast toastpict = Toast.makeText(context, idRecupArtist, duration);
-                toastpict.show();
+                //toastpict.show();
 
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
                 artwork.setCreationYear(et.getText().toString());
@@ -256,7 +256,7 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
 
                 startActivity(new Intent(this, List_artwork.class));
 
-                Toast toast = Toast.makeText(this, "Artwork added", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(this, R.string.artworkAdded, Toast.LENGTH_LONG);
                 toast.show();
 
                 return true;
