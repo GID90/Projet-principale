@@ -110,6 +110,10 @@ public class Modify_artwork extends AppCompatActivity implements View.OnClickLis
         Log.e("Modify_artwork", "content: " + content);
         spin.setSelection(adapterModifyArtist.getPosition(content));
 
+        //the type_array is in the strings.xml
+        Spinner spinner =  (Spinner) findViewById(R.id.spinner_typeArtworkModify);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type_artwork_array, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         btn_changePictureArtworkToModify = (ImageButton) findViewById(R.id.imageButton_btnDownloadArtworkModify);
         btn_changePictureArtworkToModify.setOnClickListener(new View.OnClickListener() {
@@ -139,9 +143,6 @@ public class Modify_artwork extends AppCompatActivity implements View.OnClickLis
                 creationYear.setText(dateFormat.format(newDate.getTime()));
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
-
-        typeArtwork = (EditText) findViewById(R.id.editText_typeArtworkModif);
-        typeArtwork.setText(artworktoModify.getType());
 
         descriptionArtwork = (EditText) findViewById(R.id.edit_text_descriptionArtworkModify);
         descriptionArtwork.setText(artworktoModify.getDescription());
@@ -264,8 +265,9 @@ public class Modify_artwork extends AppCompatActivity implements View.OnClickLis
                 et = (EditText) findViewById(R.id.editText_realisationArtworkModif);
                 artworktoModify.setCreationYear(et.getText().toString());
 
-                et = (EditText) findViewById(R.id.editText_typeArtworkModif);
-                artworktoModify.setType(et.getText().toString());
+                Spinner spinner = (Spinner) findViewById(R.id.spinner_typeArtworkModify);
+                String recup = spinner.getSelectedItem().toString();
+                artworktoModify.setType(recup);
 
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkModify);
                 artworktoModify.setDescription(et.getText().toString());

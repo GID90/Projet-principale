@@ -124,11 +124,11 @@
                 android:textColor="#000010"
                 android:textSize="20dp"/>
 
-            <EditText
-                android:id="@+id/editText_typeArtworkModif"
+            <Spinner
+                android:id="@+id/spinner_typeArtworkModify"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="60"/>
+                android:layout_weight="60" />
 
         </LinearLayout>
 

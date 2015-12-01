@@ -85,6 +85,11 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerArtist.setAdapter(adapter1);
 
+        //the type_array is in the strings.xml
+        Spinner spinner =  (Spinner) findViewById(R.id.spinner_typeArtworkCreate);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type_artwork_array, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
         //here we create the dialog for the date
         dateFormat = new SimpleDateFormat("yyyy", Locale.US);
 
@@ -231,8 +236,9 @@ public class Create_artwork extends AppCompatActivity implements View.OnClickLis
                 et = (EditText) findViewById(R.id.editText_realisationArtworkCreate);
                 artwork.setCreationYear(et.getText().toString());
 
-                et = (EditText) findViewById(R.id.editText_typeArtworkCreate);
-                artwork.setType(et.getText().toString());
+                Spinner spinner = (Spinner) findViewById(R.id.spinner_typeArtworkCreate);
+                String recup = spinner.getSelectedItem().toString();
+                artwork.setType(recup);
 
                 et = (EditText) findViewById(R.id.edit_text_descriptionArtworkCreate);
                 artwork.setDescription(et.getText().toString());
