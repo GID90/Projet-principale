@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Galerie d'art</string>
+    <string name="app_name">Galerie d\'art</string>
 
     <string name="artist">Artiste</string>
     <string name="artists">Artistes</string>
 
-    <string name="artwork">Oeuvre d'art</string>
-    <string name="artworks">Oeuvres d'art</string>
+    <string name="artwork">Oeuvre d\'art</string>
+    <string name="artworks">Oeuvres d\'art</string>
 
     <string name="room">Salle</string>
     <string name="rooms">Salles</string>
@@ -52,8 +52,8 @@
 
 
     <!--**********************Toast***********************************************************-->
-    <string name="noImagePicked">Vous n'avez pas choisi d'image</string>
-    <string name="stgWentWrong">Quelque chose s'est mal passé</string>
+    <string name="noImagePicked">Vous n\'avez pas choisi d\'image</string>
+    <string name="stgWentWrong">Quelque chose s\'est mal passé</string>
 
     <string name="exhibitionAdded">Exposition ajoutée</string>
     <string name="artistAdded">Artiste ajouté</string>
@@ -70,10 +70,10 @@
     <string name="roomModified">Salle modifiée</string>
 
     <!--**********************Manifest***********************************************************-->
-    <string name="title_activity_card_artwork">Oeuvre d'art</string>
+    <string name="title_activity_card_artwork">Oeuvre d\'art</string>
     <string name="title_activity_modify_artwork">Modifier oeuvre</string>
     <string name="title_activity_create_artwork">Créer une oeuvre</string>
-    <string name="title_activity_list_artwork">Oeuvres d'art</string>
+    <string name="title_activity_list_artwork">Oeuvres d\'art</string>
 
     <string name="title_activity_list_room">Salles</string>
     <string name="title_activity_create_room">Créer une salle</string>
@@ -101,7 +101,7 @@
     <string name="search_exhibition">Chercher une exposition</string>
     <string name="addRoom_menu">Ajouter une salle</string>
     <string name="search_room">Chercher une salle</string>
-    <string name="backToListArtist_menu">Retour à la liste d'artistes</string>
+    <string name="backToListArtist_menu">Retour à la liste d\'artistes</string>
     <string name="modifyArtist_menu">Modifier un artiste</string>
     <string name="deleteArtist_menu">Supprimer un artiste</string>
     <string name="modifyArtwork_menu">Modifier une oeuvre</string>
@@ -109,18 +109,18 @@
     <string name="modifyRoom_menu">Modifier une salle</string>
     <string name="deleteRoom_menu">Supprimer une salle</string>
     <string name="deleteExhibition_menu">Supprimer une exposition</string>
-    <string name="cancelartistcreated_menu">Annuler la création d'un artiste</string>
-    <string name="saveartistcreated_menu">Sauver l'artiste</string>
-    <string name="cancelartworkcreated_menu">Annuler la création de l'oeuvre</string>
-    <string name="saveartworkcreated_menu">Sauver l'oeuvre</string>
+    <string name="cancelartistcreated_menu">Annuler la création d\'un artiste</string>
+    <string name="saveartistcreated_menu">Sauver l\'artiste</string>
+    <string name="cancelartworkcreated_menu">Annuler la création de l\'oeuvre</string>
+    <string name="saveartworkcreated_menu">Sauver l\'oeuvre</string>
     <string name="cancelroomcreated_menu">Annuler la création de la salle</string>
     <string name="saveroomcreated_menu">Sauver la salle</string>
-    <string name="cancelexhibitioncreated_menu">Annuler l'expo</string>
-    <string name="saveexhibitioncreated_menu">Sauver l'exposition</string>
-    <string name="cancelartistmodified_menu">Annuler l'artiste modifié</string>
-    <string name="saveartistmodified_menu">Sauver la modification de l'artiste</string>
-    <string name="cancelartworkmodified_menu">Annuler la modification de l'oeuvre</string>
-    <string name="saveartworkmodified_menu">Sauver l'oeuvre</string>
+    <string name="cancelexhibitioncreated_menu">Annuler l\'expo</string>
+    <string name="saveexhibitioncreated_menu">Sauver l\'exposition</string>
+    <string name="cancelartistmodified_menu">Annuler l\'artiste modifié</string>
+    <string name="saveartistmodified_menu">Sauver la modification de l\'artiste</string>
+    <string name="cancelartworkmodified_menu">Annuler la modification de l\'oeuvre</string>
+    <string name="saveartworkmodified_menu">Sauver l\'oeuvre</string>
     <string name="cancelroommodified_menu">Annuler la modification de la salle</string>
     <string name="saveroommodified_menu">Sauver la salle modifiée</string>
 

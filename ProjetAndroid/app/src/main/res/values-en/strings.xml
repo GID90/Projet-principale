@@ -56,7 +56,7 @@
 
 
     <!--**********************Toast***********************************************************-->
-    <string name="noImagePicked">You haven't picket Image</string>
+    <string name="noImagePicked">You haven\'t picket Image</string>
     <string name="stgWentWrong">Something went wrong</string>
 
     <string name="exhibitionAdded">Exhibition added</string>
